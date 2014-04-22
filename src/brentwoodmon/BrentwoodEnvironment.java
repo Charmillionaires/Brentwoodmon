@@ -4,6 +4,7 @@
  */
 package brentwoodmon;
 
+import audio.AudioPlayer;
 import environment.Environment;
 import image.ResourceTools;
 import java.awt.Dimension;
@@ -32,6 +33,8 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
     private Map ucampus;
     private MapVisualizerDefault mapVisualizer;
 
+    
+    
     {
         mapVisualizer = new MapVisualizerDefault(true, false);
 
@@ -73,7 +76,9 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
     @Override
     public boolean obstacleEvent(Obstacle obstacle) {
         System.out.println("Obstacle " + obstacle.getLocation() + " " + obstacle.getType());
-        return true;
+//        AudioPlayer.play("resources/water.wav");
+        
+        return false;
     }
 
     @Override
@@ -115,6 +120,7 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
 
     @Override
     public boolean itemEvent(Item item) {
+        System.out.println("Item " + item.getLocation() + " " + item.getType());
         return true;
     }
 }
