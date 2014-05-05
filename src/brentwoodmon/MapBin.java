@@ -21,6 +21,7 @@ public class MapBin {
 
 //        Map.addObstacle(bcampus, new Point(10, 10), ObstacleType.WATER);
 //        Map.addObstacleRange(campus, new Point(0, 0), new Point(2, 5), ObstacleType.BARRIER);
+        //THE SHORELINE
         Map.addObstacleRange(bcampus, new Point(1, 29), new Point(12, 29), ObstacleType.WATER);
 //        Map.addObstacleRange(bcampus, new Point(0, 0), new Point(0, 29), ObstacleType.WATER);
         Map.addObstacleRange(bcampus, new Point(13, 25), new Point(13, 29), ObstacleType.WATER);
@@ -48,6 +49,14 @@ public class MapBin {
         Map.addObstacleRange(bcampus, new Point(54, 34), new Point(57, 34), ObstacleType.WATER);
         Map.addObstacleRange(bcampus, new Point(57, 33), new Point(60, 33), ObstacleType.WATER);
         Map.addObstacleRange(bcampus, new Point(60, 32), new Point(64, 32), ObstacleType.WATER);
+        //cliffs and such nono jumpy zones
+        Map.addObstacleRange(bcampus, new Point(11, 0), new Point(11, 9), ObstacleType.BARRIER);
+        Map.addObstacleRange(bcampus, new Point(11, 9), new Point(14, 9), ObstacleType.BARRIER);
+        
+        //it's a bush
+        Map.addObstacleRange(bcampus, new Point(14, 0), new Point(14, 9), ObstacleType.BUSH);
+        Map.addObstacleRange(bcampus, new Point(14, 2), new Point(32, 2), ObstacleType.BUSH);
+
 
         
         
@@ -63,4 +72,10 @@ public class MapBin {
 
         return ucampus;
     }
+        static Map getDownSRossMap() {
+        Map dross = new Map(ResourceTools.loadImageFromResource("resources/ross_downstair.jpg"), new Dimension(16, 16), new Dimension(44, 48));
+
+            return dross;
+        }
+    
 }

@@ -31,10 +31,9 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
     private Map currentMap;
     private Map bcampus;
     private Map ucampus;
+    private Map dross;
     private MapVisualizerDefault mapVisualizer;
 
-    
-    
     {
         mapVisualizer = new MapVisualizerDefault(true, false);
 
@@ -44,10 +43,16 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
         ucampus = MapBin.getCampusUpperMap();
         configureMap(ucampus);
 
-        Map.addPortal(bcampus, new Point(37, 0), ucampus, new Point(25, 0));
-        Map.addPortal(bcampus, new Point(36, 0), ucampus, new Point(24, 0));
-        Map.addPortal(ucampus, new Point(24, 0), bcampus, new Point(36, 0));
-        Map.addPortal(ucampus, new Point(25, 0), bcampus, new Point(37, 0));
+        dross = MapBin.getDownSRossMap();
+        configureMap(dross);
+
+        Map.addPortal(bcampus, new Point(30, 19), dross, new Point(9, 9));
+        Map.addPortal(dross, new Point(9, 9), bcampus, new Point(30, 19));
+        Map.addPortal(dross, new Point(5, 9), bcampus, new Point(30, 19));
+        Map.addPortal(bcampus, new Point(37, 0), ucampus, new Point(25, 34));
+        Map.addPortal(bcampus, new Point(36, 0), ucampus, new Point(24, 34));
+        Map.addPortal(ucampus, new Point(24, 34), bcampus, new Point(36, 0));
+        Map.addPortal(ucampus, new Point(25, 34), bcampus, new Point(37, 0));
 
         currentMap = bcampus;
     }
@@ -76,8 +81,8 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
     @Override
     public boolean obstacleEvent(Obstacle obstacle) {
         System.out.println("Obstacle " + obstacle.getLocation() + " " + obstacle.getType());
-//        AudioPlayer.play("resources/water.wav");
-        
+        AudioPlayer.play("/resources/water.wav");
+//        AudioPlayer.
         return false;
     }
 
