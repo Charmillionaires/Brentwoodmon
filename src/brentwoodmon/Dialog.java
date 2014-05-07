@@ -39,6 +39,11 @@ public class Dialog extends javax.swing.JPanel {
         jPanel2 = new javax.swing.JPanel();
 
         jtxtDialog.setText("jTextField1");
+        jtxtDialog.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jtxtDialogMouseClicked(evt);
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 204));
 
@@ -89,6 +94,10 @@ public class Dialog extends javax.swing.JPanel {
                 .addComponent(jtxtDialog, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jtxtDialogMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtxtDialogMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtxtDialogMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jPanel1;

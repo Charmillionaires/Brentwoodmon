@@ -13,8 +13,18 @@ public class Combat extends javax.swing.JPanel {
     /**
      * Creates new form Combat
      */
+    
+    private int myHp = 100;
+    private int enemyHp = 30;
+    private int damage = 5;
+    private String actionPerformed = "";
+    
     public Combat() {
         initComponents();
+        
+        
+        
+        //timer, after action, enemy attack
     }
 
     /**
@@ -33,14 +43,14 @@ public class Combat extends javax.swing.JPanel {
         jbtnDenfence = new javax.swing.JButton();
         jbtnRun = new javax.swing.JButton();
         jbtnSkill = new javax.swing.JButton();
-        jspBattleHistory = new javax.swing.JScrollPane();
         myPicture = new javax.swing.JPanel();
         enemyPicture = new javax.swing.JPanel();
+        jtxtBattleHistory = new javax.swing.JTextField();
 
         jbtnAttack.setText("Attack");
-        jbtnAttack.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbtnAttackActionPerformed(evt);
+        jbtnAttack.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jbtnAttackMouseClicked(evt);
             }
         });
 
@@ -94,7 +104,7 @@ public class Combat extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbtnBackpack)
                     .addComponent(jbtnRun))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout myPictureLayout = new javax.swing.GroupLayout(myPicture);
@@ -105,7 +115,7 @@ public class Combat extends javax.swing.JPanel {
         );
         myPictureLayout.setVerticalGroup(
             myPictureLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 179, Short.MAX_VALUE)
+            .addGap(0, 161, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout enemyPictureLayout = new javax.swing.GroupLayout(enemyPicture);
@@ -119,6 +129,8 @@ public class Combat extends javax.swing.JPanel {
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
+        jtxtBattleHistory.setText("What will you do?");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -129,11 +141,14 @@ public class Combat extends javax.swing.JPanel {
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jspBattleHistory, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(enemyPicture, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
+                        .addComponent(enemyPicture, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jtxtBattleHistory))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -141,21 +156,28 @@ public class Combat extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(myPicture, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(enemyPicture, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jspBattleHistory)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(4, 4, 4)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtxtBattleHistory, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jbtnAttackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnAttackActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jbtnAttackActionPerformed
-
     private void jbtnBackpackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnBackpackActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jbtnBackpackActionPerformed
+
+    private void jbtnAttackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbtnAttackMouseClicked
+        this.enemyHp = this.enemyHp - damage;
+        System.out.println("enemyHp = " + this.enemyHp);
+        this.actionPerformed = "Attack!";
+        this.jtxtBattleHistory.setText(actionPerformed + " Enemy HP left = " + this.enemyHp);
+        
+        if (this.enemyHp <= 0) {
+            this.jtxtBattleHistory.setText("You Win!");
+        }
+    }//GEN-LAST:event_jbtnAttackMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel enemyPicture;
@@ -166,7 +188,7 @@ public class Combat extends javax.swing.JPanel {
     private javax.swing.JButton jbtnPet;
     private javax.swing.JButton jbtnRun;
     private javax.swing.JButton jbtnSkill;
-    private javax.swing.JScrollPane jspBattleHistory;
+    private javax.swing.JTextField jtxtBattleHistory;
     private javax.swing.JPanel myPicture;
     // End of variables declaration//GEN-END:variables
 }
