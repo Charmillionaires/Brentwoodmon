@@ -57,7 +57,7 @@ public class MapBin {
         Map.addObstacleRange(bcampus, new Point(14, 0), new Point(14, 9), ObstacleType.BUSH);
         Map.addObstacleRange(bcampus, new Point(14, 2), new Point(32, 2), ObstacleType.BUSH);
 
-
+        //there might be another obstacle
         
         
         return bcampus;
