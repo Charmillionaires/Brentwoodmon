@@ -4,6 +4,9 @@
  */
 package brentwoodmon;
 
+import environment.ApplicationStarter;
+import java.awt.Dimension;
+
 /**
  *
  * @author zhanglianghui
@@ -14,6 +17,13 @@ public class Brentwoodmon {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        start();
+
+    }
+
+    private static void start() {
+//        ApplicationStarter.run("Brentwood Orientation", new BrentwoodEnvironment());
+        ApplicationStarter.run(new String[0], "Brentwood Orientation", new Dimension(500, 500), new BrentwoodEnvironment());
+        
     }
 }
