@@ -4,6 +4,7 @@
  */
 package brentwoodmon;
 
+
 /**
  *
  * @author zhanglianghui
@@ -141,14 +142,13 @@ public class Combat extends javax.swing.JPanel {
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
-                        .addComponent(enemyPicture, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jtxtBattleHistory))))
+                        .addGap(0, 72, Short.MAX_VALUE)
+                        .addComponent(enemyPicture, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jtxtBattleHistory))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -172,10 +172,11 @@ public class Combat extends javax.swing.JPanel {
         this.enemyHp = this.enemyHp - damage;
         System.out.println("enemyHp = " + this.enemyHp);
         this.actionPerformed = "Attack!";
-        this.jtxtBattleHistory.setText(actionPerformed + " Enemy HP left = " + this.enemyHp);
+        this.jtxtBattleHistory.setText(actionPerformed + " Enemy HP left = " + this.enemyHp);      
         
         if (this.enemyHp <= 0) {
             this.jtxtBattleHistory.setText("You Win!");
+            
         }
     }//GEN-LAST:event_jbtnAttackMouseClicked
 

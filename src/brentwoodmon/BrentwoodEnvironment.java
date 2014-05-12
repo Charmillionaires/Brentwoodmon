@@ -13,6 +13,7 @@ import java.awt.Image;
 import java.awt.Point;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
+import javax.swing.JFrame;
 import map.Item;
 import map.ItemEventHandlerIntf;
 import map.Map;
@@ -26,7 +27,7 @@ import map.PortalEventHandlerIntf;
  *
  * @author kimberlygilson
  */
-public class BrentwoodEnvironment extends Environment implements PortalEventHandlerIntf, ObstacleEventHandlerIntf, ItemEventHandlerIntf {
+public class BrentwoodEnvironment extends Environment implements PortalEventHandlerIntf, ObstacleEventHandlerIntf, ItemEventHandlerIntf, ItemManagerResponseIntf {
 
     private Map currentMap;
     private Map bcampus;
@@ -55,6 +56,9 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
         Map.addPortal(ucampus, new Point(25, 34), bcampus, new Point(37, 0));
 
         currentMap = bcampus;
+        
+        
+        
     }
 
     public BrentwoodEnvironment() {
@@ -103,8 +107,23 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
                 mapVisualizer.toggleShowAllObjects();
             }
         }
+        
+        if (e.getKeyCode() == KeyEvent.VK_1) {
+            showCombat();
+            
+        }
     }
-
+    private void showCombat() {
+        JFrame frame = new JFrame("Combat");
+        Combat myCombat = new Combat();
+        frame.add(myCombat);
+        frame.setAlwaysOnTop(true);
+        frame.setAlwaysOnTop(true);
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        frame.setSize(new Dimension(600,400));
+        frame.setVisible(true);
+    }
+    
     @Override
     public void keyReleasedHandler(KeyEvent e) {
     }
@@ -125,7 +144,55 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
 
     @Override
     public boolean itemEvent(Item item) {
+        //treasure box
+        if (item.getType() == "TB") {
+            showItemManager();
+        }
+        
+        if (item.getType() == "Combat") {
+            showCombat();
+        }
+        
+        if (item.getType() == "Dialog") {
+            showDialog();
+        }
+        
         System.out.println("Item " + item.getLocation() + " " + item.getType());
         return true;
+    }
+    
+    private void showItemManager() {
+        JFrame frame = new JFrame("Item Manager");
+        
+        ContainerItemList containerItemList = new ContainerItemList();
+        
+        containerItemList.getItems().add(new ContainerItem ("Pencil","HB pencil, good for scantron."));
+        
+        ContainerItemManager im = new ContainerItemManager("Treasure Box", containerItemList,this);
+        frame.add(im);
+        frame.setAlwaysOnTop(true);
+        
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        frame.setSize(new Dimension(400,400));
+        frame.setVisible(true);
+    }
+
+    @Override
+    public void handleItemManagerResponse(ContainerItemList itemList) {
+         System.out.println("IM Response");
+         for (ContainerItem item : itemList.getItems()) {
+            System.out.println(item.getDisplay());
+        }
+    }
+
+    private void showDialog() {
+        JFrame frame = new JFrame("Dialog");
+        Dialog myDialog = new Dialog("yes","yes");
+        frame.add(myDialog);
+        frame.setAlwaysOnTop(true);
+        frame.setAlwaysOnTop(true);
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        frame.setSize(new Dimension(600,400));
+        frame.setVisible(true);
     }
 }

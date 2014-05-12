@@ -15,10 +15,10 @@ public class Dialog extends javax.swing.JPanel {
     /**
      * Creates new form Dialog
      */
-    public Dialog(String name, String dialog, Image avatar) {
+    public Dialog(String name, String dialog) {
         initComponents();
         
-        this.jPanel2.prepareImage(avatar, this);
+//        this.jPanel2.prepareImage(avatar, this);
         this.jtxtName.setText(name);
         this.jtxtDialog.setText(dialog);
         

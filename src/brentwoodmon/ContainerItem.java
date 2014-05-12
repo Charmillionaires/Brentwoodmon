@@ -10,9 +10,9 @@ import java.awt.Image;
  *
  * @author zhanglianghui
  */
-public class Item {
+public class ContainerItem {
     
-    public Item(String name, String description){
+    public ContainerItem(String name, String description){
         this.name = name;
         this.description = description;
        
@@ -30,7 +30,7 @@ public class Item {
     }
     
      public String getDisplay() {
-        return name + " " + description;
+        return name + "    " + description;
     }
 
     /**
