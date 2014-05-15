@@ -5,13 +5,15 @@
 package brentwoodmon;
 
 import audio.AudioPlayer;
-import environment.ApplicationStarter;
 import environment.Environment;
+import environment.Velocity;
+import images.ResourceTools;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Point;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
+import java.awt.image.BufferedImage;
 import map.Item;
 import map.ItemEventHandlerIntf;
 import map.Map;
@@ -32,6 +34,10 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
     private Map ucampus;
     private Map dross;
     private MapVisualizerDefault mapVisualizer;
+
+    private Hero hero;
+    private Shaq shaq;
+    private Snorlax snorlax;
 
     {
         mapVisualizer = new MapVisualizerDefault(true, false);
@@ -89,8 +95,19 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
 
     @Override
     public void initializeEnvironment() {
-//        this.setBackground(ResourceTools.loadImageFromResource("resources/bcampus_bottom.bmp"));
-//        this.getParent().setSize(new Dimension(100, 100));
+        loadCharacters();
+    }
+
+    private void loadCharacters() {
+//        BufferedImage image= (BufferedImage) ResourceTools.loadImageFromResource("resources/kanto_shinies.png");
+        hero = new Hero(new Point(700, 50), new Velocity(0, 0));
+        getActors().add(hero);
+
+        shaq = new Shaq(new Point(700, 100), new Velocity(0, 0));
+        getActors().add(shaq);
+
+        snorlax = new Snorlax(new Point(700, 150), new Velocity(0, 0));
+        getActors().add(snorlax);
     }
 
     @Override
@@ -104,6 +121,38 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
                 mapVisualizer.toggleShowAllObjects();
             }
         }
+
+        if (e.getKeyCode() == KeyEvent.VK_SPACE) {
+            hero.setState(State.STOP);
+            snorlax.setState(State.STOP);
+            shaq.setState(State.STOP);
+        } else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
+            hero.setState(State.FRONT_WALK);
+            snorlax.setState(State.FRONT_WALK);
+        } else if (e.getKeyCode() == KeyEvent.VK_UP) {
+            hero.setState(State.BACK_WALK);
+            snorlax.setState(State.BACK_WALK);
+        } else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
+            hero.setState(State.RIGHT_WALK);
+            snorlax.setState(State.RIGHT_WALK);
+        } else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
+            hero.setState(State.LEFT_WALK);
+            snorlax.setState(State.LEFT_WALK);
+        } else if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+            hero.setState(State.STAND);
+            snorlax.setState(State.STAND);
+        } else if (e.getKeyCode() == KeyEvent.VK_S) {
+            shaq.setState(State.FRONT_WALK);
+        } else if (e.getKeyCode() == KeyEvent.VK_W) {
+            shaq.setState(State.BACK_WALK);
+        } else if (e.getKeyCode() == KeyEvent.VK_D) {
+            shaq.setState(State.RIGHT_WALK);
+        } else if (e.getKeyCode() == KeyEvent.VK_A) {
+            shaq.setState(State.LEFT_WALK);
+        }
+        /*else if (e.getKeyCode() == KeyEvent.VK_SPACE) {
+            shaq.setState(State.STAND);
+        }*/
     }
 
     @Override
