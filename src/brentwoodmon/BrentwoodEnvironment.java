@@ -5,9 +5,8 @@
 package brentwoodmon;
 
 import audio.AudioPlayer;
+import environment.ApplicationStarter;
 import environment.Environment;
-import image.ResourceTools;
-import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Point;
@@ -54,7 +53,7 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
         Map.addPortal(ucampus, new Point(24, 34), bcampus, new Point(36, 0));
         Map.addPortal(ucampus, new Point(25, 34), bcampus, new Point(37, 0));
 
-        currentMap = bcampus;
+        setCurrentMap(bcampus);
     }
 
     public BrentwoodEnvironment() {
@@ -72,17 +71,19 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
         super(background);
     }
 
+//<editor-fold defaultstate="collapsed" desc="PortalEventHandlerIntf">
     @Override
     public boolean portalEvent(Portal portal) {
-        currentMap = portal.getDestinationMap();
+        setCurrentMap(portal.getDestinationMap());
+//        portal.getDestinationMap().ge
         return true;
     }
+//</editor-fold>
 
     @Override
     public boolean obstacleEvent(Obstacle obstacle) {
         System.out.println("Obstacle " + obstacle.getLocation() + " " + obstacle.getType());
         AudioPlayer.play("/resources/water.wav");
-//        AudioPlayer.
         return false;
     }
 
@@ -112,14 +113,14 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
     @Override
     public void environmentMouseClicked(MouseEvent e) {
         if (e.isControlDown()) {
-            currentMap.validateLocation(currentMap.getCellLocation(e.getPoint()));
+            getCurrentMap().validateLocation(getCurrentMap().getCellLocation(e.getPoint()));
         }
     }
 
     @Override
     public void paintEnvironment(Graphics graphics) {
-        if (currentMap != null) {
-            currentMap.drawMap(graphics);
+        if (getCurrentMap() != null) {
+            getCurrentMap().drawMap(graphics);
         }
     }
 
@@ -128,4 +129,19 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
         System.out.println("Item " + item.getLocation() + " " + item.getType());
         return true;
     }
+
+    /**
+     * @return the currentMap
+     */
+    public Map getCurrentMap() {
+        return currentMap;
+    }
+
+    /**
+     * @param map the Map to set
+     */
+    public void setCurrentMap(Map map) {
+        currentMap = map;
+    }
+
 }

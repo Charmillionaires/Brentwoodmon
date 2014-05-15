@@ -6,6 +6,7 @@ package brentwoodmon;
 
 import environment.ApplicationStarter;
 import java.awt.Dimension;
+import java.awt.Toolkit;
 
 /**
  *
@@ -18,12 +19,9 @@ public class Brentwoodmon {
      */
     public static void main(String[] args) {
         start();
-
     }
 
     private static void start() {
-//        ApplicationStarter.run("Brentwood Orientation", new BrentwoodEnvironment());
-        ApplicationStarter.run(new String[0], "Brentwood Orientation", new Dimension(500, 500), new BrentwoodEnvironment());
-        
+        ApplicationStarter.run(new String[0], "Brentwood Orientation", Toolkit.getDefaultToolkit().getScreenSize(), new BrentwoodEnvironment());
     }
 }
