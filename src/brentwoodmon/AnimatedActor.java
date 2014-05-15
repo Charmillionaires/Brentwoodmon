@@ -6,10 +6,10 @@ package brentwoodmon;
 
 import environment.Actor;
 import environment.Velocity;
-import image.Animator;
-import image.ImageManager;
-import java.awt.Image;
+import images.Animator;
+import images.ImageManager;
 import java.awt.Point;
+import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
 /**
@@ -47,11 +47,11 @@ public abstract class AnimatedActor extends Actor {
      * @return the image
      */
     @Override
-    public Image getImage() {
+    public BufferedImage getImage() {
         if (getAnimator() == null) {
             return super.getImage();
         } else {
-            return getAnimator().getCurrentImage();
+            return (BufferedImage) getAnimator().getCurrentImage();
         }
     }
 

@@ -5,7 +5,7 @@
 package brentwoodmon;
 
 import environment.Velocity;
-import image.ResourceTools;
+import images.ResourceTools;
 import java.awt.Point;
 import java.awt.image.BufferedImage;
 

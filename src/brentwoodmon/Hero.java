@@ -5,12 +5,9 @@
 package brentwoodmon;
 
 import environment.Velocity;
-import image.Animator;
-import image.ImageManager;
-import image.ResourceTools;
+import images.ResourceTools;
 import java.awt.Point;
 import java.awt.image.BufferedImage;
-import java.util.ArrayList;
 
 /**
  *
