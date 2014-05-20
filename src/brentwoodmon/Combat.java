@@ -4,27 +4,31 @@
  */
 package brentwoodmon;
 
+import timer.TimerEventManager;
+import timer.TimerNotificationIntf;
+
 /**
  *
  * @author zhanglianghui
  */
-public class Combat extends javax.swing.JPanel {
+public class Combat extends javax.swing.JPanel implements TimerNotificationIntf {
 
     /**
      * Creates new form Combat
      */
-    
     private int myHp = 100;
     private int enemyHp = 30;
     private int damage = 5;
     private String actionPerformed = "";
+    private TimerEventManager timerEventManager;
+    private final String ENEMY_ATTACK_EVENT = "enemy_attack_event";
     
     public Combat() {
         initComponents();
-        
-        
-        
-        //timer, after action, enemy attack
+
+        //put this code in to instantiate the timer event manager
+        timerEventManager = new TimerEventManager();
+        this.jlblBattleHistory.setText("Your turn");
     }
 
     /**
@@ -46,6 +50,7 @@ public class Combat extends javax.swing.JPanel {
         myPicture = new javax.swing.JPanel();
         enemyPicture = new javax.swing.JPanel();
         jtxtBattleHistory = new javax.swing.JTextField();
+        jlblBattleHistory = new javax.swing.JLabel();
 
         jbtnAttack.setText("Attack");
         jbtnAttack.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -115,21 +120,23 @@ public class Combat extends javax.swing.JPanel {
         );
         myPictureLayout.setVerticalGroup(
             myPictureLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 161, Short.MAX_VALUE)
+            .addGap(0, 153, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout enemyPictureLayout = new javax.swing.GroupLayout(enemyPicture);
         enemyPicture.setLayout(enemyPictureLayout);
         enemyPictureLayout.setHorizontalGroup(
             enemyPictureLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 198, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         enemyPictureLayout.setVerticalGroup(
             enemyPictureLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 153, Short.MAX_VALUE)
         );
 
         jtxtBattleHistory.setText("What will you do?");
+
+        jlblBattleHistory.setText("Start");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -141,14 +148,14 @@ public class Combat extends javax.swing.JPanel {
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
-                        .addComponent(enemyPicture, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jtxtBattleHistory))))
+                    .addComponent(jtxtBattleHistory, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
+                    .addComponent(enemyPicture, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jlblBattleHistory, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -156,10 +163,15 @@ public class Combat extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(myPicture, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(enemyPicture, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(4, 4, 4)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jtxtBattleHistory, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(4, 4, 4)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jtxtBattleHistory, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jlblBattleHistory, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -167,18 +179,35 @@ public class Combat extends javax.swing.JPanel {
     private void jbtnBackpackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnBackpackActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jbtnBackpackActionPerformed
-
+    
     private void jbtnAttackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbtnAttackMouseClicked
-        this.enemyHp = this.enemyHp - damage;
-        System.out.println("enemyHp = " + this.enemyHp);
-        this.actionPerformed = "Attack!";
-        this.jtxtBattleHistory.setText(actionPerformed + " Enemy HP left = " + this.enemyHp);
-        
-        if (this.enemyHp <= 0) {
-            this.jtxtBattleHistory.setText("You Win!");
+        if (this.jlblBattleHistory.getText() == "Your turn") {
+            this.enemyHp = this.enemyHp - damage;
+            System.out.println("enemyHp = " + this.enemyHp);
+            this.actionPerformed = "Attack!";
+            this.jlblBattleHistory.setText("Enemy's turn");
+            this.jtxtBattleHistory.setText(actionPerformed + " Enemy HP left = " + this.enemyHp);
+            
+            if (this.enemyHp <= 0) {
+                this.jtxtBattleHistory.setText("You Win!");
+                this.jlblBattleHistory.setText("End of Combat");
+                
+            } else if (this.myHp <= 0) {
+                this.jtxtBattleHistory.setText("You Lose!");
+                this.jlblBattleHistory.setText("End of Combat");
+                
+            } else {
+                //register an attack event: I used 3000 milliseconds, because I think 3 seconds
+                //is a better wait time than 5 seconds...
+                if (timerEventManager != null) {
+                    timerEventManager.registerTimerEvent(this, ENEMY_ATTACK_EVENT, 3000);
+                    
+                }
+            }
+            
+            
         }
     }//GEN-LAST:event_jbtnAttackMouseClicked
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel enemyPicture;
     private javax.swing.JPanel jPanel1;
@@ -188,7 +217,20 @@ public class Combat extends javax.swing.JPanel {
     private javax.swing.JButton jbtnPet;
     private javax.swing.JButton jbtnRun;
     private javax.swing.JButton jbtnSkill;
+    private javax.swing.JLabel jlblBattleHistory;
     private javax.swing.JTextField jtxtBattleHistory;
     private javax.swing.JPanel myPicture;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void TimerEvent(String eventType) {
+        if (eventType.equals(ENEMY_ATTACK_EVENT)) {
+            this.myHp = this.myHp - damage;
+            
+            System.out.println("myHp = " + this.myHp);
+            this.actionPerformed = "Enemy Attack!";
+            this.jtxtBattleHistory.setText(actionPerformed + " Your HP left = " + this.myHp);
+            this.jlblBattleHistory.setText("Your turn");
+        }
+    }
 }

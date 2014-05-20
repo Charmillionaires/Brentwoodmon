@@ -60,6 +60,16 @@ public class MapBin {
         //there might be another obstacle
         
         
+        //treasure box location
+        Map.addItem(bcampus, new Point(10,10),"TB");
+        
+        
+        //combat location
+        Map.addItem(bcampus, new Point(5,5), "Combat");
+        
+        //dialog location
+        Map.addItem(bcampus, new Point(8,8), "Dialog");
+        
         return bcampus;
     }
 

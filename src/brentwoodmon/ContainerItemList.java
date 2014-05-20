@@ -10,24 +10,24 @@ import java.util.ArrayList;
  *
  * @author zhanglianghui
  */
-public class ItemList {
+public class ContainerItemList {
     {
         items = new ArrayList<>();
     }
     
-    private ArrayList<Item> items;
+    private ArrayList<ContainerItem> items;
 
     /**
      * @return the items
      */
-    public ArrayList<Item> getItems() {
+    public ArrayList<ContainerItem> getItems() {
         return items;
     }
 
     /**
      * @param items the items to set
      */
-    public void setItems(ArrayList<Item> items) {
+    public void setItems(ArrayList<ContainerItem> items) {
         this.items = items;
     }
 }

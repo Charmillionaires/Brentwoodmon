@@ -9,5 +9,5 @@ package brentwoodmon;
  * @author zhanglianghui
  */
 public interface ItemManagerResponseIntf {
-    public void handleItemManagerResponse(ItemList itemList);
+    public void handleItemManagerResponse(ContainerItemList itemList);
 }
