@@ -94,6 +94,7 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
     public void initializeEnvironment() {
 //        this.setBackground(ResourceTools.loadImageFromResource("resources/bcampus_bottom.bmp"));
 //        this.getParent().setSize(new Dimension(100, 100));
+        
     }
 
     @Override
@@ -173,7 +174,7 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
         frame.setAlwaysOnTop(true);
         
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        frame.setSize(new Dimension(400,400));
+        frame.setSize(new Dimension(400,500));
         frame.setVisible(true);
     }
 

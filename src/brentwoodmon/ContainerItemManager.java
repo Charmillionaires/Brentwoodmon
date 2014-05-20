@@ -7,6 +7,7 @@ package brentwoodmon;
 import image.ResourceTools;
 import java.awt.Image;
 import javax.swing.DefaultListModel;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -14,15 +15,20 @@ import javax.swing.DefaultListModel;
  */
 public class ContainerItemManager extends javax.swing.JPanel {
 
-    private Image treasureBox;
+    private Image treasureBox = ResourceTools.loadImageFromResource("resources/treasure_box.jpg");
     private ContainerItemList itemList;
     private final ItemManagerResponseIntf responseHandler;
     
     public ContainerItemManager(String name, ContainerItemList itemList, ItemManagerResponseIntf responseHandler) {
         initComponents();
         this.jlblName.setText(name);
+        
         this.setItemList(itemList);
         this.responseHandler = responseHandler;
+        
+        
+        jlblImage.setIcon(new ImageIcon(treasureBox));
+        
     }
 
         public ContainerItemList getItemList() {
@@ -59,32 +65,27 @@ public class ContainerItemManager extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         jlblName = new javax.swing.JLabel();
         jPanelImage = new javax.swing.JPanel();
+        jlblImage = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jbtnCancel = new javax.swing.JButton();
-        jtbnOK = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jlstItems = new javax.swing.JList();
+        jtbnOK = new javax.swing.JButton();
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 204));
 
-        jlblName.setFont(new java.awt.Font("宋体", 0, 24)); // NOI18N
+        jlblName.setFont(new java.awt.Font("华文隶书", 0, 48)); // NOI18N
         jlblName.setText("Treasure Box");
-
-        jPanelImage.addContainerListener(new java.awt.event.ContainerAdapter() {
-            public void componentAdded(java.awt.event.ContainerEvent evt) {
-                jPanelImageComponentAdded(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanelImageLayout = new javax.swing.GroupLayout(jPanelImage);
         jPanelImage.setLayout(jPanelImageLayout);
         jPanelImageLayout.setHorizontalGroup(
             jPanelImageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addComponent(jlblImage, javax.swing.GroupLayout.DEFAULT_SIZE, 239, Short.MAX_VALUE)
         );
         jPanelImageLayout.setVerticalGroup(
             jPanelImageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 130, Short.MAX_VALUE)
+            .addComponent(jlblImage, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 161, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -92,16 +93,16 @@ public class ContainerItemManager extends javax.swing.JPanel {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(88, 88, 88)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jlblName, javax.swing.GroupLayout.DEFAULT_SIZE, 161, Short.MAX_VALUE)
-                    .addComponent(jPanelImage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(94, Short.MAX_VALUE))
+                .addGap(23, 23, 23)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanelImage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jlblName, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jlblName, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jlblName, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanelImage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
@@ -111,13 +112,6 @@ public class ContainerItemManager extends javax.swing.JPanel {
 
         jbtnCancel.setText("Cancel");
 
-        jtbnOK.setText("OK");
-        jtbnOK.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtbnOKActionPerformed(evt);
-            }
-        });
-
         jlstItems.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
@@ -125,29 +119,37 @@ public class ContainerItemManager extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(jlstItems);
 
+        jtbnOK.setText("OK");
+        jtbnOK.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtbnOKActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jtbnOK, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jbtnCancel))
-                .addGap(18, 18, 18))
+                .addGap(0, 9, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap(23, Short.MAX_VALUE)
+                .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(jbtnCancel)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(0, 76, Short.MAX_VALUE)
+                        .addComponent(jtbnOK)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jtbnOK))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jbtnCancel))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -173,17 +175,13 @@ public class ContainerItemManager extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_jtbnOKActionPerformed
 
-    private void jPanelImageComponentAdded(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_jPanelImageComponentAdded
-        this.treasureBox = ResourceTools.loadImageFromResource("resources/starting.jpg");
-        
-    }//GEN-LAST:event_jPanelImageComponentAdded
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanelImage;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton jbtnCancel;
+    private javax.swing.JLabel jlblImage;
     private javax.swing.JLabel jlblName;
     private javax.swing.JList jlstItems;
     private javax.swing.JButton jtbnOK;
