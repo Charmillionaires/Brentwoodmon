@@ -36,6 +36,13 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
     private Map bcampus;
     private Map ucampus;
     private Map dross;
+    private Map uross;
+    private Map mross;
+    private Map marts;
+    private Map darts;
+    private Map mcafe;
+    private Map dcafe;
+
     private MapVisualizerDefault mapVisualizer;
     
     private Hero hero;
@@ -100,6 +107,97 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
     public void setCurrentMap(Map map) {
         currentMap = map;
     }
+    
+        /**
+     * @return the uross
+     */
+    public Map getUross() {
+        return uross;
+    }
+
+    /**
+     * @param uross the uross to set
+     */
+    public void setUross(Map uross) {
+        this.uross = uross;
+        configureMap(this.uross);
+    }
+
+    /**
+     * @return the mross
+     */
+    public Map getMross() {
+        return mross;
+    }
+
+    /**
+     * @param mross the mross to set
+     */
+    public void setMross(Map mross) {
+        this.mross = mross;
+        configureMap(this.mross);
+    }
+
+    /**
+     * @return the marts
+     */
+    public Map getMarts() {
+        return marts;
+    }
+
+    /**
+     * @param marts the marts to set
+     */
+    public void setMarts(Map marts) {
+        this.marts = marts;
+        configureMap(this.marts);
+    }
+
+    /**
+     * @return the darts
+     */
+    public Map getDarts() {
+        return darts;
+    }
+
+    /**
+     * @param darts the darts to set
+     */
+    public void setDarts(Map darts) {
+        this.darts = darts;
+        configureMap(this.darts);
+    }
+
+    /**
+     * @return the mcafe
+     */
+    public Map getMcafe() {
+        return mcafe;
+    }
+
+    /**
+     * @param mcafe the mcafe to set
+     */
+    public void setMcafe(Map mcafe) {
+        this.mcafe = mcafe;
+        configureMap(this.mcafe);
+    }
+
+    /**
+     * @return the dcafe
+     */
+    public Map getDcafe() {
+        return dcafe;
+    }
+
+    /**
+     * @param dcafe the dcafe to set
+     */
+    public void setDcafe(Map dcafe) {
+        this.dcafe = dcafe;
+        configureMap(this.dcafe);
+    }
+    
 //</editor-fold>
     
     {
@@ -108,16 +206,72 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
         setBcampus(MapBin.getCampusBottomMap());
         setUcampus(MapBin.getCampusUpperMap());
         setDross(MapBin.getDownSRossMap());
+        
+        bcampus = MapBin.getCampusBottomMap();
+        configureMap(bcampus);
 
-        Map.addPortal(getBcampus(), new Point(30, 19), getDross(), new Point(9, 9));
+        ucampus = MapBin.getCampusUpperMap();
+        configureMap(ucampus);
+
+        dross = MapBin.getDownSRossMap();
+        configureMap(dross);
+
+        mross = MapBin.getMainSRossMap();
+        configureMap(mross);
+
+        uross = MapBin.getUpperSRossMap();
+        configureMap(uross);
+
+        marts = MapBin.getMainArtsMap();
+        configureMap(marts);
+
+        darts = MapBin.getDownArtsMap();
+        configureMap(darts);
+
+        mcafe = MapBin.getMainCafeMap();
+        configureMap(mcafe);
+
+        dcafe = MapBin.getDownCafeMap();
+        configureMap(dcafe);
+
+
+        //ross
+        Map.addPortal(bcampus, new Point(30, 19), mross, new Point(9, 9));
+        Map.addPortal(mross, new Point(9, 8), bcampus, new Point(30, 19));
+        Map.addPortal(mross, new Point(5, 8), bcampus, new Point(30, 19));
+        Map.addPortal(mross, new Point(1, 7), dross, new Point(1, 6));
+        Map.addPortal(dross, new Point(1, 6), mross, new Point(1, 7));
+        Map.addPortal(mross, new Point(1, 4), uross, new Point(1, 6));
+        Map.addPortal(uross, new Point(1, 6), mross, new Point(1, 4));
+
+        //arts build
+        Map.addPortal(bcampus, new Point(21, 22), marts, new Point(28, 12));
+        Map.addPortal(marts, new Point(28, 12), bcampus, new Point(21, 22));
+        Map.addPortal(marts, new Point(28, 13), bcampus, new Point(21, 22));
+        Map.addPortal(marts, new Point(14, 13), darts, new Point(23, 12));
+        Map.addPortal(marts, new Point(14, 14), darts, new Point(23, 12));
+        Map.addPortal(darts, new Point(23, 12), marts, new Point(14, 13));
+
+        //cafe build
+        Map.addPortal(bcampus, new Point(7,21), mcafe, new Point (1,1));
+
+
+        //campus
+        Map.addPortal(bcampus, new Point(37, 0), ucampus, new Point(25, 34));
+        Map.addPortal(bcampus, new Point(36, 0), ucampus, new Point(24, 34));
+        Map.addPortal(ucampus, new Point(24, 34), bcampus, new Point(36, 0));
+        Map.addPortal(ucampus, new Point(25, 34), bcampus, new Point(37, 0));
         
-        Map.addPortal(getDross(), new Point(9, 9), getBcampus(), new Point(30, 19));
-        Map.addPortal(getDross(), new Point(5, 9), getBcampus(), new Point(30, 19));
-        
-        Map.addPortal(getBcampus(), new Point(37, 0), getUcampus(), new Point(25, 34));
-        Map.addPortal(getBcampus(), new Point(36, 0), getUcampus(), new Point(24, 34));
-        Map.addPortal(getUcampus(), new Point(24, 34), getBcampus(), new Point(36, 0));
-        Map.addPortal(getUcampus(), new Point(25, 34), getBcampus(), new Point(37, 0));
+
+//        Map.addPortal(getBcampus(), new Point(30, 19), getDross(), new Point(9, 9));
+//        
+//        Map.addPortal(getDross(), new Point(9, 9), getBcampus(), new Point(30, 19));
+//        Map.addPortal(getDross(), new Point(5, 9), getBcampus(), new Point(30, 19));
+//        
+//        Map.addPortal(getBcampus(), new Point(37, 0), getUcampus(), new Point(25, 34));
+//        Map.addPortal(getBcampus(), new Point(36, 0), getUcampus(), new Point(24, 34));
+//        Map.addPortal(getUcampus(), new Point(24, 34), getBcampus(), new Point(36, 0));
+//        Map.addPortal(getUcampus(), new Point(25, 34), getBcampus(), new Point(37, 0));
 
         setCurrentMap(getBcampus());
     }
@@ -300,7 +454,5 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
         return false;
     }
 //</editor-fold>
-
-
 
 }
