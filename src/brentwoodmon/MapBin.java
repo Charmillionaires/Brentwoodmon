@@ -17,7 +17,7 @@ import map.ObstacleType;
 public class MapBin {
 
     public static Map getCampusBottomMap() {
-        Map bcampus = new Map(ResourceTools.loadImageFromResource("resources/campus_bottom.bmp"), new Dimension(16, 16), new Dimension(20, 50));
+        Map bcampus = new Map(image.ResourceTools.loadImageFromResource("resources/campus_bottom.bmp"), new Dimension(16, 16), new Dimension(35, 64));
 
 //        Map.addObstacle(bcampus, new Point(10, 10), ObstacleType.WATER);
 //        Map.addObstacleRange(campus, new Point(0, 0), new Point(2, 5), ObstacleType.BARRIER);
@@ -52,29 +52,19 @@ public class MapBin {
         //cliffs and such nono jumpy zones
         Map.addObstacleRange(bcampus, new Point(11, 0), new Point(11, 9), ObstacleType.BARRIER);
         Map.addObstacleRange(bcampus, new Point(11, 9), new Point(14, 9), ObstacleType.BARRIER);
-        
+
         //it's a bush
         Map.addObstacleRange(bcampus, new Point(14, 0), new Point(14, 9), ObstacleType.BUSH);
         Map.addObstacleRange(bcampus, new Point(14, 2), new Point(32, 2), ObstacleType.BUSH);
 
         //there might be another obstacle
-        
-        
-        //treasure box location
-        Map.addItem(bcampus, new Point(10,10),"TB");
-        
-        
-        //combat location
-        Map.addItem(bcampus, new Point(5,5), "Combat");
-        
-        //dialog location
-        Map.addItem(bcampus, new Point(8,8), "Dialog");
-        
+
+
         return bcampus;
     }
 
     static Map getCampusUpperMap() {
-        Map ucampus = new Map(ResourceTools.loadImageFromResource("resources/campus_top.bmp"), new Dimension(16, 16), new Dimension(44, 48));
+        Map ucampus = new Map(image.ResourceTools.loadImageFromResource("resources/campus_top.bmp"), new Dimension(16, 16), new Dimension(44, 48));
 
         Map.addObstacle(ucampus, new Point(10, 10), ObstacleType.WATER);
 //        Map.addObstacleRange(map, new Point(0, 0), new Point(2, 5), ObstacleType.BARRIER);
@@ -82,10 +72,42 @@ public class MapBin {
 
         return ucampus;
     }
-        static Map getDownSRossMap() {
-        Map dross = new Map(ResourceTools.loadImageFromResource("resources/ross_downstair.jpg"), new Dimension(16, 16), new Dimension(44, 48));
 
-            return dross;
-        }
-    
+    static Map getDownSRossMap() {
+        Map dross = new Map(image.ResourceTools.loadImageFromResource("resources/ross_downstair.jpg"), new Dimension(16, 16), new Dimension(44, 48));
+
+        return dross;
+    }
+
+    static Map getMainSRossMap() {
+        Map mross = new Map(image.ResourceTools.loadImageFromResource("resources/ross_mainfloor.bmp"), new Dimension(16, 16), new Dimension(44, 48));
+
+        return mross;
+    }
+
+    static Map getUpperSRossMap() {
+        Map uross = new Map(image.ResourceTools.loadImageFromResource("resources/ross_upstair.jpg"), new Dimension(16, 16), new Dimension(44, 48));
+
+        return uross;
+    }
+    static Map getMainArtsMap() {
+        Map marts = new Map(image.ResourceTools.loadImageFromResource("resources/arts_mainfloor.bmp"), new Dimension(16, 16), new Dimension(44, 48));
+
+        return marts;
+    }
+     static Map getDownArtsMap() {
+        Map darts = new Map(image.ResourceTools.loadImageFromResource("resources/arts_downstair.bmp"), new Dimension(16, 16), new Dimension(44, 48));
+
+        return darts;
+    }
+     static Map getMainCafeMap() {
+        Map mcafe = new Map(image.ResourceTools.loadImageFromResource("resources/cafe_mainfloor.bmp"), new Dimension(16, 16), new Dimension(44, 48));
+
+        return mcafe;
+    }
+     static Map getDownCafeMap() {
+        Map dcafe = new Map(image.ResourceTools.loadImageFromResource("resources/cafe_downstair.bmp"), new Dimension(16, 16), new Dimension(44, 48));
+
+        return dcafe;
+    }
 }

@@ -206,33 +206,12 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
         setBcampus(MapBin.getCampusBottomMap());
         setUcampus(MapBin.getCampusUpperMap());
         setDross(MapBin.getDownSRossMap());
-        
-        bcampus = MapBin.getCampusBottomMap();
-        configureMap(bcampus);
-
-        ucampus = MapBin.getCampusUpperMap();
-        configureMap(ucampus);
-
-        dross = MapBin.getDownSRossMap();
-        configureMap(dross);
-
-        mross = MapBin.getMainSRossMap();
-        configureMap(mross);
-
-        uross = MapBin.getUpperSRossMap();
-        configureMap(uross);
-
-        marts = MapBin.getMainArtsMap();
-        configureMap(marts);
-
-        darts = MapBin.getDownArtsMap();
-        configureMap(darts);
-
-        mcafe = MapBin.getMainCafeMap();
-        configureMap(mcafe);
-
-        dcafe = MapBin.getDownCafeMap();
-        configureMap(dcafe);
+        setUross(MapBin.getUpperSRossMap());
+        setMross(MapBin.getMainSRossMap());
+        setMarts(MapBin.getMainArtsMap());
+        setDarts(MapBin.getDownArtsMap());
+        setMcafe(MapBin.getMainCafeMap());
+        setDcafe(MapBin.getDownCafeMap());
 
 
         //ross
