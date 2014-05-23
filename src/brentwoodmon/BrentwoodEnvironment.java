@@ -232,7 +232,10 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
         Map.addPortal(darts, new Point(23, 12), marts, new Point(14, 13));
 
         //cafe build
-        Map.addPortal(bcampus, new Point(7,21), mcafe, new Point (1,1));
+        Map.addPortal(bcampus, new Point(7,21), mcafe, new Point (3,1));
+        Map.addPortal(mcafe, new Point(3,1), bcampus, new Point (7,21));
+        Map.addPortal(mcafe, new Point(1,2), dcafe, new Point (2,2));
+
 
 
         //campus
