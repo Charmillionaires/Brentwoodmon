@@ -29,7 +29,7 @@ import map.PortalEventHandlerIntf;
  *
  * @author kimberlygilson
  */
-public class BrentwoodEnvironment extends Environment implements PortalEventHandlerIntf, ObstacleEventHandlerIntf, ItemEventHandlerIntf, ItemManagerResponseIntf {
+public class BrentwoodEnvironment extends Environment implements PortalEventHandlerIntf, ObstacleEventHandlerIntf, ItemEventHandlerIntf, ItemManagerResponseIntf, CombatResponseIntf {
 
 //<editor-fold defaultstate="collapsed" desc="Properties">
     private Map currentMap;
@@ -42,6 +42,9 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
     private Shaq shaq;
     private Snorlax snorlax;
     
+    private CharacterProperty myProperty;
+    private Image snorlax_icon = ResourceTools.loadImageFromResource("resources/snorlax_icon.jpg");
+    private Image charmander_icon = ResourceTools.loadImageFromResource("resources/charmander_icon.jpg");
     /**
      * @return the bcampus
      */
@@ -103,6 +106,9 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
 //</editor-fold>
     
     {
+        
+        this.myProperty = new CharacterProperty();
+        
         mapVisualizer = new MapVisualizerDefault(true, false);
 
         setBcampus(MapBin.getCampusBottomMap());
@@ -218,7 +224,8 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
 //<editor-fold defaultstate="collapsed" desc="Dialogs">
     private void showCombat() {
         JFrame frmCombat = new JFrame("Combat");
-        Combat myCombat = new Combat();
+        
+        Combat myCombat = new Combat(snorlax_icon, charmander_icon, myProperty.getMyHp(),myProperty.getMyDamage(),this);
         
         frmCombat.add(myCombat);
         frmCombat.setAlwaysOnTop(true);
@@ -300,6 +307,20 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
         return false;
     }
 //</editor-fold>
+
+    @Override
+    public void handleCombatResponse(boolean combatResult) {
+        System.out.println("myHp = " +  myProperty.getMyHp());
+        System.out.println("myDamge = " +  myProperty.getMyDamage());
+        System.out.println("myLevel = " +  myProperty.getMyLevel());
+        System.out.println("myExp = " +  myProperty.getMyExp());
+        
+        System.out.println("Combat Result " + combatResult);
+        if (combatResult == true) {
+            this.myProperty.addToMyExp(9);
+        }
+        System.out.println("exp = " + myProperty.getMyExp());
+    }
 
 
 
