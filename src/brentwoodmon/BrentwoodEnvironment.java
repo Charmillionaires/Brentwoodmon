@@ -151,6 +151,10 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
 
         snorlax = new Snorlax(new Point(700, 150), new Velocity(0, 0));
         getActors().add(snorlax);
+        
+//        bull = new Bull(new Point(700, 200), new Velocity(0, 0));
+//        getActors().add(bull);
+        
     }
 
     @Override
@@ -169,6 +173,7 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
             hero.setState(State.STOP);
             snorlax.setState(State.STOP);
             shaq.setState(State.STOP);
+            
         } else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
             hero.setState(State.FRONT_WALK);
             snorlax.setState(State.FRONT_WALK);

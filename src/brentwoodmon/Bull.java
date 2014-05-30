@@ -13,9 +13,9 @@ import java.awt.image.BufferedImage;
  *
  * @author David S
  */
-public class Shaq extends AnimatedActor {
+public class Bull extends AnimatedActor {
 
-    public Shaq(Point position, Velocity velocity) {
+    public Bull(Point position, Velocity velocity) {
         super(position, velocity);
     }
     
@@ -29,7 +29,7 @@ public class Shaq extends AnimatedActor {
         int thatSide = 249;
         int blackSide = 293;
         
-        BufferedImage image = (BufferedImage) ResourceTools.loadImageFromResource("resources/ddd_transparent.png");
+        BufferedImage image = (BufferedImage) ResourceTools.loadImageFromResource("resources/pokemon.png");
 
         String stand01 = "Stand01";
         String stand02 = "Stand02";
@@ -86,3 +86,4 @@ public class Shaq extends AnimatedActor {
  }
     
 }
+
