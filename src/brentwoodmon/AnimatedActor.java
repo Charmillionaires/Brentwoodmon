@@ -36,6 +36,43 @@ public abstract class AnimatedActor extends Actor {
         initializeImages();
     }
     
+    private MoveValidatorIntf moveValidator;
+    
+   /**
+     * @return the moveValidator
+     */
+    public MoveValidatorIntf getMoveValidator() {
+        return moveValidator;
+    }
+
+    /**
+     * @param moveValidator the moveValidator to set
+     */
+    public void setMoveValidator(MoveValidatorIntf moveValidator) {
+        this.moveValidator = moveValidator;
+    }
+    
+    
+    @Override
+    public void move() {
+        Point proposedLocation = new Point(this.getPosition());
+        proposedLocation.x += getVelocity().x;
+        proposedLocation.y += getVelocity().y;
+        
+        if (moveValidator != null) {
+            if (moveValidator.validateMove(getPosition(), proposedLocation)){
+                super.move();
+            } else {
+                stop();
+                System.out.println("failed move validation");
+            }
+        }
+        
+//        super.move();
+//        this.position.x += this.velocity.x;
+//        this.position.y += this.velocity.y;
+    }
+    
     public abstract void initializeImages();
 
     private ImageManager imageManager;
@@ -123,4 +160,6 @@ public abstract class AnimatedActor extends Actor {
             this.stop();
         }
     }
+
+ 
 }
