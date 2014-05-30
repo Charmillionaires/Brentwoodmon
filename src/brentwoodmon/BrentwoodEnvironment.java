@@ -7,14 +7,12 @@ package brentwoodmon;
 import audio.AudioPlayer;
 import environment.Environment;
 import environment.Velocity;
-import images.ResourceTools;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Point;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
-import java.awt.image.BufferedImage;
 import javax.swing.JFrame;
 import map.Item;
 import map.ItemEventHandlerIntf;
@@ -22,6 +20,7 @@ import map.Map;
 import map.MapVisualizerDefault;
 import map.Obstacle;
 import map.ObstacleEventHandlerIntf;
+import map.ObstacleType;
 import map.Portal;
 import map.PortalEventHandlerIntf;
 
@@ -29,7 +28,8 @@ import map.PortalEventHandlerIntf;
  *
  * @author kimberlygilson
  */
-public class BrentwoodEnvironment extends Environment implements PortalEventHandlerIntf, ObstacleEventHandlerIntf, ItemEventHandlerIntf, ItemManagerResponseIntf {
+public class BrentwoodEnvironment extends Environment implements PortalEventHandlerIntf,
+        ObstacleEventHandlerIntf, ItemEventHandlerIntf, ItemManagerResponseIntf, MoveValidatorIntf {
 
 //<editor-fold defaultstate="collapsed" desc="Properties">
     private Map currentMap;
@@ -37,18 +37,19 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
     private Map ucampus;
     private Map dross;
     private MapVisualizerDefault mapVisualizer;
-    
+
     private Hero hero;
     private Shaq shaq;
     private Snorlax snorlax;
-    
+    private Bull bull;
+
     /**
      * @return the bcampus
      */
     public Map getBcampus() {
         return bcampus;
     }
-    
+
     /**
      * @param bcampus the bcampus to set
      */
@@ -56,14 +57,14 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
         this.bcampus = bcampus;
         configureMap(this.bcampus);
     }
-    
+
     /**
      * @return the ucampus
      */
     public Map getUcampus() {
         return ucampus;
     }
-    
+
     /**
      * @param ucampus the ucampus to set
      */
@@ -71,14 +72,14 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
         this.ucampus = ucampus;
         configureMap(this.ucampus);
     }
-    
+
     /**
      * @return the dross
      */
     public Map getDross() {
         return dross;
     }
-    
+
     /**
      * @param dross the dross to set
      */
@@ -86,22 +87,23 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
         this.dross = dross;
         configureMap(this.dross);
     }
-    
+
     /**
      * @return the currentMap
      */
     public Map getCurrentMap() {
         return currentMap;
     }
-    
+
     /**
      * @param map the Map to set
      */
     public void setCurrentMap(Map map) {
         currentMap = map;
+//        currentMap.getMapVisualizer().
     }
 //</editor-fold>
-    
+
     {
         mapVisualizer = new MapVisualizerDefault(true, false);
 
@@ -110,10 +112,10 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
         setDross(MapBin.getDownSRossMap());
 
         Map.addPortal(getBcampus(), new Point(30, 19), getDross(), new Point(9, 9));
-        
+
         Map.addPortal(getDross(), new Point(9, 9), getBcampus(), new Point(30, 19));
         Map.addPortal(getDross(), new Point(5, 9), getBcampus(), new Point(30, 19));
-        
+
         Map.addPortal(getBcampus(), new Point(37, 0), getUcampus(), new Point(25, 34));
         Map.addPortal(getBcampus(), new Point(36, 0), getUcampus(), new Point(24, 34));
         Map.addPortal(getUcampus(), new Point(24, 34), getBcampus(), new Point(36, 0));
@@ -125,7 +127,7 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
     public BrentwoodEnvironment() {
         super();
     }
-    
+
     private void configureMap(Map map) {
         map.setMapVisualizer(mapVisualizer);
         map.setPortalEventHandler(this);
@@ -146,15 +148,15 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
         hero = new Hero(new Point(700, 50), new Velocity(0, 0));
         getActors().add(hero);
 
-        shaq = new Shaq(new Point(700, 100), new Velocity(0, 0));
+        shaq = new Shaq(new Point(300, 100), new Velocity(0, 0));
+        shaq.setMoveValidator(this);
         getActors().add(shaq);
 
         snorlax = new Snorlax(new Point(700, 150), new Velocity(0, 0));
         getActors().add(snorlax);
-        
+
 //        bull = new Bull(new Point(700, 200), new Velocity(0, 0));
 //        getActors().add(bull);
-        
     }
 
     @Override
@@ -173,7 +175,7 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
             hero.setState(State.STOP);
             snorlax.setState(State.STOP);
             shaq.setState(State.STOP);
-            
+
         } else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
             hero.setState(State.FRONT_WALK);
             snorlax.setState(State.FRONT_WALK);
@@ -198,10 +200,10 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
         } else if (e.getKeyCode() == KeyEvent.VK_A) {
             shaq.setState(State.LEFT_WALK);
         } else if (e.getKeyCode() == KeyEvent.VK_1) {
-            showCombat();  
+            showCombat();
         }
     }
-    
+
     @Override
     public void keyReleasedHandler(KeyEvent e) {
     }
@@ -224,43 +226,43 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
     private void showCombat() {
         JFrame frmCombat = new JFrame("Combat");
         Combat myCombat = new Combat();
-        
+
         frmCombat.add(myCombat);
         frmCombat.setAlwaysOnTop(true);
         frmCombat.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        frmCombat.setSize(new Dimension(600,400));
-        
+        frmCombat.setSize(new Dimension(600, 400));
+
         frmCombat.setVisible(true);
     }
-    
+
     private void showDialog() {
         JFrame frmDialog = new JFrame("Dialog");
-        Dialog myDialog = new Dialog("yes","yes");
-        
+        Dialog myDialog = new Dialog("yes", "yes");
+
         frmDialog.add(myDialog);
         frmDialog.setAlwaysOnTop(true);
         frmDialog.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        frmDialog.setSize(new Dimension(600,400));
-        
+        frmDialog.setSize(new Dimension(600, 400));
+
         frmDialog.setVisible(true);
     }
-    
+
     private void showItemManager() {
         JFrame frmItemManager = new JFrame("Item Manager");
-        
+
         ContainerItemList containerItemList = new ContainerItemList();
-        containerItemList.getItems().add(new ContainerItem ("Pencil","HB pencil, good for scantron."));
-        ContainerItemManager itemManager = new ContainerItemManager("Treasure Box", containerItemList,this);
-        
+        containerItemList.getItems().add(new ContainerItem("Pencil", "HB pencil, good for scantron."));
+        ContainerItemManager itemManager = new ContainerItemManager("Treasure Box", containerItemList, this);
+
         frmItemManager.add(itemManager);
         frmItemManager.setAlwaysOnTop(true);
         frmItemManager.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        frmItemManager.setSize(new Dimension(400,500));
-        
+        frmItemManager.setSize(new Dimension(400, 500));
+
         frmItemManager.setVisible(true);
     }
 //</editor-fold>
-    
+
 //<editor-fold defaultstate="collapsed" desc="ItemEventHandlerIntf Interface Methods">
     @Override
     public boolean itemEvent(Item item) {
@@ -272,12 +274,12 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
         } else if ("Dialog".equals(item.getType())) {
             showDialog();
         }
-        
+
         System.out.println("Item " + item.getLocation() + " " + item.getType());
         return true;
     }
 //</editor-fold>
-    
+
 //<editor-fold defaultstate="collapsed" desc="ItemManagerResponseIntf Inteface Methods">
     @Override
     public void handleItemManagerResponse(ContainerItemList itemList) {
@@ -287,7 +289,7 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
         }
     }
 //</editor-fold>
-    
+
 //<editor-fold defaultstate="collapsed" desc="PortalEventHandlerIntf Interface Methods">
     @Override
     public boolean portalEvent(Portal portal) {
@@ -301,11 +303,22 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
     @Override
     public boolean obstacleEvent(Obstacle obstacle) {
         System.out.println("Obstacle " + obstacle.getLocation() + " " + obstacle.getType());
-        AudioPlayer.play("/resources/water.wav");
+        if (obstacle.getType() == ObstacleType.WATER) {
+            AudioPlayer.play("/resources/water.wav");
+        }
         return false;
     }
 //</editor-fold>
 
-
+//<editor-fold defaultstate="collapsed" desc="MoveValidatorIntf Methods">
+    @Override
+    public boolean validateMove(Point currentSystemCoord, Point proposedSystemCoord) {
+        if (currentMap != null) {
+            Point proposedCellCoord = currentMap.getCellLocation(proposedSystemCoord);
+            return currentMap.validateLocation(proposedCellCoord);
+        }
+        return true;
+    }
+//</editor-fold>
 
 }
