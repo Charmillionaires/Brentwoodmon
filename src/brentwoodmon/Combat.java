@@ -15,6 +15,7 @@ import timer.TimerNotificationIntf;
  */
 public class Combat extends javax.swing.JPanel implements TimerNotificationIntf {
 
+    private String myName;
     private int myHp = 100;
     private int enemyHp = 30;
     private int myDamage = 5;
@@ -28,9 +29,10 @@ public class Combat extends javax.swing.JPanel implements TimerNotificationIntf 
     /**
      * Creates new form Combat
      */
-    public Combat(Image myImage, Image enemyImage, int myHp, int myDamage,CombatResponseIntf responseHandler) {
+    public Combat(String myName,Image myImage, Image enemyImage, int myHp, int myDamage,CombatResponseIntf responseHandler) {
         initComponents();
         
+        this.myName = myName;
         this.myHp = myHp;
         this.myDamage = myDamage;
         
@@ -178,7 +180,7 @@ public class Combat extends javax.swing.JPanel implements TimerNotificationIntf 
         if (this.jlblBattleHistory.getText() == "Your turn") {
             this.enemyHp = this.enemyHp - myDamage;
             System.out.println("enemyHp = " + this.enemyHp);
-            this.actionPerformed = "Attack!";
+            this.actionPerformed = this.myName + " Attack!";
             this.jlblBattleHistory.setText("Enemy's turn");
             this.jtxtBattleHistory.setText(actionPerformed + " Enemy HP left = " + this.enemyHp);
 

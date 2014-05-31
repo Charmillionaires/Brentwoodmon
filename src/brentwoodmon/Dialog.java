@@ -5,6 +5,8 @@
 package brentwoodmon;
 
 import java.awt.Image;
+import java.util.ArrayList;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -12,15 +14,43 @@ import java.awt.Image;
  */
 public class Dialog extends javax.swing.JPanel {
 
+    private String myName;
+    private String friendName;
+    private ArrayList<String> dialog;
+    private Image myImage;
+    private int dialogCounter = 0;
+    
     /**
      * Creates new form Dialog
      */
-    public Dialog(String name, String dialog) {
+    public Dialog(String myName, String friendName, Image myImage, ArrayList<String> dialog) {
         initComponents();
         
-//        this.jPanel2.prepareImage(avatar, this);
-        this.jlblName.setText(name);
-        this.jlblDialog.setText(dialog);
+        this.myName = myName;
+        this.friendName = friendName;
+        this.myImage = myImage;
+        this.dialog = dialog;
+        
+//        jlblMyImage.setIcon(new ImageIcon(this.myImage.getScaledInstance(250, 250, Image.SCALE_SMOOTH)));
+        
+        if (this.getDialogCounter() == 1 ) {
+            this.jlblName.setText(this.myName);
+            jlblMyImage.setIcon(new ImageIcon(this.myImage.getScaledInstance(250, 250, Image.SCALE_SMOOTH)));
+        }else if (this.getDialogCounter() == 0 || this.getDialogCounter() == 2) {
+            this.jlblName.setText(this.friendName);
+            jlblMyImage.setText("???");
+        }
+        this.jlblDialog.setText(this.dialog.get(0));
+        
+//        if (this.getDialogCounter() == 0) {
+//            this.jlblDialog.setText(this.dialog.get(0));
+//        }else if (this.getDialogCounter() == 1) {
+//            this.jlblDialog.setText(this.dialog.get(1));
+//            System.out.println(dialogTwo);
+//        }else if (this.getDialogCounter() == 2) {
+//            this.jlblDialog.setText(dialogThree);
+//            System.out.println(dialogThree);
+//        }
         
     }
 
@@ -34,45 +64,57 @@ public class Dialog extends javax.swing.JPanel {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jlblMyImage = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jlblName = new javax.swing.JLabel();
         jlblDialog = new javax.swing.JLabel();
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 204));
 
+        jlblMyImage.setBackground(new java.awt.Color(204, 255, 204));
+        jlblMyImage.setText(" ");
+
+        jlblName.setBackground(new java.awt.Color(255, 255, 255));
+        jlblName.setFont(new java.awt.Font("华文行楷", 0, 24)); // NOI18N
+        jlblName.setText("name");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+            .addComponent(jlblName, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 118, Short.MAX_VALUE)
+            .addComponent(jlblName, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
         );
-
-        jlblName.setText("name");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jlblName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jlblMyImage, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(0, 80, Short.MAX_VALUE)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(40, Short.MAX_VALUE)
+                .addComponent(jlblMyImage, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jlblName, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(4, 4, 4))
         );
 
         jlblDialog.setText("dialog");
+        jlblDialog.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jlblDialogMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -90,10 +132,32 @@ public class Dialog extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jlblDialogMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlblDialogMouseClicked
+        this.addToDialogCounter(1);
+//        System.out.println(getDialogCounter());
+        this.jlblDialog.setText(this.dialog.get(this.getDialogCounter()));
+    }//GEN-LAST:event_jlblDialogMouseClicked
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel jlblDialog;
+    private javax.swing.JLabel jlblMyImage;
     private javax.swing.JLabel jlblName;
     // End of variables declaration//GEN-END:variables
+
+    /**
+     * @return the dialogCounter
+     */
+    
+
+    /**
+     * @param dialogCounter the dialogCounter to set
+     */
+    public void addToDialogCounter(int dialogCounter) {
+        this.dialogCounter += dialogCounter;
+    }
+    public int getDialogCounter() {
+        return dialogCounter;
+    }
 }
