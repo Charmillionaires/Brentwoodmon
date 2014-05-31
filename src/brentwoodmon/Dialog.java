@@ -7,6 +7,7 @@ package brentwoodmon;
 import java.awt.Image;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 
 /**
  *
@@ -19,29 +20,32 @@ public class Dialog extends javax.swing.JPanel {
     private ArrayList<String> dialog;
     private Image myImage;
     private int dialogCounter = 0;
-    
+
     /**
      * Creates new form Dialog
+     *
+     * @param myName
+     * @param friendName
+     * @param conversation
      */
-    public Dialog(String myName, String friendName, Image myImage, ArrayList<String> dialog) {
+    public Dialog(String myName, String friendName, Image myImage, ArrayList<String> conversation) {
         initComponents();
-        
+
         this.myName = myName;
         this.friendName = friendName;
         this.myImage = myImage;
-        this.dialog = dialog;
-        
+        this.dialog = conversation;
+
 //        jlblMyImage.setIcon(new ImageIcon(this.myImage.getScaledInstance(250, 250, Image.SCALE_SMOOTH)));
-        
-        if (this.getDialogCounter() == 1 ) {
+        if (this.getDialogCounter() == 1) {
             this.jlblName.setText(this.myName);
-            jlblMyImage.setIcon(new ImageIcon(this.myImage.getScaledInstance(250, 250, Image.SCALE_SMOOTH)));
-        }else if (this.getDialogCounter() == 0 || this.getDialogCounter() == 2) {
+            jlblImage.setIcon(new ImageIcon(this.myImage.getScaledInstance(250, 250, Image.SCALE_SMOOTH)));
+        } else if (this.getDialogCounter() == 0 || this.getDialogCounter() == 2) {
             this.jlblName.setText(this.friendName);
-            jlblMyImage.setText("???");
+            jlblImage.setText("???");
         }
-        this.jlblDialog.setText(this.dialog.get(0));
-        
+        this.jtxtConversation.setText(this.dialog.get(0));
+
 //        if (this.getDialogCounter() == 0) {
 //            this.jlblDialog.setText(this.dialog.get(0));
 //        }else if (this.getDialogCounter() == 1) {
@@ -51,7 +55,11 @@ public class Dialog extends javax.swing.JPanel {
 //            this.jlblDialog.setText(dialogThree);
 //            System.out.println(dialogThree);
 //        }
-        
+    }
+
+    public void close() {
+        this.getParent().setVisible(false);
+        ((JFrame) this.getTopLevelAncestor()).dispose();
     }
 
     /**
@@ -63,100 +71,151 @@ public class Dialog extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jlblMyImage = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
+        jpnlPerson = new javax.swing.JPanel();
+        jlblImage = new javax.swing.JLabel();
         jlblName = new javax.swing.JLabel();
-        jlblDialog = new javax.swing.JLabel();
+        jpnlConversation = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jtxtConversation = new javax.swing.JTextArea();
+        jpnlControls = new javax.swing.JPanel();
+        jbtnCancel = new javax.swing.JButton();
+        jbtnClose = new javax.swing.JButton();
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 204));
+        jpnlPerson.setBackground(new java.awt.Color(255, 255, 204));
 
-        jlblMyImage.setBackground(new java.awt.Color(204, 255, 204));
-        jlblMyImage.setText(" ");
+        jlblImage.setText(" ");
 
-        jlblName.setBackground(new java.awt.Color(255, 255, 255));
-        jlblName.setFont(new java.awt.Font("华文行楷", 0, 24)); // NOI18N
-        jlblName.setText("name");
+        jlblName.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
+        jlblName.setForeground(new java.awt.Color(102, 102, 255));
+        jlblName.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jlblName.setText(" ");
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jlblName, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
+        jpnlConversation.setBackground(new java.awt.Color(255, 204, 255));
+
+        jtxtConversation.setEditable(false);
+        jtxtConversation.setColumns(20);
+        jtxtConversation.setLineWrap(true);
+        jtxtConversation.setRows(5);
+        jtxtConversation.setMargin(new java.awt.Insets(4, 4, 4, 4));
+        jtxtConversation.setOpaque(false);
+        jScrollPane1.setViewportView(jtxtConversation);
+
+        javax.swing.GroupLayout jpnlConversationLayout = new javax.swing.GroupLayout(jpnlConversation);
+        jpnlConversation.setLayout(jpnlConversationLayout);
+        jpnlConversationLayout.setHorizontalGroup(
+            jpnlConversationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpnlConversationLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 601, Short.MAX_VALUE)
+                .addContainerGap())
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jlblName, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
+        jpnlConversationLayout.setVerticalGroup(
+            jpnlConversationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpnlConversationLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1)
+                .addContainerGap())
         );
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jlblMyImage, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        javax.swing.GroupLayout jpnlPersonLayout = new javax.swing.GroupLayout(jpnlPerson);
+        jpnlPerson.setLayout(jpnlPersonLayout);
+        jpnlPersonLayout.setHorizontalGroup(
+            jpnlPersonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpnlPersonLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jlblImage, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jlblName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+            .addComponent(jpnlConversation, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(40, Short.MAX_VALUE)
-                .addComponent(jlblMyImage, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+        jpnlPersonLayout.setVerticalGroup(
+            jpnlPersonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpnlPersonLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jpnlPersonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jlblImage, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jlblName, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(4, 4, 4))
+                .addComponent(jpnlConversation, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
-        jlblDialog.setText("dialog");
-        jlblDialog.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jlblDialogMouseClicked(evt);
+        jpnlControls.setBackground(new java.awt.Color(204, 204, 255));
+
+        jbtnCancel.setText("Cancel");
+
+        jbtnClose.setText("OK");
+        jbtnClose.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtnCloseActionPerformed(evt);
             }
         });
+
+        javax.swing.GroupLayout jpnlControlsLayout = new javax.swing.GroupLayout(jpnlControls);
+        jpnlControls.setLayout(jpnlControlsLayout);
+        jpnlControlsLayout.setHorizontalGroup(
+            jpnlControlsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpnlControlsLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jbtnClose, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jbtnCancel))
+        );
+        jpnlControlsLayout.setVerticalGroup(
+            jpnlControlsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpnlControlsLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jpnlControlsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jbtnCancel)
+                    .addComponent(jbtnClose))
+                .addContainerGap())
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jlblDialog, javax.swing.GroupLayout.DEFAULT_SIZE, 554, Short.MAX_VALUE)
+            .addComponent(jpnlPerson, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jpnlControls, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jlblDialog, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jpnlPerson, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jpnlControls, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jlblDialogMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlblDialogMouseClicked
-        this.addToDialogCounter(1);
-//        System.out.println(getDialogCounter());
-        this.jlblDialog.setText(this.dialog.get(this.getDialogCounter()));
-    }//GEN-LAST:event_jlblDialogMouseClicked
+    private void jbtnCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnCloseActionPerformed
+        close();
+    }//GEN-LAST:event_jbtnCloseActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JLabel jlblDialog;
-    private javax.swing.JLabel jlblMyImage;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton jbtnCancel;
+    private javax.swing.JButton jbtnClose;
+    private javax.swing.JLabel jlblImage;
     private javax.swing.JLabel jlblName;
+    private javax.swing.JPanel jpnlControls;
+    private javax.swing.JPanel jpnlConversation;
+    private javax.swing.JPanel jpnlPerson;
+    private javax.swing.JTextArea jtxtConversation;
     // End of variables declaration//GEN-END:variables
 
     /**
      * @return the dialogCounter
      */
-    
-
     /**
      * @param dialogCounter the dialogCounter to set
      */
     public void addToDialogCounter(int dialogCounter) {
         this.dialogCounter += dialogCounter;
     }
+
     public int getDialogCounter() {
         return dialogCounter;
     }

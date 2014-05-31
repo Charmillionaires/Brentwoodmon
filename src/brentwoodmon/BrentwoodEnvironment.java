@@ -45,7 +45,7 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
     
     private CharacterProperty myProperty;
     private String myName;
-    private ArrayList<String> dialog;
+//    private ArrayList<String> dialog;
     //defalt my Image
     private Image myImage = ResourceTools.loadImageFromResource("resources/snorlax_icon.jpg");
     private Image snorlax_icon = ResourceTools.loadImageFromResource("resources/snorlax_icon.jpg");
@@ -245,16 +245,19 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
     
     private void showDialog() {
         JFrame frmDialog = new JFrame("Dialog");
-        this.dialog.add("Welcome to Brentwood College School! Start your advanture and become the best student.");
-        this.dialog.add("OK. Where should I start?");
-        this.dialog.add("Go find your house parent in the common room.");
+
+        ArrayList<String> conversation = new ArrayList<>();
+        conversation.add("Welcome to Brentwood College School! Start your advanture and become the best student.");
+        conversation.add("OK. Where should I start?");
+        conversation.add("Go find your house parent in the common room.");
+        
 //        Dialog myDialog = new Dialog(myName,"Mr.Garvey" ,myImage,"Welcome to Brentwood College School! Start your advanture and become the best student.","OK. Where should I start?","Go find your house parent in the common room.");
-        Dialog myDialog = new Dialog(myName,"Mr.Garvey" ,myImage,dialog);
+        Dialog myDialog = new Dialog(myName,"Mr.Garvey" ,myImage,conversation);
+        
         frmDialog.add(myDialog);
         frmDialog.setAlwaysOnTop(true);
         frmDialog.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        frmDialog.setSize(new Dimension(600,400));
-        
+        frmDialog.setSize(new Dimension(600,425));    
         frmDialog.setVisible(true);
     }
     
