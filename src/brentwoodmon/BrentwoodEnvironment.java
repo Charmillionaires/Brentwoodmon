@@ -7,12 +7,14 @@ package brentwoodmon;
 import audio.AudioPlayer;
 import environment.Environment;
 import environment.Velocity;
+import images.ResourceTools;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Point;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
+import java.awt.image.BufferedImage;
 import javax.swing.JFrame;
 import map.Item;
 import map.ItemEventHandlerIntf;
@@ -42,6 +44,7 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
     private Shaq shaq;
     private Snorlax snorlax;
     private Bull bull;
+    private Image bullSprite;
 
     /**
      * @return the bcampus
@@ -122,6 +125,8 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
         Map.addPortal(getUcampus(), new Point(25, 34), getBcampus(), new Point(37, 0));
 
         setCurrentMap(getBcampus());
+        
+        this.bullSprite = (BufferedImage) ResourceTools.loadImageFromResource("resources/pokemon.png");
     }
 
     public BrentwoodEnvironment() {
@@ -219,6 +224,11 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
     public void paintEnvironment(Graphics graphics) {
         if (getCurrentMap() != null) {
             getCurrentMap().drawMap(graphics);
+        }
+        
+        if (this.bullSprite != null) {
+            graphics.drawImage(bullSprite, WIDTH, WIDTH, this);
+
         }
     }
 
