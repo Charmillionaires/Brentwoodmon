@@ -8,6 +8,7 @@ import images.ResourceTools;
 import java.awt.Image;
 import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 
 /**
  *
@@ -109,6 +110,11 @@ public class ContainerItemManager extends javax.swing.JPanel {
         jPanel2.setBackground(new java.awt.Color(255, 255, 102));
 
         jbtnCancel.setText("Cancel");
+        jbtnCancel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jbtnCancelMouseClicked(evt);
+            }
+        });
 
         jlstItems.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
@@ -143,7 +149,7 @@ public class ContainerItemManager extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(0, 76, Short.MAX_VALUE)
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jtbnOK)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jbtnCancel))
@@ -170,9 +176,20 @@ public class ContainerItemManager extends javax.swing.JPanel {
     private void jtbnOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtbnOKActionPerformed
          if (responseHandler != null) {
             responseHandler.handleItemManagerResponse(itemList);
+            close();
         }
+         
     }//GEN-LAST:event_jtbnOKActionPerformed
 
+    private void jbtnCancelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbtnCancelMouseClicked
+        close();
+    }//GEN-LAST:event_jbtnCancelMouseClicked
+
+    public void close() {
+        this.getParent().setVisible(false);
+        ((JFrame) this.getTopLevelAncestor()).dispose();
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
