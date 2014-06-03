@@ -6,6 +6,7 @@ package brentwoodmon;
 
 import java.awt.Image;
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 import timer.TimerEventManager;
 import timer.TimerNotificationIntf;
 
@@ -24,21 +25,22 @@ public class Combat extends javax.swing.JPanel implements TimerNotificationIntf 
     private TimerEventManager timerEventManager;
     private final String ENEMY_ATTACK_EVENT = "enemy_attack_event";
     private final CombatResponseIntf responseHandler;
+    private int random;
 
 //    private Image myImage;
     /**
      * Creates new form Combat
      */
-    public Combat(String myName,Image myImage, Image enemyImage, int myHp, int myDamage,CombatResponseIntf responseHandler) {
+    public Combat(String myName, Image myImage, Image enemyImage, int myHp, int myDamage, CombatResponseIntf responseHandler) {
         initComponents();
-        
+
         this.myName = myName;
         this.myHp = myHp;
         this.myDamage = myDamage;
-        
+
         jlblMyImage.setIcon(new ImageIcon(myImage.getScaledInstance(250, 250, Image.SCALE_SMOOTH)));
         jlblEnemyImage.setIcon(new ImageIcon(enemyImage.getScaledInstance(250, 250, Image.SCALE_SMOOTH)));
-        
+
         this.responseHandler = responseHandler;
         //put this code in to instantiate the timer event manager
         timerEventManager = new TimerEventManager();
@@ -85,6 +87,11 @@ public class Combat extends javax.swing.JPanel implements TimerNotificationIntf 
         jbtnDenfence.setText("Defence");
 
         jbtnRun.setText("Run Away");
+        jbtnRun.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jbtnRunMouseClicked(evt);
+            }
+        });
 
         jbtnSkill.setText("Skill");
 
@@ -210,6 +217,28 @@ public class Combat extends javax.swing.JPanel implements TimerNotificationIntf 
 
         }
     }//GEN-LAST:event_jbtnAttackMouseClicked
+
+    private void jbtnRunMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbtnRunMouseClicked
+        if (this.jlblBattleHistory.getText() == "Your turn") {
+            this.random = generateRandomNumber();
+            System.out.println("number=" + random);
+            if (this.random >= 5) {
+                close();
+            } else {
+                this.actionPerformed = this.myName + " Tries to run away!...Failed!!!";
+                this.jlblBattleHistory.setText("Enemy's turn");
+                this.jtxtBattleHistory.setText(actionPerformed + " Your HP left = " + this.myHp);
+
+                if (timerEventManager != null) {
+                    timerEventManager.registerTimerEvent(this, ENEMY_ATTACK_EVENT, 3000);
+                }
+            }
+
+
+        }
+
+
+    }//GEN-LAST:event_jbtnRunMouseClicked
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton jbtnAttack;
@@ -233,13 +262,21 @@ public class Combat extends javax.swing.JPanel implements TimerNotificationIntf 
             this.actionPerformed = "Enemy Attack!";
             this.jtxtBattleHistory.setText(actionPerformed + " Your HP left = " + this.myHp);
             this.jlblBattleHistory.setText("Your turn");
-        }else if (this.myHp <= 0) {
-                this.jtxtBattleHistory.setText("You Lose!");
-                this.jlblBattleHistory.setText("End of Combat");
-                if (responseHandler != null) {
-                    responseHandler.handleCombatResponse(false);
-                }
+        } else if (this.myHp <= 0) {
+            this.jtxtBattleHistory.setText("You Lose!");
+            this.jlblBattleHistory.setText("End of Combat");
+            if (responseHandler != null) {
+                responseHandler.handleCombatResponse(false);
+            }
+        }
     }
 
-    }   
+    public void close() {
+        this.getParent().setVisible(false);
+        ((JFrame) this.getTopLevelAncestor()).dispose();
+    }
+
+    public int generateRandomNumber() {
+        return (int) (Math.random() * 10);
+    }
 }

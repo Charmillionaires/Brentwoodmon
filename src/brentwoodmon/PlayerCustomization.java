@@ -6,6 +6,7 @@ package brentwoodmon;
 
 import java.awt.Image;
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 
 /**
  *
@@ -34,6 +35,11 @@ public class PlayerCustomization extends javax.swing.JPanel {
         this.myImage = snorlax;
     }
 
+    public void close() {
+        this.getParent().setVisible(false);
+        ((JFrame) this.getTopLevelAncestor()).dispose();
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -180,6 +186,7 @@ public class PlayerCustomization extends javax.swing.JPanel {
     private void jbtnConfirmMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbtnConfirmMouseClicked
         if (responseHandler != null) {
             responseHandler.handlePlayerCustomizationResponse(this.jtxtCustomizedName.getText(), myImage);
+            close();
         }
     }//GEN-LAST:event_jbtnConfirmMouseClicked
     // Variables declaration - do not modify//GEN-BEGIN:variables
