@@ -4,6 +4,9 @@
  */
 package brentwoodmon;
 
+import java.awt.Image;
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 import timer.TimerEventManager;
 import timer.TimerNotificationIntf;
 
@@ -13,19 +16,32 @@ import timer.TimerNotificationIntf;
  */
 public class Combat extends javax.swing.JPanel implements TimerNotificationIntf {
 
-    /**
-     * Creates new form Combat
-     */
+    private String myName;
     private int myHp = 100;
     private int enemyHp = 30;
-    private int damage = 5;
+    private int myDamage = 5;
+    private int enemyDamage = 2;
     private String actionPerformed = "";
     private TimerEventManager timerEventManager;
     private final String ENEMY_ATTACK_EVENT = "enemy_attack_event";
-    
-    public Combat() {
+    private final CombatResponseIntf responseHandler;
+    private int random;
+
+//    private Image myImage;
+    /**
+     * Creates new form Combat
+     */
+    public Combat(String myName, Image myImage, Image enemyImage, int myHp, int myDamage, CombatResponseIntf responseHandler) {
         initComponents();
 
+        this.myName = myName;
+        this.myHp = myHp;
+        this.myDamage = myDamage;
+
+        jlblMyImage.setIcon(new ImageIcon(myImage.getScaledInstance(250, 250, Image.SCALE_SMOOTH)));
+        jlblEnemyImage.setIcon(new ImageIcon(enemyImage.getScaledInstance(250, 250, Image.SCALE_SMOOTH)));
+
+        this.responseHandler = responseHandler;
         //put this code in to instantiate the timer event manager
         timerEventManager = new TimerEventManager();
         this.jlblBattleHistory.setText("Your turn");
@@ -47,10 +63,10 @@ public class Combat extends javax.swing.JPanel implements TimerNotificationIntf 
         jbtnDenfence = new javax.swing.JButton();
         jbtnRun = new javax.swing.JButton();
         jbtnSkill = new javax.swing.JButton();
-        myPicture = new javax.swing.JPanel();
-        enemyPicture = new javax.swing.JPanel();
         jtxtBattleHistory = new javax.swing.JTextField();
         jlblBattleHistory = new javax.swing.JLabel();
+        jlblMyImage = new javax.swing.JLabel();
+        jlblEnemyImage = new javax.swing.JLabel();
 
         jbtnAttack.setText("Attack");
         jbtnAttack.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -71,6 +87,11 @@ public class Combat extends javax.swing.JPanel implements TimerNotificationIntf 
         jbtnDenfence.setText("Defence");
 
         jbtnRun.setText("Run Away");
+        jbtnRun.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jbtnRunMouseClicked(evt);
+            }
+        });
 
         jbtnSkill.setText("Skill");
 
@@ -112,57 +133,39 @@ public class Combat extends javax.swing.JPanel implements TimerNotificationIntf 
                 .addContainerGap(24, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout myPictureLayout = new javax.swing.GroupLayout(myPicture);
-        myPicture.setLayout(myPictureLayout);
-        myPictureLayout.setHorizontalGroup(
-            myPictureLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        myPictureLayout.setVerticalGroup(
-            myPictureLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 153, Short.MAX_VALUE)
-        );
-
-        javax.swing.GroupLayout enemyPictureLayout = new javax.swing.GroupLayout(enemyPicture);
-        enemyPicture.setLayout(enemyPictureLayout);
-        enemyPictureLayout.setHorizontalGroup(
-            enemyPictureLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        enemyPictureLayout.setVerticalGroup(
-            enemyPictureLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 153, Short.MAX_VALUE)
-        );
-
         jtxtBattleHistory.setText("What will you do?");
 
         jlblBattleHistory.setText("Start");
+
+        jlblMyImage.setText(" ");
+
+        jlblEnemyImage.setText(" ");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(myPicture, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jlblMyImage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jtxtBattleHistory, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
-                    .addComponent(enemyPicture, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jlblBattleHistory, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jlblBattleHistory, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jlblEnemyImage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(myPicture, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(enemyPicture, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jlblMyImage, javax.swing.GroupLayout.DEFAULT_SIZE, 153, Short.MAX_VALUE)
+                    .addComponent(jlblEnemyImage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(4, 4, 4)
@@ -179,37 +182,64 @@ public class Combat extends javax.swing.JPanel implements TimerNotificationIntf 
     private void jbtnBackpackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnBackpackActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jbtnBackpackActionPerformed
-    
+
     private void jbtnAttackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbtnAttackMouseClicked
         if (this.jlblBattleHistory.getText() == "Your turn") {
-            this.enemyHp = this.enemyHp - damage;
+            this.enemyHp = this.enemyHp - myDamage;
             System.out.println("enemyHp = " + this.enemyHp);
-            this.actionPerformed = "Attack!";
+            this.actionPerformed = this.myName + " Attack!";
             this.jlblBattleHistory.setText("Enemy's turn");
             this.jtxtBattleHistory.setText(actionPerformed + " Enemy HP left = " + this.enemyHp);
-            
+
             if (this.enemyHp <= 0) {
                 this.jtxtBattleHistory.setText("You Win!");
                 this.jlblBattleHistory.setText("End of Combat");
-                
+                if (responseHandler != null) {
+                    responseHandler.handleCombatResponse(true);
+                }
+
             } else if (this.myHp <= 0) {
                 this.jtxtBattleHistory.setText("You Lose!");
                 this.jlblBattleHistory.setText("End of Combat");
-                
+                if (responseHandler != null) {
+                    responseHandler.handleCombatResponse(false);
+                }
+
             } else {
                 //register an attack event: I used 3000 milliseconds, because I think 3 seconds
                 //is a better wait time than 5 seconds...
                 if (timerEventManager != null) {
                     timerEventManager.registerTimerEvent(this, ENEMY_ATTACK_EVENT, 3000);
-                    
+
                 }
             }
-            
-            
+
+
         }
     }//GEN-LAST:event_jbtnAttackMouseClicked
+
+    private void jbtnRunMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbtnRunMouseClicked
+        if (this.jlblBattleHistory.getText() == "Your turn") {
+            this.random = generateRandomNumber();
+            System.out.println("number=" + random);
+            if (this.random >= 5) {
+                close();
+            } else {
+                this.actionPerformed = this.myName + " Tries to run away!...Failed!!!";
+                this.jlblBattleHistory.setText("Enemy's turn");
+                this.jtxtBattleHistory.setText(actionPerformed + " Your HP left = " + this.myHp);
+
+                if (timerEventManager != null) {
+                    timerEventManager.registerTimerEvent(this, ENEMY_ATTACK_EVENT, 3000);
+                }
+            }
+
+
+        }
+
+
+    }//GEN-LAST:event_jbtnRunMouseClicked
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel enemyPicture;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton jbtnAttack;
     private javax.swing.JButton jbtnBackpack;
@@ -218,19 +248,35 @@ public class Combat extends javax.swing.JPanel implements TimerNotificationIntf 
     private javax.swing.JButton jbtnRun;
     private javax.swing.JButton jbtnSkill;
     private javax.swing.JLabel jlblBattleHistory;
+    private javax.swing.JLabel jlblEnemyImage;
+    private javax.swing.JLabel jlblMyImage;
     private javax.swing.JTextField jtxtBattleHistory;
-    private javax.swing.JPanel myPicture;
     // End of variables declaration//GEN-END:variables
 
     @Override
     public void TimerEvent(String eventType) {
         if (eventType.equals(ENEMY_ATTACK_EVENT)) {
-            this.myHp = this.myHp - damage;
-            
+            this.myHp = this.myHp - enemyDamage;
+
             System.out.println("myHp = " + this.myHp);
             this.actionPerformed = "Enemy Attack!";
             this.jtxtBattleHistory.setText(actionPerformed + " Your HP left = " + this.myHp);
             this.jlblBattleHistory.setText("Your turn");
+        } else if (this.myHp <= 0) {
+            this.jtxtBattleHistory.setText("You Lose!");
+            this.jlblBattleHistory.setText("End of Combat");
+            if (responseHandler != null) {
+                responseHandler.handleCombatResponse(false);
+            }
         }
+    }
+
+    public void close() {
+        this.getParent().setVisible(false);
+        ((JFrame) this.getTopLevelAncestor()).dispose();
+    }
+
+    public int generateRandomNumber() {
+        return (int) (Math.random() * 10);
     }
 }

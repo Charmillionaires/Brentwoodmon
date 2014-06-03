@@ -19,6 +19,8 @@ import java.util.ArrayList;
 public abstract class AnimatedActor extends Actor {
 
     {
+        setMyProperty(new CharacterProperty());
+
         standImage = new ArrayList<>();
         frontWalkImages = new ArrayList<>();
         backWalkImages = new ArrayList<>();
@@ -38,6 +40,7 @@ public abstract class AnimatedActor extends Actor {
     
     public abstract void initializeImages();
 
+    private CharacterProperty myProperty;
     private ImageManager imageManager;
     private Animator animator;
     ArrayList<String> frontWalkImages, backWalkImages, leftWalkImages, rightWalkImages, standImage;
@@ -122,5 +125,19 @@ public abstract class AnimatedActor extends Actor {
             animator.setImageNames(standImage);
             this.stop();
         }
+    }
+
+    /**
+     * @return the myProperty
+     */
+    public CharacterProperty getMyProperty() {
+        return myProperty;
+    }
+
+    /**
+     * @param myProperty the myProperty to set
+     */
+    public void setMyProperty(CharacterProperty myProperty) {
+        this.myProperty = myProperty;
     }
 }

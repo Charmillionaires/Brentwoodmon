@@ -15,6 +15,7 @@ import java.awt.Point;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
+import java.util.ArrayList;
 import javax.swing.JFrame;
 import map.Item;
 import map.ItemEventHandlerIntf;
@@ -29,7 +30,7 @@ import map.PortalEventHandlerIntf;
  *
  * @author kimberlygilson
  */
-public class BrentwoodEnvironment extends Environment implements PortalEventHandlerIntf, ObstacleEventHandlerIntf, ItemEventHandlerIntf, ItemManagerResponseIntf {
+public class BrentwoodEnvironment extends Environment implements PortalEventHandlerIntf, ObstacleEventHandlerIntf, ItemEventHandlerIntf, ItemManagerResponseIntf, CombatResponseIntf, PlayerCustomizationIntf {
 
 //<editor-fold defaultstate="collapsed" desc="Properties">
  private Map currentMap;
@@ -104,7 +105,17 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
     private Hero hero;
     private Shaq shaq;
     private Snorlax snorlax;
-
+    
+    private CharacterProperty myProperty;
+    private String myName;
+//    private ArrayList<String> dialog;
+    //defalt my Image
+    private Image myImage = ResourceTools.loadImageFromResource("resources/snorlax_icon.jpg");
+    private Image snorlax_icon = ResourceTools.loadImageFromResource("resources/snorlax_icon.jpg");
+    private Image shaq_icon = ResourceTools.loadImageFromResource("resources/shaq_icon.jpg");
+    private Image hero_icon = ResourceTools.loadImageFromResource("resources/hero_icon.jpg");
+    private Image charmander_icon = ResourceTools.loadImageFromResource("resources/charmander_icon.jpg");
+    
     /**
      * @return the bcampus
      */
@@ -156,14 +167,17 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
     public Map getCurrentMap() {
         return currentMap;
     }
+//</editor-fold>
 
     /**
      * @param map the Map to set
      */
     public void setCurrentMap(Map map) {
         currentMap = map;
+        this.myProperty = new CharacterProperty();
+        mapVisualizer = new MapVisualizerDefault(true, false);
     }
-
+    
     /**
      * @return the uross
      */
@@ -1545,7 +1559,7 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
         } else if (e.getKeyCode() == KeyEvent.VK_A) {
             shaq.setState(State.LEFT_WALK);
         } else if (e.getKeyCode() == KeyEvent.VK_1) {
-            showCombat();  
+            showPlayerCustomization();  
         }
     }
     
@@ -1570,7 +1584,8 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
 //<editor-fold defaultstate="collapsed" desc="Dialogs">
     private void showCombat() {
         JFrame frmCombat = new JFrame("Combat");
-        Combat myCombat = new Combat();
+        
+        Combat myCombat = new Combat(myName,myImage, charmander_icon, myProperty.getMyHp(),myProperty.getMyDamage(),this);
         
         frmCombat.add(myCombat);
         frmCombat.setAlwaysOnTop(true);
@@ -1582,13 +1597,19 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
     
     private void showDialog() {
         JFrame frmDialog = new JFrame("Dialog");
-        Dialog myDialog = new Dialog("yes","yes");
+
+        ArrayList<String> conversation = new ArrayList<>();
+        conversation.add("Welcome to Brentwood College School! Start your advanture and become the best student.");
+        conversation.add("OK. Where should I start?");
+        conversation.add("Go find your house parent in the common room.");
+        
+//        Dialog myDialog = new Dialog(myName,"Mr.Garvey" ,myImage,"Welcome to Brentwood College School! Start your advanture and become the best student.","OK. Where should I start?","Go find your house parent in the common room.");
+        Dialog myDialog = new Dialog(myName,"Mr.Garvey" ,myImage,conversation);
         
         frmDialog.add(myDialog);
         frmDialog.setAlwaysOnTop(true);
         frmDialog.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        frmDialog.setSize(new Dimension(600,400));
-        
+        frmDialog.setSize(new Dimension(600,425));    
         frmDialog.setVisible(true);
     }
     
@@ -1605,6 +1626,18 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
         frmItemManager.setSize(new Dimension(400,500));
         
         frmItemManager.setVisible(true);
+    }
+    
+    private void showPlayerCustomization() {
+        JFrame frmPlayerCustomization = new JFrame("PlayerCustomization");
+        
+        PlayerCustomization myPlayerCustomization = new PlayerCustomization(snorlax_icon,shaq_icon,hero_icon,this);
+        
+        frmPlayerCustomization.add(myPlayerCustomization);
+        frmPlayerCustomization.setAlwaysOnTop(true);
+        frmPlayerCustomization.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        frmPlayerCustomization.setSize(new Dimension(600,400));
+        frmPlayerCustomization.setVisible(true);
     }
 //</editor-fold>
     
@@ -1653,6 +1686,26 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
     }
 //</editor-fold>
 
+    @Override
+    public void handleCombatResponse(boolean combatResult) {
+        System.out.println("myHp = " +  myProperty.getMyHp());
+        System.out.println("myDamge = " +  myProperty.getMyDamage());
+        System.out.println("myLevel = " +  myProperty.getMyLevel());
+        System.out.println("myExp = " +  myProperty.getMyExp());
+        
+        System.out.println("Combat Result " + combatResult);
+        if (combatResult == true) {
+            this.myProperty.addToMyExp(2);
+            showItemManager();
+        }
+        System.out.println("exp = " + myProperty.getMyExp());
+    }
 
+    @Override
+    public void handlePlayerCustomizationResponse(String myName, Image myImage) {
+        System.out.println("My name: " + myName);
+        this.myName = myName;
+        this.myImage = myImage; 
+    }
 
 }
