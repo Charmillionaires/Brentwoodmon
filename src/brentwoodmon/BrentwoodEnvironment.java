@@ -787,6 +787,406 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
 
     }
 
+    /**
+     * @return the adorm1
+     */
+    public Map getAdorm1() {
+        return adorm1;
+    }
+
+    /**
+     * @param adorm1 the adorm1 to set
+     */
+    public void setAdorm1(Map adorm1) {
+        this.adorm1 = adorm1;
+        configureMap(this.adorm1);
+
+    }
+
+    /**
+     * @return the adorm2
+     */
+    public Map getAdorm2() {
+        return adorm2;
+    }
+
+    /**
+     * @param adorm2 the adorm2 to set
+     */
+    public void setAdorm2(Map adorm2) {
+        this.adorm2 = adorm2;
+        configureMap(this.adorm2);
+
+    }
+
+    /**
+     * @return the adorm3
+     */
+    public Map getAdorm3() {
+        return adorm3;
+    }
+
+    /**
+     * @param adorm3 the adorm3 to set
+     */
+    public void setAdorm3(Map adorm3) {
+        this.adorm3 = adorm3;
+        configureMap(this.adorm3);
+
+    }
+
+    /**
+     * @return the aldorm1
+     */
+    public Map getAldorm1() {
+        return aldorm1;
+    }
+
+    /**
+     * @param aldorm1 the aldorm1 to set
+     */
+    public void setAldorm1(Map aldorm1) {
+        this.aldorm1 = aldorm1;
+        configureMap(this.aldorm1);
+
+    }
+
+    /**
+     * @return the aldorm2
+     */
+    public Map getAldorm2() {
+        return aldorm2;
+    }
+
+    /**
+     * @param aldorm2 the aldorm2 to set
+     */
+    public void setAldorm2(Map aldorm2) {
+        this.aldorm2 = aldorm2;
+        configureMap(this.aldorm2);
+
+    }
+
+    /**
+     * @return the aldorm3
+     */
+    public Map getAldorm3() {
+        return aldorm3;
+    }
+
+    /**
+     * @param aldorm3 the aldorm3 to set
+     */
+    public void setAldorm3(Map aldorm3) {
+        this.aldorm3 = aldorm3;
+        configureMap(this.aldorm3);
+
+    }
+
+    /**
+     * @return the hdorm1
+     */
+    public Map getHdorm1() {
+        return hdorm1;
+    }
+
+    /**
+     * @param hdorm1 the hdorm1 to set
+     */
+    public void setHdorm1(Map hdorm1) {
+        this.hdorm1 = hdorm1;
+        configureMap(this.hdorm1);
+
+    }
+
+    /**
+     * @return the hdorm2
+     */
+    public Map getHdorm2() {
+        return hdorm2;
+    }
+
+    /**
+     * @param hdorm2 the hdorm2 to set
+     */
+    public void setHdorm2(Map hdorm2) {
+        this.hdorm2 = hdorm2;
+        configureMap(this.hdorm2);
+
+    }
+
+    /**
+     * @return the hdorm3
+     */
+    public Map getHdorm3() {
+        return hdorm3;
+    }
+
+    /**
+     * @param hdorm3 the hdorm3 to set
+     */
+    public void setHdorm3(Map hdorm3) {
+        this.hdorm3 = hdorm3;
+        configureMap(this.hdorm3);
+
+    }
+
+    /**
+     * @return the mdorm1
+     */
+    public Map getMdorm1() {
+        return mdorm1;
+    }
+
+    /**
+     * @param mdorm1 the mdorm1 to set
+     */
+    public void setMdorm1(Map mdorm1) {
+        this.mdorm1 = mdorm1;
+        configureMap(this.mdorm1);
+
+    }
+
+    /**
+     * @return the mdorm2
+     */
+    public Map getMdorm2() {
+        return mdorm2;
+    }
+
+    /**
+     * @param mdorm2 the mdorm2 to set
+     */
+    public void setMdorm2(Map mdorm2) {
+        this.mdorm2 = mdorm2;
+        configureMap(this.mdorm2);
+
+    }
+
+    /**
+     * @return the mdorm3
+     */
+    public Map getMdorm3() {
+        return mdorm3;
+    }
+
+    /**
+     * @param mdorm3 the mdorm3 to set
+     */
+    public void setMdorm3(Map mdorm3) {
+        this.mdorm3 = mdorm3;
+        configureMap(this.mdorm3);
+
+    }
+
+    /**
+     * @return the edorm1
+     */
+    public Map getEdorm1() {
+        return edorm1;
+    }
+
+    /**
+     * @param edorm1 the edorm1 to set
+     */
+    public void setEdorm1(Map edorm1) {
+        this.edorm1 = edorm1;
+        configureMap(this.edorm1);
+
+    }
+
+    /**
+     * @return the edorm2
+     */
+    public Map getEdorm2() {
+        return edorm2;
+    }
+
+    /**
+     * @param edorm2 the edorm2 to set
+     */
+    public void setEdorm2(Map edorm2) {
+        this.edorm2 = edorm2;
+        configureMap(this.edorm2);
+
+    }
+
+    /**
+     * @return the edorm3
+     */
+    public Map getEdorm3() {
+        return edorm3;
+    }
+
+    /**
+     * @param edorm3 the edorm3 to set
+     */
+    public void setEdorm3(Map edorm3) {
+        this.edorm3 = edorm3;
+        configureMap(this.edorm3);
+
+    }
+
+    /**
+     * @return the rdorm1
+     */
+    public Map getRdorm1() {
+        return rdorm1;
+    }
+
+    /**
+     * @param rdorm1 the rdorm1 to set
+     */
+    public void setRdorm1(Map rdorm1) {
+        this.rdorm1 = rdorm1;
+        configureMap(this.rdorm1);
+
+    }
+
+    /**
+     * @return the rdorm2
+     */
+    public Map getRdorm2() {
+        return rdorm2;
+    }
+
+    /**
+     * @param rdorm2 the rdorm2 to set
+     */
+    public void setRdorm2(Map rdorm2) {
+        this.rdorm2 = rdorm2;
+        configureMap(this.rdorm2);
+
+    }
+
+    /**
+     * @return the rdorm3
+     */
+    public Map getRdorm3() {
+        return rdorm3;
+    }
+
+    /**
+     * @param rdorm3 the rdorm3 to set
+     */
+    public void setRdorm3(Map rdorm3) {
+        this.rdorm3 = rdorm3;
+        configureMap(this.rdorm3);
+
+    }
+
+    /**
+     * @return the wdorm1
+     */
+    public Map getWdorm1() {
+        return wdorm1;
+    }
+
+    /**
+     * @param wdorm1 the wdorm1 to set
+     */
+    public void setWdorm1(Map wdorm1) {
+        this.wdorm1 = wdorm1;
+        configureMap(this.wdorm1);
+
+    }
+
+    /**
+     * @return the wdorm2
+     */
+    public Map getWdorm2() {
+        return wdorm2;
+    }
+
+    /**
+     * @param wdorm2 the wdorm2 to set
+     */
+    public void setWdorm2(Map wdorm2) {
+        this.wdorm2 = wdorm2;
+        configureMap(this.wdorm2);
+
+    }
+
+    /**
+     * @return the wdorm3
+     */
+    public Map getWdorm3() {
+        return wdorm3;
+    }
+
+    /**
+     * @param wdorm3 the wdorm3 to set
+     */
+    public void setWdorm3(Map wdorm3) {
+        this.wdorm3 = wdorm3;
+        configureMap(this.wdorm3);
+
+    }
+
+    /**
+     * @return the pdorm1
+     */
+    public Map getPdorm1() {
+        return pdorm1;
+    }
+
+    /**
+     * @param pdorm1 the pdorm1 to set
+     */
+    public void setPdorm1(Map pdorm1) {
+        this.pdorm1 = pdorm1;
+        configureMap(this.pdorm1);
+
+    }
+
+    /**
+     * @return the pdorm2
+     */
+    public Map getPdorm2() {
+        return pdorm2;
+    }
+
+    /**
+     * @param pdorm2 the pdorm2 to set
+     */
+    public void setPdorm2(Map pdorm2) {
+        this.pdorm2 = pdorm2;
+        configureMap(this.pdorm2);
+
+    }
+
+    /**
+     * @return the pdorm3
+     */
+    public Map getPdorm3() {
+        return pdorm3;
+    }
+
+    /**
+     * @param pdorm3 the pdorm3 to set
+     */
+    public void setPdorm3(Map pdorm3) {
+        this.pdorm3 = pdorm3;
+        configureMap(this.pdorm3);
+
+    }
+
+    /**
+     * @return the olcafe
+     */
+    public Map getOlcafe() {
+        return olcafe;
+    }
+
+    /**
+     * @param olcafe the olcafe to set
+     */
+    public void setOlcafe(Map olcafe) {
+        this.olcafe = olcafe;
+        configureMap(this.olcafe);
+
+    }
+
 //</editor-fold>
     {
         mapVisualizer = new MapVisualizerDefault(true, false);
@@ -833,6 +1233,31 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
         setOlaca(MapBin.getOldBuildingMap());
         setMt(MapBin.getMTMap());
         setOffice(MapBin.getOfficeMap());
+        setAdorm1(MapBin.getDorm1AlexMap());
+        setAdorm2(MapBin.getDorm2AlexMap());
+        setAdorm3(MapBin.getDorm3AlexMap());
+        setAldorm1(MapBin.getDorm1AllardMap());
+        setAldorm2(MapBin.getDorm2AllardMap());
+        setAldorm3(MapBin.getDorm3AllardMap());
+        setHdorm1(MapBin.getDorm1HopeMap());
+        setHdorm2(MapBin.getDorm2HopeMap());
+        setHdorm3(MapBin.getDorm2HopeMap());
+        setMdorm1(MapBin.getDorm1MackMap());
+        setMdorm2(MapBin.getDorm2MackMap());
+        setMdorm3(MapBin.getDorm3MackMap());
+        setEdorm1(MapBin.getDorm1EllisMap());
+        setEdorm2(MapBin.getDorm2EllisMap());
+        setEdorm3(MapBin.getDorm3EllisMap());
+        setRdorm1(MapBin.getDorm1RogersMap());
+        setRdorm2(MapBin.getDorm2RogersMap());
+        setRdorm3(MapBin.getDorm3RogersMap());
+        setWdorm1(MapBin.getDorm1WhittalMap());
+        setWdorm2(MapBin.getDorm2WhittalMap());
+        setWdorm3(MapBin.getDorm3WhittalMap());
+        setPdorm1(MapBin.getDorm1PrivettMap());
+        setPdorm2(MapBin.getDorm2PrivettMap());
+        setPdorm3(MapBin.getDorm3PrivettMap());
+        setOlcafe(MapBin.getOldCafeMap());
 
 
 
@@ -907,7 +1332,12 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
         Map.addPortal(aldent, new Point(7, 22), bcampus, new Point(19, 7));
         Map.addPortal(aldent, new Point(14, 5), alhent, new Point(2, 4));
         Map.addPortal(alhent, new Point(2, 4), aldent, new Point(14, 5));
-
+        Map.addPortal(alhent, new Point(4, 1), aldorm1, new Point(10, 1));
+        Map.addPortal(alhent, new Point(7, 1), aldorm2, new Point(10, 1));
+        Map.addPortal(alhent, new Point(10, 1), aldorm3, new Point(10, 1));
+        Map.addPortal(aldorm1, new Point(10, 1), alhent, new Point(4, 1));
+        Map.addPortal(aldorm2, new Point(10, 1), alhent, new Point(7, 1));
+        Map.addPortal(aldorm3, new Point(10, 1), alhent, new Point(10, 1));
 
 
         //alex
@@ -917,6 +1347,12 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
         Map.addPortal(adent, new Point(7, 22), bcampus, new Point(42, 12));
         Map.addPortal(adent, new Point(14, 5), ahent, new Point(2, 4));
         Map.addPortal(ahent, new Point(2, 4), adent, new Point(14, 5));
+        Map.addPortal(ahent, new Point(4, 1), adorm1, new Point(10, 1));
+        Map.addPortal(ahent, new Point(7, 1), adorm2, new Point(10, 1));
+        Map.addPortal(ahent, new Point(10, 1), adorm3, new Point(10, 1));
+        Map.addPortal(adorm1, new Point(10, 1), ahent, new Point(4, 1));
+        Map.addPortal(adorm2, new Point(10, 1), ahent, new Point(7, 1));
+        Map.addPortal(adorm3, new Point(10, 1), ahent, new Point(10, 1));
 
 
         //mack
@@ -925,6 +1361,13 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
         Map.addPortal(mdent, new Point(7, 22), bcampus, new Point(34, 6));
         Map.addPortal(mdent, new Point(14, 5), mhent, new Point(2, 4));
         Map.addPortal(mhent, new Point(2, 4), mdent, new Point(14, 5));
+        Map.addPortal(mhent, new Point(4, 1), mdorm1, new Point(10, 1));
+        Map.addPortal(mhent, new Point(7, 1), mdorm2, new Point(10, 1));
+        Map.addPortal(mhent, new Point(10, 1), mdorm3, new Point(10, 1));
+        Map.addPortal(mdorm1, new Point(10, 1), mhent, new Point(4, 1));
+        Map.addPortal(mdorm2, new Point(10, 1), mhent, new Point(7, 1));
+        Map.addPortal(mdorm3, new Point(10, 1), mhent, new Point(10, 1));
+
 
 
 
@@ -934,6 +1377,12 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
         Map.addPortal(hdent, new Point(7, 22), ucampus, new Point(45, 33));
         Map.addPortal(hdent, new Point(14, 5), hhent, new Point(2, 4));
         Map.addPortal(hhent, new Point(2, 4), hdent, new Point(14, 5));
+        Map.addPortal(hhent, new Point(4, 1), hdorm1, new Point(10, 1));
+        Map.addPortal(hhent, new Point(7, 1), hdorm2, new Point(10, 1));
+        Map.addPortal(hhent, new Point(10, 1), hdorm3, new Point(10, 1));
+        Map.addPortal(hdorm1, new Point(10, 1), hhent, new Point(4, 1));
+        Map.addPortal(hdorm2, new Point(10, 1), hhent, new Point(7, 1));
+        Map.addPortal(hdorm3, new Point(10, 1), hhent, new Point(10, 1));
 
 
         //rogers
@@ -942,7 +1391,12 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
         Map.addPortal(rdent, new Point(7, 22), ucampus, new Point(38, 33));
         Map.addPortal(rdent, new Point(14, 5), rhent, new Point(2, 4));
         Map.addPortal(rhent, new Point(2, 4), rdent, new Point(14, 5));
-
+        Map.addPortal(rhent, new Point(4, 1), rdorm1, new Point(10, 1));
+        Map.addPortal(rhent, new Point(7, 1), rdorm2, new Point(10, 1));
+        Map.addPortal(rhent, new Point(10, 1), rdorm3, new Point(10, 1));
+        Map.addPortal(rdorm1, new Point(10, 1), rhent, new Point(4, 1));
+        Map.addPortal(rdorm2, new Point(10, 1), rhent, new Point(7, 1));
+        Map.addPortal(rdorm3, new Point(10, 1), rhent, new Point(10, 1));
 
 
         //ellis
@@ -952,6 +1406,12 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
         Map.addPortal(edent, new Point(7, 22), ucampus, new Point(58, 33));
         Map.addPortal(edent, new Point(14, 5), ehent, new Point(2, 4));
         Map.addPortal(ehent, new Point(2, 4), edent, new Point(14, 5));
+        Map.addPortal(ehent, new Point(4, 1), edorm1, new Point(10, 1));
+        Map.addPortal(ehent, new Point(7, 1), edorm2, new Point(10, 1));
+        Map.addPortal(ehent, new Point(10, 1), edorm3, new Point(10, 1));
+        Map.addPortal(edorm1, new Point(10, 1), ehent, new Point(4, 1));
+        Map.addPortal(edorm2, new Point(10, 1), ehent, new Point(7, 1));
+        Map.addPortal(edorm3, new Point(10, 1), ehent, new Point(10, 1));
 
 
         //whittal
@@ -960,6 +1420,12 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
         Map.addPortal(edent, new Point(7, 22), bcampus, new Point(49, 9));
         Map.addPortal(wdent, new Point(14, 5), whent, new Point(2, 4));
         Map.addPortal(whent, new Point(2, 4), wdent, new Point(14, 5));
+        Map.addPortal(whent, new Point(4, 1), wdorm1, new Point(10, 1));
+        Map.addPortal(whent, new Point(7, 1), wdorm2, new Point(10, 1));
+        Map.addPortal(whent, new Point(10, 1), wdorm3, new Point(10, 1));
+        Map.addPortal(wdorm1, new Point(10, 1), whent, new Point(4, 1));
+        Map.addPortal(wdorm2, new Point(10, 1), whent, new Point(7, 1));
+        Map.addPortal(wdorm3, new Point(10, 1), whent, new Point(10, 1));
 
 
         //privett
@@ -968,6 +1434,13 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
         Map.addPortal(edent, new Point(7, 22), bcampus, new Point(61, 5));
         Map.addPortal(pdent, new Point(14, 5), phent, new Point(2, 4));
         Map.addPortal(phent, new Point(2, 4), pdent, new Point(14, 5));
+        Map.addPortal(phent, new Point(4, 1), pdorm1, new Point(10, 1));
+        Map.addPortal(phent, new Point(7, 1), pdorm2, new Point(10, 1));
+        Map.addPortal(phent, new Point(10, 1), pdorm3, new Point(10, 1));
+        Map.addPortal(pdorm1, new Point(10, 1), phent, new Point(4, 1));
+        Map.addPortal(pdorm2, new Point(10, 1), phent, new Point(7, 1));
+        Map.addPortal(pdorm3, new Point(10, 1), phent, new Point(10, 1));
+
 
         //mt
         Map.addPortal(bcampus, new Point(63, 20), mt, new Point(0, 8));
@@ -985,6 +1458,12 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
         //ol academic
         Map.addPortal(bcampus, new Point(47, 25), olaca, new Point(8, 34));
         Map.addPortal(olaca, new Point(8, 34), bcampus, new Point(47, 25));
+
+        //olcafe
+        Map.addPortal(bcampus, new Point(52, 25), olcafe, new Point(3, 1));
+        Map.addPortal(olcafe, new Point(3, 1), bcampus, new Point(52, 25));
+
+
 
         //hidden
         Map.addPortal(bcampus, new Point(2, 1), hid, new Point(11, 19));
