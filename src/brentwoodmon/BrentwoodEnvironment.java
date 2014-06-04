@@ -226,10 +226,10 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
             getCurrentMap().drawMap(graphics);
         }
         
-        if (this.bullSprite != null) {
-            graphics.drawImage(bullSprite, WIDTH, WIDTH, this);
-
-        }
+//        if (this.bullSprite != null) {
+//            graphics.drawImage(bullSprite, WIDTH, WIDTH, this);
+//
+//        }
     }
 
 //<editor-fold defaultstate="collapsed" desc="Dialogs">
