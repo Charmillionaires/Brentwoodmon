@@ -22,6 +22,7 @@ public class PlayerCustomization extends javax.swing.JPanel {
     private Image hero;
     private final PlayerCustomizationIntf responseHandler;
     private Image myImage;
+    private String type;
 
     public PlayerCustomization(Image snorlax, Image shaq, Image hero, PlayerCustomizationIntf responseHandler) {
         initComponents();
@@ -171,21 +172,24 @@ public class PlayerCustomization extends javax.swing.JPanel {
     private void jbtnSnorlaxMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbtnSnorlaxMouseClicked
         jlblMyImage.setIcon(new ImageIcon(snorlax.getScaledInstance(250, 250, Image.SCALE_SMOOTH)));
         this.myImage = snorlax;
+        this.type = "snorlax";
     }//GEN-LAST:event_jbtnSnorlaxMouseClicked
 
     private void jbtnShaqMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbtnShaqMouseClicked
         jlblMyImage.setIcon(new ImageIcon(shaq.getScaledInstance(200, 250, Image.SCALE_SMOOTH)));
         this.myImage = shaq;
+        this.type = "shaq";
     }//GEN-LAST:event_jbtnShaqMouseClicked
 
     private void jbtnHeroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbtnHeroMouseClicked
         jlblMyImage.setIcon(new ImageIcon(hero.getScaledInstance(250, 250, Image.SCALE_SMOOTH)));
         this.myImage = hero;
+        this.type = "hero";
     }//GEN-LAST:event_jbtnHeroMouseClicked
 
     private void jbtnConfirmMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbtnConfirmMouseClicked
         if (responseHandler != null) {
-            responseHandler.handlePlayerCustomizationResponse(this.jtxtCustomizedName.getText(), myImage);
+            responseHandler.handlePlayerCustomizationResponse(this.jtxtCustomizedName.getText(), myImage, this.type);
             close();
         }
     }//GEN-LAST:event_jbtnConfirmMouseClicked

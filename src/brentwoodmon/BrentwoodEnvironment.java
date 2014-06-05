@@ -33,7 +33,7 @@ import map.PortalEventHandlerIntf;
 public class BrentwoodEnvironment extends Environment implements PortalEventHandlerIntf, ObstacleEventHandlerIntf, ItemEventHandlerIntf, ItemManagerResponseIntf, CombatResponseIntf, PlayerCustomizationIntf {
 
 //<editor-fold defaultstate="collapsed" desc="Properties">
- private Map currentMap;
+    private Map currentMap;
     private Map bcampus;
     private Map ucampus;
     private Map dross;
@@ -107,7 +107,8 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
     private Snorlax snorlax;
     
     private CharacterProperty myProperty;
-    private String myName;
+    private String myName = "player";
+    private String typeOfCharacter = "snorlax";
 //    private ArrayList<String> dialog;
     //defalt my Image
     private Image myImage = ResourceTools.loadImageFromResource("resources/snorlax_icon.jpg");
@@ -115,7 +116,12 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
     private Image shaq_icon = ResourceTools.loadImageFromResource("resources/shaq_icon.jpg");
     private Image hero_icon = ResourceTools.loadImageFromResource("resources/hero_icon.jpg");
     private Image charmander_icon = ResourceTools.loadImageFromResource("resources/charmander_icon.jpg");
-    
+    private Image garvey = ResourceTools.loadImageFromResource("resources/garvey.jpg");
+    private Image roommate = ResourceTools.loadImageFromResource("resources/roommate.JPG");
+    private Image mais = ResourceTools.loadImageFromResource("resources/mais.jpg");
+    private Image itGuy = ResourceTools.loadImageFromResource("resources/it_guy.jpg");
+    private Image collis = ResourceTools.loadImageFromResource("resources/collis.jpg");
+            
     /**
      * @return the bcampus
      */
@@ -175,9 +181,9 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
     public void setCurrentMap(Map map) {
         currentMap = map;
         this.myProperty = new CharacterProperty();
-        mapVisualizer = new MapVisualizerDefault(true, false);
+//        mapVisualizer = new MapVisualizerDefault(true, false);
     }
-    
+    //<editor-fold defaultstate="collapsed" desc="Initialize Maps">    
     /**
      * @return the uross
      */
@@ -1204,8 +1210,6 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
     {
         mapVisualizer = new MapVisualizerDefault(true, false);
 
- mapVisualizer = new MapVisualizerDefault(true, false);
-
         setBcampus(MapBin.getCampusBottomMap());
         setUcampus(MapBin.getCampusUpperMap());
         setDross(MapBin.getDownSRossMap());
@@ -1509,14 +1513,27 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
     }
 
     private void loadCharacters() {
+        if (this.typeOfCharacter == "snorlax") {
+        hero = new Hero(new Point(-1, -1), new Velocity(0, 0));
+        getActors().add(hero);
+
+        shaq = new Shaq(new Point(-1, -1), new Velocity(0, 0));
+        getActors().add(shaq);
+      
+        snorlax = new Snorlax(new Point(700, 150), new Velocity(0, 0));
+        getActors().add(snorlax);
+        }else{
+            
         hero = new Hero(new Point(700, 50), new Velocity(0, 0));
         getActors().add(hero);
 
         shaq = new Shaq(new Point(700, 100), new Velocity(0, 0));
         getActors().add(shaq);
-
+      
         snorlax = new Snorlax(new Point(700, 150), new Velocity(0, 0));
         getActors().add(snorlax);
+        }
+        
     }
 
     @Override
@@ -1599,12 +1616,15 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
         JFrame frmDialog = new JFrame("Dialog");
 
         ArrayList<String> conversation = new ArrayList<>();
-        conversation.add("Welcome to Brentwood College School! Start your advanture and become the best student.");
-        conversation.add("OK. Where should I start?");
-        conversation.add("Go find your house parent in the common room.");
         
-//        Dialog myDialog = new Dialog(myName,"Mr.Garvey" ,myImage,"Welcome to Brentwood College School! Start your advanture and become the best student.","OK. Where should I start?","Go find your house parent in the common room.");
-        Dialog myDialog = new Dialog(myName,"Mr.Garvey" ,myImage,conversation);
+        conversation.add(this.myName + ", it's time for class. We should go.");
+        conversation.add("OK. What class do we have?");
+        conversation.add("We have different schedule...You should go ask our house parent. She is downstairs.");
+//        conversation.add("Welcome to Brentwood College School! Start your advanture and become the best student.");
+//        conversation.add("OK. Where should I start?");
+//        conversation.add("Go find your house parent in the common room.");
+        
+        Dialog myDialog = new Dialog(myName,"Roommate" ,myImage, roommate,conversation);
         
         frmDialog.add(myDialog);
         frmDialog.setAlwaysOnTop(true);
@@ -1613,6 +1633,69 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
         frmDialog.setVisible(true);
     }
     
+        private void showDialogHP() {
+        JFrame frmDialog = new JFrame("Dialog with House Parent");
+
+        ArrayList<String> conversation = new ArrayList<>();
+        
+        conversation.clear();
+        conversation.add("Good morning, " + this.myName + ".");
+        conversation.add("Good morning Mrs. Mais! I don't know which class should I go to. Can you help me?");
+        conversation.add("You can check your schedule on SDS: https://sds.brentwood.bc.ca/. Use your Brentwood account to login. It's the same for your Brentwood email.");
+        conversation.add("OK...But I forgot my account.");
+        conversation.add("Oh well, you can ask IT about it. It's in the old academic building. Be quick, you are going to be late for class.");
+        
+        Dialog myDialog = new Dialog(myName,"Mrs. Mais" ,myImage, mais,conversation);
+        
+        frmDialog.add(myDialog);
+        frmDialog.setAlwaysOnTop(true);
+        frmDialog.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        frmDialog.setSize(new Dimension(600,425));    
+        frmDialog.setVisible(true);
+    }
+        
+        private void showDialogIT() {
+        JFrame frmDialog = new JFrame("Dialog with the IT");
+
+        ArrayList<String> conversation = new ArrayList<>();
+        
+        conversation.clear();
+        conversation.add("...How can I help you?");
+        conversation.add("Hi. I forgot my Brentwood account. My name is " + this.myName + ".");
+        conversation.add("Here. Don't lose it again.");
+        conversation.add("Looks like I should go to English class. Where is this R301?");
+        conversation.add("Upstairs Ross Building, next to the stairs. Bye.");
+        
+        Dialog myDialog = new Dialog(myName,"IT faculty" ,myImage, itGuy,conversation);
+        
+        frmDialog.add(myDialog);
+        frmDialog.setAlwaysOnTop(true);
+        frmDialog.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        frmDialog.setSize(new Dimension(600,425));    
+        frmDialog.setVisible(true);
+    }
+    
+        private void showDialogEnglishClass() {
+        JFrame frmDialog = new JFrame("Dialog with English teacher");
+
+        ArrayList<String> conversation = new ArrayList<>();
+        
+        conversation.clear();
+        conversation.add("YO, what's your name? I'm Mr. Collis.");
+        conversation.add("I'm" + this.myName + ". Sorry I'm late.");
+        conversation.add("It's OK~ It's hard to find these classrooms, hey? Go have a seat. In this course, we are going to learn about Shakespear...");
+        conversation.add("(after class) Thank you Mr. Collis! Oh, by the way, where is R308? I have Math class next.");
+        conversation.add("Go out this door, turn right, walk straight, on your left. See you later, have a good day.");
+        
+        Dialog myDialog = new Dialog(myName,"Mr. Collis" ,myImage, collis,conversation);
+        
+        frmDialog.add(myDialog);
+        frmDialog.setAlwaysOnTop(true);
+        frmDialog.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        frmDialog.setSize(new Dimension(600,425));    
+        frmDialog.setVisible(true);
+    }
+        
     private void showItemManager() {
         JFrame frmItemManager = new JFrame("Item Manager");
         
@@ -1651,6 +1734,12 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
             showCombat();
         } else if ("Dialog".equals(item.getType())) {
             showDialog();
+        } else if ("DialogHP".equals(item.getType())) {
+            showDialogHP();
+        } else if ("DialogIT".equals(item.getType())) {
+            showDialogIT();
+        } else if ("DialogEnglishClass".equals(item.getType())) {
+            showDialogEnglishClass();
         }
         
         System.out.println("Item " + item.getLocation() + " " + item.getType());
@@ -1702,10 +1791,11 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
     }
 
     @Override
-    public void handlePlayerCustomizationResponse(String myName, Image myImage) {
+    public void handlePlayerCustomizationResponse(String myName, Image myImage, String type) {
         System.out.println("My name: " + myName);
         this.myName = myName;
         this.myImage = myImage; 
+        this.typeOfCharacter = type;
     }
 
 }

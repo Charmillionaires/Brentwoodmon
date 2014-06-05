@@ -11,5 +11,5 @@ import java.awt.Image;
  * @author zhanglianghui
  */
 public interface PlayerCustomizationIntf {
-    public void handlePlayerCustomizationResponse(String myName, Image myImage);
+    public void handlePlayerCustomizationResponse(String myName, Image myImage, String type);
 }

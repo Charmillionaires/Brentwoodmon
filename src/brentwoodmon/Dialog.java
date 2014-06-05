@@ -19,6 +19,7 @@ public class Dialog extends javax.swing.JPanel {
     private String friendName;
     private ArrayList<String> dialog;
     private Image myImage;
+    private Image friendImage;
     private int dialogCounter = 0;
 
     /**
@@ -28,18 +29,19 @@ public class Dialog extends javax.swing.JPanel {
      * @param friendName
      * @param conversation
      */
-    public Dialog(String myName, String friendName, Image myImage, ArrayList<String> conversation) {
+    public Dialog(String myName, String friendName, Image myImage,Image friendImage, ArrayList<String> conversation) {
         initComponents();
 
         this.myName = myName;
         this.friendName = friendName;
         this.myImage = myImage;
+        this.friendImage = friendImage;
         this.dialog = conversation;
 
 //        jlblMyImage.setIcon(new ImageIcon(this.myImage.getScaledInstance(250, 250, Image.SCALE_SMOOTH)));
         
         this.jlblName.setText(this.friendName);
-        this.jlblImage.setText("???");
+        this.jlblImage.setIcon(new ImageIcon(this.friendImage.getScaledInstance(170, 200, Image.SCALE_SMOOTH)));
         this.jtxtConversation.setText(this.dialog.get(0));
 
 //        if (this.getDialogCounter() == 0) {
@@ -74,7 +76,6 @@ public class Dialog extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         jtxtConversation = new javax.swing.JTextArea();
         jpnlControls = new javax.swing.JPanel();
-        jbtnCancel = new javax.swing.JButton();
         jbtnClose = new javax.swing.JButton();
         jbtnNext = new javax.swing.JButton();
 
@@ -82,7 +83,7 @@ public class Dialog extends javax.swing.JPanel {
 
         jlblImage.setText(" ");
 
-        jlblName.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
+        jlblName.setFont(new java.awt.Font("华文隶书", 0, 36)); // NOI18N
         jlblName.setForeground(new java.awt.Color(102, 102, 255));
         jlblName.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jlblName.setText(" ");
@@ -91,6 +92,7 @@ public class Dialog extends javax.swing.JPanel {
 
         jtxtConversation.setEditable(false);
         jtxtConversation.setColumns(20);
+        jtxtConversation.setFont(new java.awt.Font("Andalus", 0, 18)); // NOI18N
         jtxtConversation.setLineWrap(true);
         jtxtConversation.setRows(5);
         jtxtConversation.setMargin(new java.awt.Insets(4, 4, 4, 4));
@@ -110,7 +112,7 @@ public class Dialog extends javax.swing.JPanel {
             jpnlConversationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpnlConversationLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -134,15 +136,12 @@ public class Dialog extends javax.swing.JPanel {
                     .addComponent(jlblImage, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jlblName, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jpnlConversation, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jpnlConversation, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jpnlControls.setBackground(new java.awt.Color(204, 204, 255));
 
-        jbtnCancel.setText("Cancel");
-
-        jbtnClose.setText("OK");
+        jbtnClose.setText("Skip");
         jbtnClose.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbtnCloseActionPerformed(evt);
@@ -162,18 +161,16 @@ public class Dialog extends javax.swing.JPanel {
             jpnlControlsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpnlControlsLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jbtnNext)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jbtnClose, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jbtnNext, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jbtnCancel))
+                .addComponent(jbtnClose, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jpnlControlsLayout.setVerticalGroup(
             jpnlControlsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpnlControlsLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jpnlControlsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jbtnCancel)
                     .addComponent(jbtnClose)
                     .addComponent(jbtnNext))
                 .addContainerGap())
@@ -192,8 +189,8 @@ public class Dialog extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jpnlPerson, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jpnlControls, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jpnlControls, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -205,12 +202,12 @@ public class Dialog extends javax.swing.JPanel {
     private void jbtnNextMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbtnNextMouseClicked
         if (this.dialogCounter< this.dialog.size()-1) {
             addToDialogCounter(1);
-        if (this.getDialogCounter() == 1) {
+        if (this.getDialogCounter() == 1 || this.getDialogCounter() == 3 || this.getDialogCounter() == 5) {
             this.jlblName.setText(this.myName);
-            jlblImage.setIcon(new ImageIcon(this.myImage.getScaledInstance(200, 200, Image.SCALE_SMOOTH)));
-        } else if (this.getDialogCounter() == 0 || this.getDialogCounter() == 2) {
+            jlblImage.setIcon(new ImageIcon(this.myImage.getScaledInstance(170, 200, Image.SCALE_SMOOTH)));
+        } else if (this.getDialogCounter() == 0 || this.getDialogCounter() == 2 || this.getDialogCounter() == 4 || this.getDialogCounter() == 6) {
             this.jlblName.setText(this.friendName);
-            jlblImage.setText("???");
+            jlblImage.setIcon(new ImageIcon(this.friendImage.getScaledInstance(170, 200, Image.SCALE_SMOOTH)));
         }
         this.jtxtConversation.setText(this.dialog.get(this.dialogCounter));
         }else{
@@ -220,7 +217,6 @@ public class Dialog extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JButton jbtnCancel;
     private javax.swing.JButton jbtnClose;
     private javax.swing.JButton jbtnNext;
     private javax.swing.JLabel jlblImage;

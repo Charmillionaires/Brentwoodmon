@@ -38,7 +38,7 @@ public class Combat extends javax.swing.JPanel implements TimerNotificationIntf 
         this.myHp = myHp;
         this.myDamage = myDamage;
 
-        jlblMyImage.setIcon(new ImageIcon(myImage.getScaledInstance(250, 250, Image.SCALE_SMOOTH)));
+        jlblMyImage.setIcon(new ImageIcon(myImage.getScaledInstance(200, 200, Image.SCALE_SMOOTH)));
         jlblEnemyImage.setIcon(new ImageIcon(enemyImage.getScaledInstance(250, 250, Image.SCALE_SMOOTH)));
 
         this.responseHandler = responseHandler;
