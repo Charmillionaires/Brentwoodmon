@@ -106,16 +106,10 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
     private Map olcafe;
     private MapVisualizerDefault mapVisualizer;
 
-    private Hero hero;
-    private Shaq shaq;
-    private Snorlax snorlax;
-    private Bull bull;
-    private Image bullSprite;
-    
-
     private CharacterProperty myProperty;
     private String myName = "player";
-    private String typeOfCharacter = "snorlax";
+    private String typeOfCharacter;
+    private AnimatedActor currentCharacter;
 //    private ArrayList<String> dialog;
     //defalt my Image
     private Image myImage = ResourceTools.loadImageFromResource("resources/snorlax_icon.jpg");
@@ -1213,6 +1207,7 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
     }
 
 //</editor-fold>
+    
     {
         mapVisualizer = new MapVisualizerDefault(true, false);
 
@@ -1490,8 +1485,6 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
         Map.addPortal(hid, new Point(10, 19), bcampus, new Point(2, 1));
         Map.addPortal(hid, new Point(13, 19), bcampus, new Point(2, 1));
         setCurrentMap(getBcampus());
-
-        this.bullSprite = (BufferedImage) ResourceTools.loadImageFromResource("resources/pokemon.png");
     }
 
     public BrentwoodEnvironment() {
@@ -1515,30 +1508,7 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
     }
 
     private void loadCharacters() {
-        if (this.typeOfCharacter == "snorlax") {
-            hero = new Hero(new Point(-1, -1), new Velocity(0, 0));
-            getActors().add(hero);
-
-            shaq = new Shaq(new Point(-1, -1), new Velocity(0, 0));
-            getActors().add(shaq);
-
-            snorlax = new Snorlax(new Point(700, 150), new Velocity(0, 0));
-            getActors().add(snorlax);
-        } else {
-
-            hero = new Hero(new Point(700, 50), new Velocity(0, 0));
-            getActors().add(hero);
-
-            shaq = new Shaq(new Point(300, 100), new Velocity(0, 0));
-            shaq.setMoveValidator(this);
-            getActors().add(shaq);
-
-            snorlax = new Snorlax(new Point(700, 150), new Velocity(0, 0));
-            getActors().add(snorlax);
-
-            bull = new Bull(new Point(700, 200), new Velocity(0, 0));
-            getActors().add(bull);
-        }
+        this.setTypeOfCharacter(CharacterType.SHAQ);
     }
 
     @Override
@@ -1553,42 +1523,24 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
             }
         }
 
-        if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-            hero.setState(State.STOP);
-            snorlax.setState(State.STOP);
-            shaq.setState(State.STOP);
-            bull.setState(State.STOP);
+        if (this.getCurrentCharacter() != null) {
+            if (e.getKeyCode() == KeyEvent.VK_SPACE) {
+                getCurrentCharacter().setState(State.STOP);
+            } else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
+                getCurrentCharacter().setState(State.FRONT_WALK);
+            } else if (e.getKeyCode() == KeyEvent.VK_UP) {
+                getCurrentCharacter().setState(State.BACK_WALK);
+            } else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
+                getCurrentCharacter().setState(State.RIGHT_WALK);
+            } else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
+                getCurrentCharacter().setState(State.LEFT_WALK);
+            } else if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+                getCurrentCharacter().setState(State.STAND);
+            }
+        }
 
-        } else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-            hero.setState(State.FRONT_WALK);
-            snorlax.setState(State.FRONT_WALK);
-            bull.setState(State.FRONT_WALK);
-        } else if (e.getKeyCode() == KeyEvent.VK_UP) {
-            hero.setState(State.BACK_WALK);
-            snorlax.setState(State.BACK_WALK);
-            bull.setState(State.BACK_WALK);
-        } else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-            hero.setState(State.RIGHT_WALK);
-            snorlax.setState(State.RIGHT_WALK);
-            bull.setState(State.RIGHT_WALK);
-        } else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-            hero.setState(State.LEFT_WALK);
-            snorlax.setState(State.LEFT_WALK);
-            bull.setState(State.LEFT_WALK);
-        } else if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-            hero.setState(State.STAND);
-            snorlax.setState(State.STAND);
-            bull.setState(State.STAND);
-        } else if (e.getKeyCode() == KeyEvent.VK_S) {
-            shaq.setState(State.FRONT_WALK);
-        } else if (e.getKeyCode() == KeyEvent.VK_W) {
-            shaq.setState(State.BACK_WALK);
-        } else if (e.getKeyCode() == KeyEvent.VK_D) {
-            shaq.setState(State.RIGHT_WALK);
-        } else if (e.getKeyCode() == KeyEvent.VK_A) {
-            shaq.setState(State.LEFT_WALK);
-        } else if (e.getKeyCode() == KeyEvent.VK_1) {
-//            showPlayerCustomization();  
+        if (e.getKeyCode() == KeyEvent.VK_1) {
+            showPlayerCustomization();  
 //            showCombat();
         }
     }
@@ -1609,10 +1561,6 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
         if (getCurrentMap() != null) {
             getCurrentMap().drawMap(graphics);
         }
-
-//        if (this.bullSprite != null) {
-//            graphics.drawImage(bullSprite, WIDTH, WIDTH, this);
-//         }
     }
 
 //<editor-fold defaultstate="collapsed" desc="Dialogs">
@@ -1808,15 +1756,68 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
         System.out.println("exp = " + myProperty.getMyExp());
     }
 
+    //<editor-fold defaultstate="collapsed" desc="Character Selection">
     @Override
     public void handlePlayerCustomizationResponse(String myName, Image myImage, String type) {
         System.out.println("My name: " + myName);
+        System.out.println("Type: " + type);
         this.myName = myName;
         this.myImage = myImage;
-        this.typeOfCharacter = type;
+        this.setTypeOfCharacter(type);
     }
-
-//<editor-fold defaultstate="collapsed" desc="MoveValidatorIntf Methods">
+    
+    /**
+     * @return the typeOfCharacter
+     */
+    public String getTypeOfCharacter() {
+        return typeOfCharacter;
+    }
+    
+    /**
+     * @param typeOfCharacter the typeOfCharacter to set
+     */
+    public void setTypeOfCharacter(String typeOfCharacter) {
+        if (!typeOfCharacter.equals(this.typeOfCharacter)) {
+            switch (typeOfCharacter) {
+                case CharacterType.BULL:
+                    setCurrentCharacter(new Bull(new Point(100, 100), new Velocity(0, 0)));
+                    break;
+                    
+                case CharacterType.HERO:
+                    setCurrentCharacter(new Hero(new Point(100, 100), new Velocity(0, 0)));
+                    break;
+                    
+                case CharacterType.SHAQ:
+                    setCurrentCharacter(new Shaq(new Point(100, 100), new Velocity(0, 0)));
+                    break;
+                    
+                case CharacterType.SNORLAX:
+                    setCurrentCharacter(new Snorlax(new Point(100, 100), new Velocity(0, 0)));
+                    break;
+            }
+        }
+        this.typeOfCharacter = typeOfCharacter;
+    }
+    
+    /**
+     * @return the currentCharacter
+     */
+    public AnimatedActor getCurrentCharacter() {
+        return currentCharacter;
+    }
+    
+    /**
+     * @param currentCharacter the currentCharacter to set
+     */
+    public void setCurrentCharacter(AnimatedActor currentCharacter) {
+        getActors().clear();
+        this.currentCharacter = currentCharacter;
+        this.currentCharacter.setMoveValidator(this);
+        getActors().add(this.currentCharacter);
+    }
+//</editor-fold>
+    
+    //<editor-fold defaultstate="collapsed" desc="MoveValidatorIntf Methods">
     @Override
     public boolean validateMove(Point currentSystemCoord, Point proposedSystemCoord) {
         if (currentMap != null) {
