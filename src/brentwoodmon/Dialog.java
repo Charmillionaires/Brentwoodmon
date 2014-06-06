@@ -78,6 +78,7 @@ public class Dialog extends javax.swing.JPanel {
         jpnlControls = new javax.swing.JPanel();
         jbtnClose = new javax.swing.JButton();
         jbtnNext = new javax.swing.JButton();
+        jbtnPrevious = new javax.swing.JButton();
 
         jpnlPerson.setBackground(new java.awt.Color(255, 255, 204));
 
@@ -155,12 +156,21 @@ public class Dialog extends javax.swing.JPanel {
             }
         });
 
+        jbtnPrevious.setText("Previous");
+        jbtnPrevious.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jbtnPreviousMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jpnlControlsLayout = new javax.swing.GroupLayout(jpnlControls);
         jpnlControls.setLayout(jpnlControlsLayout);
         jpnlControlsLayout.setHorizontalGroup(
             jpnlControlsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpnlControlsLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jbtnPrevious)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jbtnNext, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jbtnClose, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -172,7 +182,8 @@ public class Dialog extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jpnlControlsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbtnClose)
-                    .addComponent(jbtnNext))
+                    .addComponent(jbtnNext)
+                    .addComponent(jbtnPrevious))
                 .addContainerGap())
         );
 
@@ -215,10 +226,27 @@ public class Dialog extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_jbtnNextMouseClicked
 
+    private void jbtnPreviousMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbtnPreviousMouseClicked
+        if (this.dialogCounter> 1) {
+            subtractFromDialogCounter(1);
+        if (this.getDialogCounter() == 1 || this.getDialogCounter() == 3 || this.getDialogCounter() == 5) {
+            this.jlblName.setText(this.myName);
+            jlblImage.setIcon(new ImageIcon(this.myImage.getScaledInstance(170, 200, Image.SCALE_SMOOTH)));
+        } else if (this.getDialogCounter() == 0 || this.getDialogCounter() == 2 || this.getDialogCounter() == 4 || this.getDialogCounter() == 6) {
+            this.jlblName.setText(this.friendName);
+            jlblImage.setIcon(new ImageIcon(this.friendImage.getScaledInstance(170, 200, Image.SCALE_SMOOTH)));
+        }
+        this.jtxtConversation.setText(this.dialog.get(this.dialogCounter));
+        }else{
+            this.dialogCounter = 0;
+        }
+    }//GEN-LAST:event_jbtnPreviousMouseClicked
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton jbtnClose;
     private javax.swing.JButton jbtnNext;
+    private javax.swing.JButton jbtnPrevious;
     private javax.swing.JLabel jlblImage;
     private javax.swing.JLabel jlblName;
     private javax.swing.JPanel jpnlControls;
@@ -235,6 +263,10 @@ public class Dialog extends javax.swing.JPanel {
      */
     public void addToDialogCounter(int dialogCounter) {
         this.dialogCounter += dialogCounter;
+    }
+    
+    public void subtractFromDialogCounter(int dialogCounter) {
+        this.dialogCounter -= dialogCounter;
     }
 
     public int getDialogCounter() {
