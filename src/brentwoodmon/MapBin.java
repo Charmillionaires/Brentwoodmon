@@ -17,7 +17,7 @@ import map.ObstacleType;
 public class MapBin {
 
     public static Map getCampusBottomMap() {
-        Map bcampus = new Map(ResourceTools.loadImageFromResource("resources/campus_bottom.bmp"), new Dimension(16, 16), new Dimension(20, 50));
+        Map bcampus = new Map(ResourceTools.loadImageFromResource("resources/campus_bottom.bmp"), new Dimension(16, 16), new Dimension(40, 60));
 
 //        Map.addObstacle(bcampus, new Point(10, 10), ObstacleType.WATER);
 //        Map.addObstacleRange(campus, new Point(0, 0), new Point(2, 5), ObstacleType.BARRIER);
@@ -49,27 +49,61 @@ public class MapBin {
         Map.addObstacleRange(bcampus, new Point(54, 34), new Point(57, 34), ObstacleType.WATER);
         Map.addObstacleRange(bcampus, new Point(57, 33), new Point(60, 33), ObstacleType.WATER);
         Map.addObstacleRange(bcampus, new Point(60, 32), new Point(64, 32), ObstacleType.WATER);
+        Map.addObstacleRange(bcampus, new Point(22, 10), new Point(23, 10), ObstacleType.WATER);
+        Map.addObstacleRange(bcampus, new Point(22, 11), new Point(23, 11), ObstacleType.WATER);
+
         //cliffs and such nono jumpy zones
+        Map.addObstacleRange(bcampus, new Point(1, 0), new Point(1, 24), ObstacleType.BARRIER);
         Map.addObstacleRange(bcampus, new Point(11, 0), new Point(11, 9), ObstacleType.BARRIER);
         Map.addObstacleRange(bcampus, new Point(11, 9), new Point(14, 9), ObstacleType.BARRIER);
-        
+        Map.addObstacleRange(bcampus, new Point(39, 0), new Point(39, 6), ObstacleType.BARRIER);
+        Map.addObstacleRange(bcampus, new Point(34, 0), new Point(34, 5), ObstacleType.BARRIER);
+        Map.addObstacleRange(bcampus, new Point(15, 6), new Point(33, 6), ObstacleType.BARRIER);
+        Map.addObstacleRange(bcampus, new Point(24, 7), new Point(33, 7), ObstacleType.BARRIER);
+        Map.addObstacleRange(bcampus, new Point(26, 8), new Point(32, 8), ObstacleType.BARRIER);
+        Map.addObstacleRange(bcampus, new Point(1, 24), new Point(12, 24), ObstacleType.BARRIER);
+        Map.addObstacleRange(bcampus, new Point(4, 20), new Point(4, 24), ObstacleType.BARRIER);
+        Map.addObstacleRange(bcampus, new Point(10, 21), new Point(10, 24), ObstacleType.BARRIER);
+        Map.addObstacleRange(bcampus, new Point(4, 21), new Point(6, 21), ObstacleType.BARRIER);
+        Map.addObstacleRange(bcampus, new Point(9, 21), new Point(10, 21), ObstacleType.BARRIER);
+        Map.addObstacleRange(bcampus, new Point(20, 15), new Point(23, 15), ObstacleType.BARRIER);
+        Map.addObstacleRange(bcampus, new Point(23, 15), new Point(23, 17), ObstacleType.BARRIER);
+        Map.addObstacleRange(bcampus, new Point(25, 15), new Point(30, 15), ObstacleType.BARRIER);
+        Map.addObstacleRange(bcampus, new Point(25, 15), new Point(25, 17), ObstacleType.BARRIER);
+        Map.addObstacleRange(bcampus, new Point(39, 6), new Point(42, 6), ObstacleType.BARRIER);
+        Map.addObstacleRange(bcampus, new Point(39, 7), new Point(42, 7), ObstacleType.BARRIER);
+        Map.addObstacleRange(bcampus, new Point(38, 8), new Point(38, 12), ObstacleType.BARRIER);
+        Map.addObstacleRange(bcampus, new Point(43, 8), new Point(43, 11), ObstacleType.BARRIER);
+        Map.addObstacleRange(bcampus, new Point(39, 12), new Point(41, 12), ObstacleType.BARRIER);
+        Map.addObstacleRange(bcampus, new Point(50, 31), new Point(59, 31), ObstacleType.BARRIER);
+
         //it's a bush
         Map.addObstacleRange(bcampus, new Point(14, 0), new Point(14, 9), ObstacleType.BUSH);
         Map.addObstacleRange(bcampus, new Point(14, 2), new Point(32, 2), ObstacleType.BUSH);
+        Map.addObstacleRange(bcampus, new Point(33, 0), new Point(33, 2), ObstacleType.BUSH);
+        Map.addObstacleRange(bcampus, new Point(27, 9), new Point(35, 9), ObstacleType.BUSH);
+        Map.addObstacleRange(bcampus, new Point(27, 11), new Point(35, 11), ObstacleType.BUSH);
+        Map.addObstacleRange(bcampus, new Point(27, 12), new Point(35, 12), ObstacleType.BUSH);
+        Map.addObstacleRange(bcampus, new Point(27, 28), new Point(27, 31), ObstacleType.BUSH);
+        Map.addObstacleRange(bcampus, new Point(38, 27), new Point(38, 32), ObstacleType.BUSH);
+        Map.addObstacleRange(bcampus, new Point(20, 17), new Point(22, 17), ObstacleType.BUSH);
+        Map.addObstacleRange(bcampus, new Point(20, 15), new Point(20, 17), ObstacleType.BUSH);
+        Map.addObstacleRange(bcampus, new Point(26, 17), new Point(30, 17), ObstacleType.BUSH);
+        Map.addObstacleRange(bcampus, new Point(30, 16), new Point(30, 17), ObstacleType.BUSH);
 
         //there might be another obstacle
-        
-        
+
+
         //treasure box location
-        Map.addItem(bcampus, new Point(10,10),"TB");
-        
-        
+        Map.addItem(bcampus, new Point(10, 10), "TB");
+
+
         //combat location
-        Map.addItem(bcampus, new Point(5,5), "Combat");
-        
+        Map.addItem(bcampus, new Point(5, 5), "Combat");
+
         //dialog location
-        Map.addItem(bcampus, new Point(8,8), "Dialog");
-        
+        Map.addItem(bcampus, new Point(8, 8), "Dialog");
+
         return bcampus;
     }
 
@@ -82,9 +116,9 @@ public class MapBin {
 
         return ucampus;
     }
-        static Map getDownSRossMap() {
-        Map dross = new Map(ResourceTools.loadImageFromResource("resources/ross_downstair.jpg"), new Dimension(16, 16), new Dimension(44, 48));
 
+    static Map getDownSRossMap() {
+        Map dross = new Map(ResourceTools.loadImageFromResource("resources/ross_downstair.jpg"), new Dimension(16, 16), new Dimension(44, 48));
         return dross;
     }
 
@@ -141,10 +175,10 @@ public class MapBin {
 
     static Map getClassroom3Map() {
         Map classroomthree = new Map(ResourceTools.loadImageFromResource("resources/classroom.bmp"), new Dimension(16, 16), new Dimension(20, 20));
-        
+
         //dialog location
-        Map.addItem(classroomthree, new Point(3,2), "DialogEnglishClass");
-        
+        Map.addItem(classroomthree, new Point(3, 2), "DialogEnglishClass");
+
         return classroomthree;
     }
 
@@ -195,7 +229,7 @@ public class MapBin {
 
     static Map getAlexEntranceMap() {
         Map adent = new Map(ResourceTools.loadImageFromResource("resources/house_entrance.bmp"), new Dimension(16, 16), new Dimension(30, 30));
-        Map.addItem(adent, new Point(7,18), "DialogHP");
+        Map.addItem(adent, new Point(7, 18), "DialogHP");
         return adent;
     }
 
@@ -275,7 +309,7 @@ public class MapBin {
     }
 
     static Map getITMap() {
-        Map underit = new Map(ResourceTools.loadImageFromResource("resources/under_ground.bmp"), new Dimension(16, 16), new Dimension(30, 70));     
+        Map underit = new Map(ResourceTools.loadImageFromResource("resources/under_ground.bmp"), new Dimension(16, 16), new Dimension(30, 70));
         return underit;
     }
 
@@ -286,10 +320,10 @@ public class MapBin {
 
     static Map getOldBuildingMap() {
         Map olaca = new Map(ResourceTools.loadImageFromResource("resources/old_building.bmp"), new Dimension(16, 16), new Dimension(30, 30));
-                
+
         //dialog location
-        Map.addItem(olaca, new Point(13,3), "DialogIT");
-        
+        Map.addItem(olaca, new Point(13, 3), "DialogIT");
+
         return olaca;
     }
 
@@ -300,223 +334,222 @@ public class MapBin {
 
     static Map getDorm1AlexMap() {
         Map adorm1 = new Map(ResourceTools.loadImageFromResource("resources/dorm_room.bmp"), new Dimension(16, 16), new Dimension(30, 30));
-        
+
         //dialog location
-        Map.addItem(adorm1, new Point(10,2), "Dialog");
-        
+        Map.addItem(adorm1, new Point(10, 2), "Dialog");
+
         return adorm1;
     }
 
     static Map getDorm2AlexMap() {
         Map adorm2 = new Map(ResourceTools.loadImageFromResource("resources/dorm_room_2.bmp"), new Dimension(16, 16), new Dimension(30, 30));
-        
+
         //dialog location
-        Map.addItem(adorm2, new Point(10,2), "Dialog");
-        
+        Map.addItem(adorm2, new Point(10, 2), "Dialog");
+
         return adorm2;
     }
 
     static Map getDorm3AlexMap() {
         Map adorm3 = new Map(ResourceTools.loadImageFromResource("resources/dorm_room_3.bmp"), new Dimension(16, 16), new Dimension(30, 30));
-        
+
         //dialog location
-        Map.addItem(adorm3, new Point(10,2), "Dialog");
-        
+        Map.addItem(adorm3, new Point(10, 2), "Dialog");
+
         return adorm3;
     }
 
     static Map getDorm1HopeMap() {
         Map hdorm1 = new Map(ResourceTools.loadImageFromResource("resources/dorm_room.bmp"), new Dimension(16, 16), new Dimension(30, 30));
-        
+
         //dialog location
-        Map.addItem(hdorm1, new Point(10,2), "Dialog");
-        
+        Map.addItem(hdorm1, new Point(10, 2), "Dialog");
+
         return hdorm1;
     }
 
     static Map getDorm2HopeMap() {
         Map hdorm2 = new Map(ResourceTools.loadImageFromResource("resources/dorm_room_2.bmp"), new Dimension(16, 16), new Dimension(30, 30));
-        
+
         //dialog location
-        Map.addItem(hdorm2, new Point(10,2), "Dialog");
-        
+        Map.addItem(hdorm2, new Point(10, 2), "Dialog");
+
         return hdorm2;
     }
 
     static Map getDorm3HopeMap() {
         Map hdorm3 = new Map(ResourceTools.loadImageFromResource("resources/dorm_room_3.bmp"), new Dimension(16, 16), new Dimension(30, 30));
-        
+
         //dialog location
-        Map.addItem(hdorm3, new Point(10,2), "Dialog");
-        
+        Map.addItem(hdorm3, new Point(10, 2), "Dialog");
+
         return hdorm3;
     }
 
     static Map getDorm1AllardMap() {
         Map aldorm1 = new Map(ResourceTools.loadImageFromResource("resources/dorm_room.bmp"), new Dimension(16, 16), new Dimension(30, 30));
-        
+
         //dialog location
-        Map.addItem(aldorm1, new Point(10,2), "Dialog");
-        
+        Map.addItem(aldorm1, new Point(10, 2), "Dialog");
+
         return aldorm1;
     }
 
     static Map getDorm2AllardMap() {
         Map aldorm2 = new Map(ResourceTools.loadImageFromResource("resources/dorm_room_2.bmp"), new Dimension(16, 16), new Dimension(30, 30));
-        
+
         //dialog location
-        Map.addItem(aldorm2, new Point(10,2), "Dialog");
-        
+        Map.addItem(aldorm2, new Point(10, 2), "Dialog");
+
         return aldorm2;
     }
 
     static Map getDorm3AllardMap() {
         Map aldorm3 = new Map(ResourceTools.loadImageFromResource("resources/dorm_room_3.bmp"), new Dimension(16, 16), new Dimension(30, 30));
-        
+
         //dialog location
-        Map.addItem(aldorm3, new Point(10,2), "Dialog");
-        
+        Map.addItem(aldorm3, new Point(10, 2), "Dialog");
+
         return aldorm3;
     }
 
     static Map getDorm1MackMap() {
         Map mdorm1 = new Map(ResourceTools.loadImageFromResource("resources/dorm_room.bmp"), new Dimension(16, 16), new Dimension(30, 30));
-        
+
         //dialog location
-        Map.addItem(mdorm1, new Point(10,2), "Dialog");
-        
+        Map.addItem(mdorm1, new Point(10, 2), "Dialog");
+
         return mdorm1;
     }
 
     static Map getDorm2MackMap() {
         Map mdorm2 = new Map(ResourceTools.loadImageFromResource("resources/dorm_room_2.bmp"), new Dimension(16, 16), new Dimension(30, 30));
-        
+
         //dialog location
-        Map.addItem(mdorm2, new Point(10,2), "Dialog");
-        
+        Map.addItem(mdorm2, new Point(10, 2), "Dialog");
+
         return mdorm2;
     }
 
     static Map getDorm3MackMap() {
         Map mdorm3 = new Map(ResourceTools.loadImageFromResource("resources/dorm_room_3.bmp"), new Dimension(16, 16), new Dimension(30, 30));
-        
+
         //dialog location
-        Map.addItem(mdorm3, new Point(10,2), "Dialog");
-        
+        Map.addItem(mdorm3, new Point(10, 2), "Dialog");
+
         return mdorm3;
     }
 
     static Map getDorm1WhittalMap() {
         Map wdorm1 = new Map(ResourceTools.loadImageFromResource("resources/dorm_room.bmp"), new Dimension(16, 16), new Dimension(30, 30));
-        
+
         //dialog location
-        Map.addItem(wdorm1, new Point(10,2), "Dialog");
-        
+        Map.addItem(wdorm1, new Point(10, 2), "Dialog");
+
         return wdorm1;
     }
 
     static Map getDorm2WhittalMap() {
         Map wdorm2 = new Map(ResourceTools.loadImageFromResource("resources/dorm_room_2.bmp"), new Dimension(16, 16), new Dimension(30, 30));
-        
+
         //dialog location
-        Map.addItem(wdorm2, new Point(10,2), "Dialog");
-        
+        Map.addItem(wdorm2, new Point(10, 2), "Dialog");
+
         return wdorm2;
     }
 
     static Map getDorm3WhittalMap() {
         Map wdorm3 = new Map(ResourceTools.loadImageFromResource("resources/dorm_room_3.bmp"), new Dimension(16, 16), new Dimension(30, 30));
-        
+
         //dialog location
-        Map.addItem(wdorm3, new Point(10,2), "Dialog");
-        
+        Map.addItem(wdorm3, new Point(10, 2), "Dialog");
+
         return wdorm3;
     }
 
     static Map getDorm1RogersMap() {
         Map rdorm1 = new Map(ResourceTools.loadImageFromResource("resources/dorm_room.bmp"), new Dimension(16, 16), new Dimension(30, 30));
-        
+
         //dialog location
-        Map.addItem(rdorm1, new Point(10,2), "Dialog");
-        
+        Map.addItem(rdorm1, new Point(10, 2), "Dialog");
+
         return rdorm1;
     }
 
     static Map getDorm2RogersMap() {
         Map rdorm2 = new Map(ResourceTools.loadImageFromResource("resources/dorm_room_2.bmp"), new Dimension(16, 16), new Dimension(30, 30));
-        
+
         //dialog location
-        Map.addItem(rdorm2, new Point(10,2), "Dialog");
-        
+        Map.addItem(rdorm2, new Point(10, 2), "Dialog");
+
         return rdorm2;
     }
 
     static Map getDorm3RogersMap() {
         Map rdorm3 = new Map(ResourceTools.loadImageFromResource("resources/dorm_room_3.bmp"), new Dimension(16, 16), new Dimension(30, 30));
-        
+
         //dialog location
-        Map.addItem(rdorm3, new Point(10,2), "Dialog");
-        
+        Map.addItem(rdorm3, new Point(10, 2), "Dialog");
+
         return rdorm3;
     }
 
     static Map getDorm1PrivettMap() {
         Map pdorm1 = new Map(ResourceTools.loadImageFromResource("resources/dorm_room.bmp"), new Dimension(16, 16), new Dimension(30, 30));
-        
+
         //dialog location
-        Map.addItem(pdorm1, new Point(10,2), "Dialog");
-        
+        Map.addItem(pdorm1, new Point(10, 2), "Dialog");
+
         return pdorm1;
     }
 
     static Map getDorm2PrivettMap() {
         Map pdorm2 = new Map(ResourceTools.loadImageFromResource("resources/dorm_room_2.bmp"), new Dimension(16, 16), new Dimension(30, 30));
-        
+
         //dialog location
-        Map.addItem(pdorm2, new Point(10,2), "Dialog");
-        
+        Map.addItem(pdorm2, new Point(10, 2), "Dialog");
+
         return pdorm2;
     }
 
     static Map getDorm3PrivettMap() {
         Map pdorm3 = new Map(ResourceTools.loadImageFromResource("resources/dorm_room_3.bmp"), new Dimension(16, 16), new Dimension(30, 30));
-        
+
         //dialog location
-        Map.addItem(pdorm3, new Point(10,2), "Dialog");
-        
+        Map.addItem(pdorm3, new Point(10, 2), "Dialog");
+
         return pdorm3;
     }
 
     static Map getDorm1EllisMap() {
         Map edorm1 = new Map(ResourceTools.loadImageFromResource("resources/dorm_room.bmp"), new Dimension(16, 16), new Dimension(30, 30));
-        
+
         //dialog location
-        Map.addItem(edorm1, new Point(10,2), "Dialog");
-        
+        Map.addItem(edorm1, new Point(10, 2), "Dialog");
+
         return edorm1;
     }
 
     static Map getDorm2EllisMap() {
         Map edorm2 = new Map(ResourceTools.loadImageFromResource("resources/dorm_room_2.bmp"), new Dimension(16, 16), new Dimension(30, 30));
-        
+
         //dialog location
-        Map.addItem(edorm2, new Point(10,2), "Dialog");
-        
+        Map.addItem(edorm2, new Point(10, 2), "Dialog");
+
         return edorm2;
     }
 
     static Map getDorm3EllisMap() {
         Map edorm3 = new Map(ResourceTools.loadImageFromResource("resources/dorm_room_3.bmp"), new Dimension(16, 16), new Dimension(30, 30));
-        
+
         //dialog location
-        Map.addItem(edorm3, new Point(10,2), "Dialog");
-        
+        Map.addItem(edorm3, new Point(10, 2), "Dialog");
+
         return edorm3;
     }
+
     static Map getOldCafeMap() {
         Map olcafe = new Map(ResourceTools.loadImageFromResource("resources/old_cafe.bmp"), new Dimension(16, 16), new Dimension(30, 30));
         return olcafe;
     }
-    
-    
 }

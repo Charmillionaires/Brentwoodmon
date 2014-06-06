@@ -1323,6 +1323,8 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
         Map.addPortal(mcafe, new Point(3, 1), bcampus, new Point(7, 21));
         Map.addPortal(mcafe, new Point(1, 2), dcafe, new Point(1, 2));
         Map.addPortal(dcafe, new Point(1, 2), mcafe, new Point(1, 2));
+        Map.addPortal(dcafe, new Point(15, 18), bcampus, new Point(7, 25));
+        Map.addPortal(bcampus, new Point(7, 25), dcafe, new Point(15, 18));
 
         //campus
         Map.addPortal(bcampus, new Point(37, 0), ucampus, new Point(25, 34));
