@@ -153,7 +153,7 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
 
     @Override
     public void initializeEnvironment() {
-        loadCharacters();
+        loadCharacters();  
     }
 
     private void loadCharacters() {
