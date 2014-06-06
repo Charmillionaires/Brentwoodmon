@@ -112,10 +112,10 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
     private AnimatedActor currentCharacter;
 //    private ArrayList<String> dialog;
     //defalt my Image
-    private Image myImage = ResourceTools.loadImageFromResource("resources/snorlax_icon.jpg");
-    private Image snorlax_icon = ResourceTools.loadImageFromResource("resources/snorlax_icon.jpg");
-    private Image shaq_icon = ResourceTools.loadImageFromResource("resources/shaq_icon.jpg");
-    private Image hero_icon = ResourceTools.loadImageFromResource("resources/hero_icon.jpg");
+    private Image myImage = ResourceTools.loadImageFromResource("resources/snorlax.png");
+    private Image snorlax_icon;
+    private Image shaq_icon;
+    private Image hero_icon;
     private Image charmander_icon = ResourceTools.loadImageFromResource("resources/charmander_icon.jpg");
     private Image garvey = ResourceTools.loadImageFromResource("resources/garvey.jpg");
     private Image roommate = ResourceTools.loadImageFromResource("resources/roommate.JPG");
@@ -1510,7 +1510,7 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
     }
 
     private void loadCharacters() {
-        this.setTypeOfCharacter(CharacterType.SHAQ);
+        showPlayerCustomization();
     }
 
     @Override
@@ -1678,6 +1678,10 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
     }
 
     private void showPlayerCustomization() {
+        this.snorlax_icon = ResourceTools.loadImageFromResource("resources/snorlax.png");
+        this.shaq_icon = ResourceTools.loadImageFromResource("resources/shaq.png");
+        this.hero_icon = ResourceTools.loadImageFromResource("resources/hero.png");
+
         JFrame frmPlayerCustomization = new JFrame("PlayerCustomization");
 
         PlayerCustomization myPlayerCustomization = new PlayerCustomization(snorlax_icon, shaq_icon, hero_icon, this);
