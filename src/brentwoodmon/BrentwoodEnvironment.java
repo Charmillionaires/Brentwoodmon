@@ -23,6 +23,7 @@ import map.Map;
 import map.MapVisualizerDefault;
 import map.Obstacle;
 import map.ObstacleEventHandlerIntf;
+import map.ObstacleType;
 import map.Portal;
 import map.PortalEventHandlerIntf;
 
@@ -30,7 +31,9 @@ import map.PortalEventHandlerIntf;
  *
  * @author kimberlygilson
  */
-public class BrentwoodEnvironment extends Environment implements PortalEventHandlerIntf, ObstacleEventHandlerIntf, ItemEventHandlerIntf, ItemManagerResponseIntf, CombatResponseIntf, PlayerCustomizationIntf {
+public class BrentwoodEnvironment extends Environment implements PortalEventHandlerIntf,
+        ObstacleEventHandlerIntf, ItemEventHandlerIntf, ItemManagerResponseIntf,
+        CombatResponseIntf, PlayerCustomizationIntf, MoveValidatorIntf {
 
 //<editor-fold defaultstate="collapsed" desc="Properties">
     private Map currentMap;
@@ -102,10 +105,14 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
     private Map pdorm3;
     private Map olcafe;
     private MapVisualizerDefault mapVisualizer;
+
     private Hero hero;
     private Shaq shaq;
     private Snorlax snorlax;
+    private Bull bull;
+    private Image bullSprite;
     
+
     private CharacterProperty myProperty;
     private String myName = "player";
     private String typeOfCharacter = "snorlax";
@@ -121,7 +128,7 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
     private Image mais = ResourceTools.loadImageFromResource("resources/mais.jpg");
     private Image itGuy = ResourceTools.loadImageFromResource("resources/it_guy.jpg");
     private Image collis = ResourceTools.loadImageFromResource("resources/collis.jpg");
-            
+
     /**
      * @return the bcampus
      */
@@ -183,6 +190,7 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
         this.myProperty = new CharacterProperty();
 //        mapVisualizer = new MapVisualizerDefault(true, false);
     }
+
     //<editor-fold defaultstate="collapsed" desc="Initialize Maps">    
     /**
      * @return the uross
@@ -448,7 +456,6 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
     public void setGym(Map gym) {
         this.gym = gym;
         configureMap(this.gym);
-
 
     }
 
@@ -996,7 +1003,6 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
     public void setMdorm3(Map mdorm3) {
         this.mdorm3 = mdorm3;
         configureMap(this.mdorm3);
-
     }
 
     /**
@@ -1205,8 +1211,8 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
         this.olcafe = olcafe;
         configureMap(this.olcafe);
     }
+
 //</editor-fold>
-    
     {
         mapVisualizer = new MapVisualizerDefault(true, false);
 
@@ -1278,8 +1284,6 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
         setPdorm3(MapBin.getDorm3PrivettMap());
         setOlcafe(MapBin.getOldCafeMap());
 
-
-
         //ross
         Map.addPortal(bcampus, new Point(30, 19), mross, new Point(9, 9));
         Map.addPortal(mross, new Point(9, 8), bcampus, new Point(30, 19));
@@ -1310,7 +1314,6 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
         Map.addPortal(office, new Point(6, 12), mross, new Point(5, 3));
 
         //5,3  9,3
-
         //arts build
         Map.addPortal(bcampus, new Point(21, 22), marts, new Point(28, 12));
         Map.addPortal(marts, new Point(28, 12), bcampus, new Point(21, 22));
@@ -1325,7 +1328,6 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
         Map.addPortal(mcafe, new Point(3, 1), bcampus, new Point(7, 21));
         Map.addPortal(mcafe, new Point(1, 2), dcafe, new Point(1, 2));
         Map.addPortal(dcafe, new Point(1, 2), mcafe, new Point(1, 2));
-
 
         //campus
         Map.addPortal(bcampus, new Point(37, 0), ucampus, new Point(25, 34));
@@ -1358,7 +1360,6 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
         Map.addPortal(aldorm2, new Point(10, 1), alhent, new Point(7, 1));
         Map.addPortal(aldorm3, new Point(10, 1), alhent, new Point(10, 1));
 
-
         //alex
         Map.addPortal(bcampus, new Point(42, 12), adent, new Point(7, 21));
         Map.addPortal(bcampus, new Point(43, 12), adent, new Point(7, 21));
@@ -1373,7 +1374,6 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
         Map.addPortal(adorm2, new Point(10, 1), ahent, new Point(7, 1));
         Map.addPortal(adorm3, new Point(10, 1), ahent, new Point(10, 1));
 
-
         //mack
         Map.addPortal(bcampus, new Point(34, 6), mdent, new Point(7, 21));
         Map.addPortal(mdent, new Point(7, 21), bcampus, new Point(34, 6));
@@ -1386,9 +1386,6 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
         Map.addPortal(mdorm1, new Point(10, 1), mhent, new Point(4, 1));
         Map.addPortal(mdorm2, new Point(10, 1), mhent, new Point(7, 1));
         Map.addPortal(mdorm3, new Point(10, 1), mhent, new Point(10, 1));
-
-
-
 
         //hope
         Map.addPortal(ucampus, new Point(45, 33), hdent, new Point(7, 21));
@@ -1403,7 +1400,6 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
         Map.addPortal(hdorm2, new Point(10, 1), hhent, new Point(7, 1));
         Map.addPortal(hdorm3, new Point(10, 1), hhent, new Point(10, 1));
 
-
         //rogers
         Map.addPortal(ucampus, new Point(38, 33), rdent, new Point(7, 21));
         Map.addPortal(rdent, new Point(7, 21), ucampus, new Point(38, 33));
@@ -1416,7 +1412,6 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
         Map.addPortal(rdorm1, new Point(10, 1), rhent, new Point(4, 1));
         Map.addPortal(rdorm2, new Point(10, 1), rhent, new Point(7, 1));
         Map.addPortal(rdorm3, new Point(10, 1), rhent, new Point(10, 1));
-
 
         //ellis
         Map.addPortal(ucampus, new Point(59, 33), edent, new Point(7, 21));
@@ -1432,6 +1427,17 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
         Map.addPortal(edorm2, new Point(10, 1), ehent, new Point(7, 1));
         Map.addPortal(edorm3, new Point(10, 1), ehent, new Point(10, 1));
 
+// validate these, please!
+        Map.addPortal(getBcampus(), new Point(30, 19), getDross(), new Point(9, 9));
+
+        Map.addPortal(getDross(), new Point(9, 9), getBcampus(), new Point(30, 19));
+        Map.addPortal(getDross(), new Point(5, 9), getBcampus(), new Point(30, 19));
+
+        Map.addPortal(getBcampus(), new Point(37, 0), getUcampus(), new Point(25, 34));
+        Map.addPortal(getBcampus(), new Point(36, 0), getUcampus(), new Point(24, 34));
+        Map.addPortal(getUcampus(), new Point(24, 34), getBcampus(), new Point(36, 0));
+        Map.addPortal(getUcampus(), new Point(25, 34), getBcampus(), new Point(37, 0));
+// stop validating!
 
         //whittal
         Map.addPortal(bcampus, new Point(49, 9), wdent, new Point(7, 21));
@@ -1446,7 +1452,6 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
         Map.addPortal(wdorm2, new Point(10, 1), whent, new Point(7, 1));
         Map.addPortal(wdorm3, new Point(10, 1), whent, new Point(10, 1));
 
-
         //privett
         Map.addPortal(bcampus, new Point(61, 5), pdent, new Point(7, 21));
         Map.addPortal(pdent, new Point(7, 21), bcampus, new Point(61, 5));
@@ -1460,19 +1465,16 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
         Map.addPortal(pdorm2, new Point(10, 1), phent, new Point(7, 1));
         Map.addPortal(pdorm3, new Point(10, 1), phent, new Point(10, 1));
 
-
         //mt
         Map.addPortal(bcampus, new Point(63, 20), mt, new Point(0, 8));
         Map.addPortal(mt, new Point(0, 8), bcampus, new Point(63, 20));
         Map.addPortal(mt, new Point(0, 9), bcampus, new Point(63, 20));
-
 
         //it
         Map.addPortal(olaca, new Point(3, 13), underit, new Point(2, 0));
         Map.addPortal(underit, new Point(2, 0), olaca, new Point(3, 13));
         Map.addPortal(underit, new Point(48, 12), bcampus, new Point(63, 23));
         Map.addPortal(bcampus, new Point(64, 13), underit, new Point(48, 12));
-
 
         //ol academic
         Map.addPortal(bcampus, new Point(47, 25), olaca, new Point(8, 34));
@@ -1482,20 +1484,20 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
         Map.addPortal(bcampus, new Point(52, 25), olcafe, new Point(3, 1));
         Map.addPortal(olcafe, new Point(3, 1), bcampus, new Point(52, 25));
 
-
-
         //hidden
         Map.addPortal(bcampus, new Point(2, 1), hid, new Point(11, 19));
         Map.addPortal(hid, new Point(11, 19), bcampus, new Point(2, 1));
         Map.addPortal(hid, new Point(10, 19), bcampus, new Point(2, 1));
         Map.addPortal(hid, new Point(13, 19), bcampus, new Point(2, 1));
         setCurrentMap(getBcampus());
+
+        this.bullSprite = (BufferedImage) ResourceTools.loadImageFromResource("resources/pokemon.png");
     }
 
     public BrentwoodEnvironment() {
         super();
     }
-    
+
     private void configureMap(Map map) {
         map.setMapVisualizer(mapVisualizer);
         map.setPortalEventHandler(this);
@@ -1514,26 +1516,29 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
 
     private void loadCharacters() {
         if (this.typeOfCharacter == "snorlax") {
-        hero = new Hero(new Point(-1, -1), new Velocity(0, 0));
-        getActors().add(hero);
+            hero = new Hero(new Point(-1, -1), new Velocity(0, 0));
+            getActors().add(hero);
 
-        shaq = new Shaq(new Point(-1, -1), new Velocity(0, 0));
-        getActors().add(shaq);
-      
-        snorlax = new Snorlax(new Point(700, 150), new Velocity(0, 0));
-        getActors().add(snorlax);
-        }else{
-            
-        hero = new Hero(new Point(700, 50), new Velocity(0, 0));
-        getActors().add(hero);
+            shaq = new Shaq(new Point(-1, -1), new Velocity(0, 0));
+            getActors().add(shaq);
 
-        shaq = new Shaq(new Point(700, 100), new Velocity(0, 0));
-        getActors().add(shaq);
-      
-        snorlax = new Snorlax(new Point(700, 150), new Velocity(0, 0));
-        getActors().add(snorlax);
+            snorlax = new Snorlax(new Point(700, 150), new Velocity(0, 0));
+            getActors().add(snorlax);
+        } else {
+
+            hero = new Hero(new Point(700, 50), new Velocity(0, 0));
+            getActors().add(hero);
+
+            shaq = new Shaq(new Point(300, 100), new Velocity(0, 0));
+            shaq.setMoveValidator(this);
+            getActors().add(shaq);
+
+            snorlax = new Snorlax(new Point(700, 150), new Velocity(0, 0));
+            getActors().add(snorlax);
+
+            bull = new Bull(new Point(700, 200), new Velocity(0, 0));
+            getActors().add(bull);
         }
-        
     }
 
     @Override
@@ -1552,21 +1557,28 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
             hero.setState(State.STOP);
             snorlax.setState(State.STOP);
             shaq.setState(State.STOP);
+            bull.setState(State.STOP);
+
         } else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
             hero.setState(State.FRONT_WALK);
             snorlax.setState(State.FRONT_WALK);
+            bull.setState(State.FRONT_WALK);
         } else if (e.getKeyCode() == KeyEvent.VK_UP) {
             hero.setState(State.BACK_WALK);
             snorlax.setState(State.BACK_WALK);
+            bull.setState(State.BACK_WALK);
         } else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
             hero.setState(State.RIGHT_WALK);
             snorlax.setState(State.RIGHT_WALK);
+            bull.setState(State.RIGHT_WALK);
         } else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
             hero.setState(State.LEFT_WALK);
             snorlax.setState(State.LEFT_WALK);
+            bull.setState(State.LEFT_WALK);
         } else if (e.getKeyCode() == KeyEvent.VK_ENTER) {
             hero.setState(State.STAND);
             snorlax.setState(State.STAND);
+            bull.setState(State.STAND);
         } else if (e.getKeyCode() == KeyEvent.VK_S) {
             shaq.setState(State.FRONT_WALK);
         } else if (e.getKeyCode() == KeyEvent.VK_W) {
@@ -1576,10 +1588,11 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
         } else if (e.getKeyCode() == KeyEvent.VK_A) {
             shaq.setState(State.LEFT_WALK);
         } else if (e.getKeyCode() == KeyEvent.VK_1) {
-            showPlayerCustomization();  
+//            showPlayerCustomization();  
+//            showCombat();
         }
     }
-    
+
     @Override
     public void keyReleasedHandler(KeyEvent e) {
     }
@@ -1596,134 +1609,137 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
         if (getCurrentMap() != null) {
             getCurrentMap().drawMap(graphics);
         }
+
+//        if (this.bullSprite != null) {
+//            graphics.drawImage(bullSprite, WIDTH, WIDTH, this);
+//         }
     }
 
 //<editor-fold defaultstate="collapsed" desc="Dialogs">
     private void showCombat() {
         JFrame frmCombat = new JFrame("Combat");
-        
-        Combat myCombat = new Combat(myName,myImage, charmander_icon, myProperty.getMyHp(),myProperty.getMyDamage(),this);
-        
+        Combat myCombat = new Combat(myName, myImage, charmander_icon, myProperty.getMyHp(), myProperty.getMyDamage(), this);
+
         frmCombat.add(myCombat);
         frmCombat.setAlwaysOnTop(true);
         frmCombat.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        frmCombat.setSize(new Dimension(600,400));
-        
+        frmCombat.setSize(new Dimension(600, 400));
+
         frmCombat.setVisible(true);
     }
-    
+
     private void showDialog() {
         JFrame frmDialog = new JFrame("Dialog");
 
         ArrayList<String> conversation = new ArrayList<>();
-        
+
         conversation.add(this.myName + ", it's time for class. We should go.");
         conversation.add("OK. What class do we have?");
         conversation.add("We have different schedule...You should go ask our house parent. She is downstairs.");
 //        conversation.add("Welcome to Brentwood College School! Start your advanture and become the best student.");
 //        conversation.add("OK. Where should I start?");
 //        conversation.add("Go find your house parent in the common room.");
-        
-        Dialog myDialog = new Dialog(myName,"Roommate" ,myImage, roommate,conversation);
-        
+
+        Dialog myDialog = new Dialog(myName, "Roommate", myImage, roommate, conversation);
+
         frmDialog.add(myDialog);
         frmDialog.setAlwaysOnTop(true);
         frmDialog.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        frmDialog.setSize(new Dimension(600,425));    
+        frmDialog.setSize(new Dimension(600, 425));
         frmDialog.setVisible(true);
     }
-    
-        private void showDialogHP() {
+
+    private void showDialogHP() {
         JFrame frmDialog = new JFrame("Dialog with House Parent");
 
         ArrayList<String> conversation = new ArrayList<>();
-        
+
         conversation.clear();
         conversation.add("Good morning, " + this.myName + ".");
         conversation.add("Good morning Mrs. Mais! I don't know which class should I go to. Can you help me?");
         conversation.add("You can check your schedule on SDS: https://sds.brentwood.bc.ca/. Use your Brentwood account to login. It's the same for your Brentwood email.");
         conversation.add("OK...But I forgot my account.");
         conversation.add("Oh well, you can ask IT about it. It's in the old academic building. Be quick, you are going to be late for class.");
-        
-        Dialog myDialog = new Dialog(myName,"Mrs. Mais" ,myImage, mais,conversation);
-        
+
+        Dialog myDialog = new Dialog(myName, "Mrs. Mais", myImage, mais, conversation);
+
         frmDialog.add(myDialog);
         frmDialog.setAlwaysOnTop(true);
         frmDialog.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        frmDialog.setSize(new Dimension(600,425));    
+        frmDialog.setSize(new Dimension(600, 425));
         frmDialog.setVisible(true);
     }
-        
-        private void showDialogIT() {
+
+    private void showDialogIT() {
         JFrame frmDialog = new JFrame("Dialog with the IT");
 
         ArrayList<String> conversation = new ArrayList<>();
-        
+
         conversation.clear();
         conversation.add("...How can I help you?");
         conversation.add("Hi. I forgot my Brentwood account. My name is " + this.myName + ".");
         conversation.add("Here. Don't lose it again.");
         conversation.add("Looks like I should go to English class. Where is this R301?");
         conversation.add("Upstairs Ross Building, next to the stairs. Bye.");
-        
-        Dialog myDialog = new Dialog(myName,"IT faculty" ,myImage, itGuy,conversation);
-        
+
+        Dialog myDialog = new Dialog(myName, "IT faculty", myImage, itGuy, conversation);
+
         frmDialog.add(myDialog);
         frmDialog.setAlwaysOnTop(true);
         frmDialog.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        frmDialog.setSize(new Dimension(600,425));    
+        frmDialog.setSize(new Dimension(600, 425));
         frmDialog.setVisible(true);
     }
-    
-        private void showDialogEnglishClass() {
+
+    private void showDialogEnglishClass() {
         JFrame frmDialog = new JFrame("Dialog with English teacher");
 
         ArrayList<String> conversation = new ArrayList<>();
-        
+
         conversation.clear();
         conversation.add("YO, what's your name? I'm Mr. Collis.");
         conversation.add("I'm" + this.myName + ". Sorry I'm late.");
         conversation.add("It's OK~ It's hard to find these classrooms, hey? Go have a seat. In this course, we are going to learn about Shakespear...");
         conversation.add("(after class) Thank you Mr. Collis! Oh, by the way, where is R308? I have Math class next.");
         conversation.add("Go out this door, turn right, walk straight, on your left. See you later, have a good day.");
-        
-        Dialog myDialog = new Dialog(myName,"Mr. Collis" ,myImage, collis,conversation);
-        
+
+        Dialog myDialog = new Dialog(myName, "Mr. Collis", myImage, collis, conversation);
+
         frmDialog.add(myDialog);
         frmDialog.setAlwaysOnTop(true);
         frmDialog.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        frmDialog.setSize(new Dimension(600,425));    
+        frmDialog.setSize(new Dimension(600, 425));
         frmDialog.setVisible(true);
     }
-        
+
     private void showItemManager() {
         JFrame frmItemManager = new JFrame("Item Manager");
-        
+
         ContainerItemList containerItemList = new ContainerItemList();
-        containerItemList.getItems().add(new ContainerItem ("Pencil","HB pencil, good for scantron."));
-        ContainerItemManager itemManager = new ContainerItemManager("Treasure Box", containerItemList,this);
-        
+        containerItemList.getItems().add(new ContainerItem("Pencil", "HB pencil, good for scantron."));
+        ContainerItemManager itemManager = new ContainerItemManager("Treasure Box", containerItemList, this);
+
         frmItemManager.add(itemManager);
         frmItemManager.setAlwaysOnTop(true);
         frmItemManager.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        frmItemManager.setSize(new Dimension(400,500));
-        
+        frmItemManager.setSize(new Dimension(400, 500));
+
         frmItemManager.setVisible(true);
     }
-    
+
     private void showPlayerCustomization() {
         JFrame frmPlayerCustomization = new JFrame("PlayerCustomization");
-        
-        PlayerCustomization myPlayerCustomization = new PlayerCustomization(snorlax_icon,shaq_icon,hero_icon,this);
-        
+
+        PlayerCustomization myPlayerCustomization = new PlayerCustomization(snorlax_icon, shaq_icon, hero_icon, this);
+
         frmPlayerCustomization.add(myPlayerCustomization);
         frmPlayerCustomization.setAlwaysOnTop(true);
         frmPlayerCustomization.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        frmPlayerCustomization.setSize(new Dimension(600,400));
+        frmPlayerCustomization.setSize(new Dimension(600, 400));
         frmPlayerCustomization.setVisible(true);
     }
 //</editor-fold>
-    
+
 //<editor-fold defaultstate="collapsed" desc="ItemEventHandlerIntf Interface Methods">
     @Override
     public boolean itemEvent(Item item) {
@@ -1741,12 +1757,12 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
         } else if ("DialogEnglishClass".equals(item.getType())) {
             showDialogEnglishClass();
         }
-        
+
         System.out.println("Item " + item.getLocation() + " " + item.getType());
         return true;
     }
 //</editor-fold>
-    
+
 //<editor-fold defaultstate="collapsed" desc="ItemManagerResponseIntf Inteface Methods">
     @Override
     public void handleItemManagerResponse(ContainerItemList itemList) {
@@ -1756,7 +1772,7 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
         }
     }
 //</editor-fold>
-    
+
 //<editor-fold defaultstate="collapsed" desc="PortalEventHandlerIntf Interface Methods">
     @Override
     public boolean portalEvent(Portal portal) {
@@ -1770,18 +1786,20 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
     @Override
     public boolean obstacleEvent(Obstacle obstacle) {
         System.out.println("Obstacle " + obstacle.getLocation() + " " + obstacle.getType());
-        AudioPlayer.play("/resources/water.wav");
+        if (obstacle.getType() == ObstacleType.WATER) {
+            AudioPlayer.play("/resources/water.wav");
+        }
         return false;
     }
 //</editor-fold>
 
     @Override
     public void handleCombatResponse(boolean combatResult) {
-        System.out.println("myHp = " +  myProperty.getMyHp());
-        System.out.println("myDamge = " +  myProperty.getMyDamage());
-        System.out.println("myLevel = " +  myProperty.getMyLevel());
-        System.out.println("myExp = " +  myProperty.getMyExp());
-        
+        System.out.println("myHp = " + myProperty.getMyHp());
+        System.out.println("myDamge = " + myProperty.getMyDamage());
+        System.out.println("myLevel = " + myProperty.getMyLevel());
+        System.out.println("myExp = " + myProperty.getMyExp());
+
         System.out.println("Combat Result " + combatResult);
         if (combatResult == true) {
             this.myProperty.addToMyExp(2);
@@ -1794,8 +1812,19 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
     public void handlePlayerCustomizationResponse(String myName, Image myImage, String type) {
         System.out.println("My name: " + myName);
         this.myName = myName;
-        this.myImage = myImage; 
+        this.myImage = myImage;
         this.typeOfCharacter = type;
     }
+
+//<editor-fold defaultstate="collapsed" desc="MoveValidatorIntf Methods">
+    @Override
+    public boolean validateMove(Point currentSystemCoord, Point proposedSystemCoord) {
+        if (currentMap != null) {
+            Point proposedCellCoord = currentMap.getCellLocation(proposedSystemCoord);
+            return currentMap.validateLocation(proposedCellCoord);
+        }
+        return true;
+    }
+//</editor-fold>
 
 }

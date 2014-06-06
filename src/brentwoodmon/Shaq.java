@@ -31,11 +31,21 @@ public class Shaq extends AnimatedActor {
         
         BufferedImage image = (BufferedImage) ResourceTools.loadImageFromResource("resources/ddd_transparent.png");
 
-        String stand = "Stand";
-        standImage.add(stand);
+        String stand01 = "Stand01";
+        String stand02 = "Stand02";
+        String stand03 = "Stand03";
+        String stand04 = "Stand04";
+       
+        standImage.add(stand01);
+        standImage.add(stand02);
+        standImage.add(stand03); 
+        standImage.add(stand04);
 
-        getImageManager().addImage(stand, image.getSubimage(hisSide, 278, SPRITES_WIDTH, SPRITES_HEIGHTS));
-
+        getImageManager().addImage(stand01, image.getSubimage(hisSide, 278, SPRITES_WIDTH, SPRITES_HEIGHTS));
+        getImageManager().addImage(stand02, image.getSubimage(herSide, 278, SPRITES_WIDTH, SPRITES_HEIGHTS));
+        getImageManager().addImage(stand03, image.getSubimage(blackSide, 278, SPRITES_WIDTH, SPRITES_HEIGHTS));
+        getImageManager().addImage(stand04, image.getSubimage(thatSide, 278, SPRITES_WIDTH, SPRITES_HEIGHTS));
+        
         String frontWalk001 = "FrontWalk001";
         String frontWalk002 = "FrontWalk002";
 

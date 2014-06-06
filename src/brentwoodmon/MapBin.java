@@ -83,64 +83,64 @@ public class MapBin {
         return ucampus;
     }
         static Map getDownSRossMap() {
-        Map dross = new Map(image.ResourceTools.loadImageFromResource("resources/ross_downstair.jpg"), new Dimension(16, 16), new Dimension(44, 48));
+        Map dross = new Map(ResourceTools.loadImageFromResource("resources/ross_downstair.jpg"), new Dimension(16, 16), new Dimension(44, 48));
 
         return dross;
     }
 
     static Map getMainSRossMap() {
-        Map mross = new Map(image.ResourceTools.loadImageFromResource("resources/ross_mainfloor.bmp"), new Dimension(16, 16), new Dimension(44, 48));
+        Map mross = new Map(ResourceTools.loadImageFromResource("resources/ross_mainfloor.bmp"), new Dimension(16, 16), new Dimension(44, 48));
 
         return mross;
     }
 
     static Map getUpperSRossMap() {
-        Map uross = new Map(image.ResourceTools.loadImageFromResource("resources/ross_upstair.jpg"), new Dimension(16, 16), new Dimension(44, 48));
+        Map uross = new Map(ResourceTools.loadImageFromResource("resources/ross_upstair.jpg"), new Dimension(16, 16), new Dimension(44, 48));
 
         return uross;
     }
 
     static Map getMainArtsMap() {
-        Map marts = new Map(image.ResourceTools.loadImageFromResource("resources/arts_mainfloor.bmp"), new Dimension(16, 16), new Dimension(44, 48));
+        Map marts = new Map(ResourceTools.loadImageFromResource("resources/arts_mainfloor.bmp"), new Dimension(16, 16), new Dimension(44, 48));
 
         return marts;
     }
 
     static Map getDownArtsMap() {
-        Map darts = new Map(image.ResourceTools.loadImageFromResource("resources/arts_downstair.bmp"), new Dimension(16, 16), new Dimension(44, 48));
+        Map darts = new Map(ResourceTools.loadImageFromResource("resources/arts_downstair.bmp"), new Dimension(16, 16), new Dimension(44, 48));
 
         return darts;
     }
 
     static Map getMainCafeMap() {
-        Map mcafe = new Map(image.ResourceTools.loadImageFromResource("resources/cafe_mainfloor.bmp"), new Dimension(16, 16), new Dimension(44, 48));
+        Map mcafe = new Map(ResourceTools.loadImageFromResource("resources/cafe_mainfloor.bmp"), new Dimension(16, 16), new Dimension(44, 48));
 
         return mcafe;
     }
 
     static Map getDownCafeMap() {
-        Map dcafe = new Map(image.ResourceTools.loadImageFromResource("resources/cafe_downstair.bmp"), new Dimension(16, 16), new Dimension(44, 48));
+        Map dcafe = new Map(ResourceTools.loadImageFromResource("resources/cafe_downstair.bmp"), new Dimension(16, 16), new Dimension(44, 48));
 
         return dcafe;
     }
 
     static Map getLibraryMap() {
-        Map lib = new Map(image.ResourceTools.loadImageFromResource("resources/library.jpg"), new Dimension(16, 16), new Dimension(20, 20));
+        Map lib = new Map(ResourceTools.loadImageFromResource("resources/library.jpg"), new Dimension(16, 16), new Dimension(20, 20));
         return lib;
     }
 
     static Map getClassroom1Map() {
-        Map classroom = new Map(image.ResourceTools.loadImageFromResource("resources/classroom.bmp"), new Dimension(16, 16), new Dimension(20, 20));
+        Map classroom = new Map(ResourceTools.loadImageFromResource("resources/classroom.bmp"), new Dimension(16, 16), new Dimension(20, 20));
         return classroom;
     }
 
     static Map getClassroom2Map() {
-        Map classroomtwo = new Map(image.ResourceTools.loadImageFromResource("resources/classroom.bmp"), new Dimension(16, 16), new Dimension(20, 20));
+        Map classroomtwo = new Map(ResourceTools.loadImageFromResource("resources/classroom.bmp"), new Dimension(16, 16), new Dimension(20, 20));
         return classroomtwo;
     }
 
     static Map getClassroom3Map() {
-        Map classroomthree = new Map(image.ResourceTools.loadImageFromResource("resources/classroom.bmp"), new Dimension(16, 16), new Dimension(20, 20));
+        Map classroomthree = new Map(ResourceTools.loadImageFromResource("resources/classroom.bmp"), new Dimension(16, 16), new Dimension(20, 20));
         
         //dialog location
         Map.addItem(classroomthree, new Point(3,2), "DialogEnglishClass");
@@ -149,143 +149,143 @@ public class MapBin {
     }
 
     static Map getClassroom4Map() {
-        Map classroomfour = new Map(image.ResourceTools.loadImageFromResource("resources/classroom.bmp"), new Dimension(16, 16), new Dimension(20, 20));
+        Map classroomfour = new Map(ResourceTools.loadImageFromResource("resources/classroom.bmp"), new Dimension(16, 16), new Dimension(20, 20));
         return classroomfour;
     }
 
     static Map getClassroom5Map() {
-        Map classroomfive = new Map(image.ResourceTools.loadImageFromResource("resources/classroom.bmp"), new Dimension(16, 16), new Dimension(20, 20));
+        Map classroomfive = new Map(ResourceTools.loadImageFromResource("resources/classroom.bmp"), new Dimension(16, 16), new Dimension(20, 20));
         return classroomfive;
     }
 
     static Map getClassroom6Map() {
-        Map classroomsix = new Map(image.ResourceTools.loadImageFromResource("resources/classroom.bmp"), new Dimension(16, 16), new Dimension(20, 20));
+        Map classroomsix = new Map(ResourceTools.loadImageFromResource("resources/classroom.bmp"), new Dimension(16, 16), new Dimension(20, 20));
         return classroomsix;
     }
 
     static Map getClassroom7Map() {
-        Map classroomseven = new Map(image.ResourceTools.loadImageFromResource("resources/classroom.bmp"), new Dimension(16, 16), new Dimension(20, 20));
+        Map classroomseven = new Map(ResourceTools.loadImageFromResource("resources/classroom.bmp"), new Dimension(16, 16), new Dimension(20, 20));
         return classroomseven;
     }
 
     static Map getClassroom8Map() {
-        Map classroomeight = new Map(image.ResourceTools.loadImageFromResource("resources/classroom.bmp"), new Dimension(16, 16), new Dimension(20, 20));
+        Map classroomeight = new Map(ResourceTools.loadImageFromResource("resources/classroom.bmp"), new Dimension(16, 16), new Dimension(20, 20));
         return classroomeight;
     }
 
     static Map getHealthCentreMap() {
-        Map healthc = new Map(image.ResourceTools.loadImageFromResource("resources/health_centre.bmp"), new Dimension(16, 16), new Dimension(20, 20));
+        Map healthc = new Map(ResourceTools.loadImageFromResource("resources/health_centre.bmp"), new Dimension(16, 16), new Dimension(20, 20));
         return healthc;
     }
 
     static Map getGymMap() {
-        Map gym = new Map(image.ResourceTools.loadImageFromResource("resources/gym.bmp"), new Dimension(16, 16), new Dimension(30, 30));
+        Map gym = new Map(ResourceTools.loadImageFromResource("resources/gym.bmp"), new Dimension(16, 16), new Dimension(30, 30));
         return gym;
     }
 
     static Map getMackEntranceMap() {
-        Map mdent = new Map(image.ResourceTools.loadImageFromResource("resources/house_entrance.bmp"), new Dimension(16, 16), new Dimension(30, 30));
+        Map mdent = new Map(ResourceTools.loadImageFromResource("resources/house_entrance.bmp"), new Dimension(16, 16), new Dimension(30, 30));
         return mdent;
     }
 
     static Map getMackHallwayMap() {
-        Map mhent = new Map(image.ResourceTools.loadImageFromResource("resources/house_hallway.bmp"), new Dimension(16, 16), new Dimension(30, 30));
+        Map mhent = new Map(ResourceTools.loadImageFromResource("resources/house_hallway.bmp"), new Dimension(16, 16), new Dimension(30, 30));
         return mhent;
     }
 
     static Map getAlexEntranceMap() {
-        Map adent = new Map(image.ResourceTools.loadImageFromResource("resources/house_entrance.bmp"), new Dimension(16, 16), new Dimension(30, 30));
+        Map adent = new Map(ResourceTools.loadImageFromResource("resources/house_entrance.bmp"), new Dimension(16, 16), new Dimension(30, 30));
         Map.addItem(adent, new Point(7,18), "DialogHP");
         return adent;
     }
 
     static Map getAlexHallwayMap() {
-        Map ahent = new Map(image.ResourceTools.loadImageFromResource("resources/house_hallway.bmp"), new Dimension(16, 16), new Dimension(30, 30));
+        Map ahent = new Map(ResourceTools.loadImageFromResource("resources/house_hallway.bmp"), new Dimension(16, 16), new Dimension(30, 30));
         return ahent;
     }
 
     static Map getHopeEntranceMap() {
-        Map hdent = new Map(image.ResourceTools.loadImageFromResource("resources/house_entrance.bmp"), new Dimension(16, 16), new Dimension(30, 30));
+        Map hdent = new Map(ResourceTools.loadImageFromResource("resources/house_entrance.bmp"), new Dimension(16, 16), new Dimension(30, 30));
         return hdent;
     }
 
     static Map getHopeHallwayMap() {
-        Map hhent = new Map(image.ResourceTools.loadImageFromResource("resources/house_hallway.bmp"), new Dimension(16, 16), new Dimension(30, 30));
+        Map hhent = new Map(ResourceTools.loadImageFromResource("resources/house_hallway.bmp"), new Dimension(16, 16), new Dimension(30, 30));
         return hhent;
     }
 
     static Map getAllardEntranceMap() {
-        Map aldent = new Map(image.ResourceTools.loadImageFromResource("resources/house_entrance.bmp"), new Dimension(16, 16), new Dimension(30, 30));
+        Map aldent = new Map(ResourceTools.loadImageFromResource("resources/house_entrance.bmp"), new Dimension(16, 16), new Dimension(30, 30));
         return aldent;
     }
 
     static Map getAllardHallwayMap() {
-        Map alhent = new Map(image.ResourceTools.loadImageFromResource("resources/house_hallway.bmp"), new Dimension(16, 16), new Dimension(30, 30));
+        Map alhent = new Map(ResourceTools.loadImageFromResource("resources/house_hallway.bmp"), new Dimension(16, 16), new Dimension(30, 30));
         return alhent;
     }
 
     static Map getRogersEntranceMap() {
-        Map rdent = new Map(image.ResourceTools.loadImageFromResource("resources/house_entrance.bmp"), new Dimension(16, 16), new Dimension(30, 30));
+        Map rdent = new Map(ResourceTools.loadImageFromResource("resources/house_entrance.bmp"), new Dimension(16, 16), new Dimension(30, 30));
         return rdent;
     }
 
     static Map getRogersHallwayMap() {
-        Map rhent = new Map(image.ResourceTools.loadImageFromResource("resources/house_hallway.bmp"), new Dimension(16, 16), new Dimension(30, 30));
+        Map rhent = new Map(ResourceTools.loadImageFromResource("resources/house_hallway.bmp"), new Dimension(16, 16), new Dimension(30, 30));
         return rhent;
     }
 
     static Map getWhittalEntranceMap() {
-        Map wdent = new Map(image.ResourceTools.loadImageFromResource("resources/house_entrance.bmp"), new Dimension(16, 16), new Dimension(30, 30));
+        Map wdent = new Map(ResourceTools.loadImageFromResource("resources/house_entrance.bmp"), new Dimension(16, 16), new Dimension(30, 30));
         return wdent;
     }
 
     static Map getWhittalHallwayMap() {
-        Map whent = new Map(image.ResourceTools.loadImageFromResource("resources/house_hallway.bmp"), new Dimension(16, 16), new Dimension(30, 30));
+        Map whent = new Map(ResourceTools.loadImageFromResource("resources/house_hallway.bmp"), new Dimension(16, 16), new Dimension(30, 30));
         return whent;
     }
 
     static Map getPrivettEntranceMap() {
-        Map pdent = new Map(image.ResourceTools.loadImageFromResource("resources/house_entrance.bmp"), new Dimension(16, 16), new Dimension(30, 30));
+        Map pdent = new Map(ResourceTools.loadImageFromResource("resources/house_entrance.bmp"), new Dimension(16, 16), new Dimension(30, 30));
         return pdent;
     }
 
     static Map getPrivettHallwayMap() {
-        Map phent = new Map(image.ResourceTools.loadImageFromResource("resources/house_hallway.bmp"), new Dimension(16, 16), new Dimension(30, 30));
+        Map phent = new Map(ResourceTools.loadImageFromResource("resources/house_hallway.bmp"), new Dimension(16, 16), new Dimension(30, 30));
         return phent;
     }
 
     static Map getEllisEntranceMap() {
-        Map edent = new Map(image.ResourceTools.loadImageFromResource("resources/house_entrance.bmp"), new Dimension(16, 16), new Dimension(30, 30));
+        Map edent = new Map(ResourceTools.loadImageFromResource("resources/house_entrance.bmp"), new Dimension(16, 16), new Dimension(30, 30));
         return edent;
     }
 
     static Map getEllisHallwayMap() {
-        Map ehent = new Map(image.ResourceTools.loadImageFromResource("resources/house_hallway.bmp"), new Dimension(16, 16), new Dimension(30, 30));
+        Map ehent = new Map(ResourceTools.loadImageFromResource("resources/house_hallway.bmp"), new Dimension(16, 16), new Dimension(30, 30));
         return ehent;
     }
 
     static Map getSquashGymMap() {
-        Map squash = new Map(image.ResourceTools.loadImageFromResource("resources/squash_court.bmp"), new Dimension(16, 16), new Dimension(30, 30));
+        Map squash = new Map(ResourceTools.loadImageFromResource("resources/squash_court.bmp"), new Dimension(16, 16), new Dimension(30, 30));
         return squash;
     }
 
     static Map getOfficeMap() {
-        Map office = new Map(image.ResourceTools.loadImageFromResource("resources/office.bmp"), new Dimension(16, 16), new Dimension(30, 30));
+        Map office = new Map(ResourceTools.loadImageFromResource("resources/office.bmp"), new Dimension(16, 16), new Dimension(30, 30));
         return office;
     }
 
     static Map getITMap() {
-        Map underit = new Map(image.ResourceTools.loadImageFromResource("resources/under_ground.bmp"), new Dimension(16, 16), new Dimension(30, 70));     
+        Map underit = new Map(ResourceTools.loadImageFromResource("resources/under_ground.bmp"), new Dimension(16, 16), new Dimension(30, 70));     
         return underit;
     }
 
     static Map getHiddenMap() {
-        Map hid = new Map(image.ResourceTools.loadImageFromResource("resources/special_place.bmp"), new Dimension(16, 16), new Dimension(30, 30));
+        Map hid = new Map(ResourceTools.loadImageFromResource("resources/special_place.bmp"), new Dimension(16, 16), new Dimension(30, 30));
         return hid;
     }
 
     static Map getOldBuildingMap() {
-        Map olaca = new Map(image.ResourceTools.loadImageFromResource("resources/old_building.bmp"), new Dimension(16, 16), new Dimension(30, 30));
+        Map olaca = new Map(ResourceTools.loadImageFromResource("resources/old_building.bmp"), new Dimension(16, 16), new Dimension(30, 30));
                 
         //dialog location
         Map.addItem(olaca, new Point(13,3), "DialogIT");
@@ -294,12 +294,12 @@ public class MapBin {
     }
 
     static Map getMTMap() {
-        Map mt = new Map(image.ResourceTools.loadImageFromResource("resources/mt.bmp"), new Dimension(16, 16), new Dimension(30, 30));
+        Map mt = new Map(ResourceTools.loadImageFromResource("resources/mt.bmp"), new Dimension(16, 16), new Dimension(30, 30));
         return mt;
     }
 
     static Map getDorm1AlexMap() {
-        Map adorm1 = new Map(image.ResourceTools.loadImageFromResource("resources/dorm_room.bmp"), new Dimension(16, 16), new Dimension(30, 30));
+        Map adorm1 = new Map(ResourceTools.loadImageFromResource("resources/dorm_room.bmp"), new Dimension(16, 16), new Dimension(30, 30));
         
         //dialog location
         Map.addItem(adorm1, new Point(10,2), "Dialog");
@@ -308,7 +308,7 @@ public class MapBin {
     }
 
     static Map getDorm2AlexMap() {
-        Map adorm2 = new Map(image.ResourceTools.loadImageFromResource("resources/dorm_room_2.bmp"), new Dimension(16, 16), new Dimension(30, 30));
+        Map adorm2 = new Map(ResourceTools.loadImageFromResource("resources/dorm_room_2.bmp"), new Dimension(16, 16), new Dimension(30, 30));
         
         //dialog location
         Map.addItem(adorm2, new Point(10,2), "Dialog");
@@ -317,7 +317,7 @@ public class MapBin {
     }
 
     static Map getDorm3AlexMap() {
-        Map adorm3 = new Map(image.ResourceTools.loadImageFromResource("resources/dorm_room_3.bmp"), new Dimension(16, 16), new Dimension(30, 30));
+        Map adorm3 = new Map(ResourceTools.loadImageFromResource("resources/dorm_room_3.bmp"), new Dimension(16, 16), new Dimension(30, 30));
         
         //dialog location
         Map.addItem(adorm3, new Point(10,2), "Dialog");
@@ -326,7 +326,7 @@ public class MapBin {
     }
 
     static Map getDorm1HopeMap() {
-        Map hdorm1 = new Map(image.ResourceTools.loadImageFromResource("resources/dorm_room.bmp"), new Dimension(16, 16), new Dimension(30, 30));
+        Map hdorm1 = new Map(ResourceTools.loadImageFromResource("resources/dorm_room.bmp"), new Dimension(16, 16), new Dimension(30, 30));
         
         //dialog location
         Map.addItem(hdorm1, new Point(10,2), "Dialog");
@@ -335,7 +335,7 @@ public class MapBin {
     }
 
     static Map getDorm2HopeMap() {
-        Map hdorm2 = new Map(image.ResourceTools.loadImageFromResource("resources/dorm_room_2.bmp"), new Dimension(16, 16), new Dimension(30, 30));
+        Map hdorm2 = new Map(ResourceTools.loadImageFromResource("resources/dorm_room_2.bmp"), new Dimension(16, 16), new Dimension(30, 30));
         
         //dialog location
         Map.addItem(hdorm2, new Point(10,2), "Dialog");
@@ -344,7 +344,7 @@ public class MapBin {
     }
 
     static Map getDorm3HopeMap() {
-        Map hdorm3 = new Map(image.ResourceTools.loadImageFromResource("resources/dorm_room_3.bmp"), new Dimension(16, 16), new Dimension(30, 30));
+        Map hdorm3 = new Map(ResourceTools.loadImageFromResource("resources/dorm_room_3.bmp"), new Dimension(16, 16), new Dimension(30, 30));
         
         //dialog location
         Map.addItem(hdorm3, new Point(10,2), "Dialog");
@@ -353,7 +353,7 @@ public class MapBin {
     }
 
     static Map getDorm1AllardMap() {
-        Map aldorm1 = new Map(image.ResourceTools.loadImageFromResource("resources/dorm_room.bmp"), new Dimension(16, 16), new Dimension(30, 30));
+        Map aldorm1 = new Map(ResourceTools.loadImageFromResource("resources/dorm_room.bmp"), new Dimension(16, 16), new Dimension(30, 30));
         
         //dialog location
         Map.addItem(aldorm1, new Point(10,2), "Dialog");
@@ -362,7 +362,7 @@ public class MapBin {
     }
 
     static Map getDorm2AllardMap() {
-        Map aldorm2 = new Map(image.ResourceTools.loadImageFromResource("resources/dorm_room_2.bmp"), new Dimension(16, 16), new Dimension(30, 30));
+        Map aldorm2 = new Map(ResourceTools.loadImageFromResource("resources/dorm_room_2.bmp"), new Dimension(16, 16), new Dimension(30, 30));
         
         //dialog location
         Map.addItem(aldorm2, new Point(10,2), "Dialog");
@@ -371,7 +371,7 @@ public class MapBin {
     }
 
     static Map getDorm3AllardMap() {
-        Map aldorm3 = new Map(image.ResourceTools.loadImageFromResource("resources/dorm_room_3.bmp"), new Dimension(16, 16), new Dimension(30, 30));
+        Map aldorm3 = new Map(ResourceTools.loadImageFromResource("resources/dorm_room_3.bmp"), new Dimension(16, 16), new Dimension(30, 30));
         
         //dialog location
         Map.addItem(aldorm3, new Point(10,2), "Dialog");
@@ -380,7 +380,7 @@ public class MapBin {
     }
 
     static Map getDorm1MackMap() {
-        Map mdorm1 = new Map(image.ResourceTools.loadImageFromResource("resources/dorm_room.bmp"), new Dimension(16, 16), new Dimension(30, 30));
+        Map mdorm1 = new Map(ResourceTools.loadImageFromResource("resources/dorm_room.bmp"), new Dimension(16, 16), new Dimension(30, 30));
         
         //dialog location
         Map.addItem(mdorm1, new Point(10,2), "Dialog");
@@ -389,7 +389,7 @@ public class MapBin {
     }
 
     static Map getDorm2MackMap() {
-        Map mdorm2 = new Map(image.ResourceTools.loadImageFromResource("resources/dorm_room_2.bmp"), new Dimension(16, 16), new Dimension(30, 30));
+        Map mdorm2 = new Map(ResourceTools.loadImageFromResource("resources/dorm_room_2.bmp"), new Dimension(16, 16), new Dimension(30, 30));
         
         //dialog location
         Map.addItem(mdorm2, new Point(10,2), "Dialog");
@@ -398,7 +398,7 @@ public class MapBin {
     }
 
     static Map getDorm3MackMap() {
-        Map mdorm3 = new Map(image.ResourceTools.loadImageFromResource("resources/dorm_room_3.bmp"), new Dimension(16, 16), new Dimension(30, 30));
+        Map mdorm3 = new Map(ResourceTools.loadImageFromResource("resources/dorm_room_3.bmp"), new Dimension(16, 16), new Dimension(30, 30));
         
         //dialog location
         Map.addItem(mdorm3, new Point(10,2), "Dialog");
@@ -407,7 +407,7 @@ public class MapBin {
     }
 
     static Map getDorm1WhittalMap() {
-        Map wdorm1 = new Map(image.ResourceTools.loadImageFromResource("resources/dorm_room.bmp"), new Dimension(16, 16), new Dimension(30, 30));
+        Map wdorm1 = new Map(ResourceTools.loadImageFromResource("resources/dorm_room.bmp"), new Dimension(16, 16), new Dimension(30, 30));
         
         //dialog location
         Map.addItem(wdorm1, new Point(10,2), "Dialog");
@@ -416,7 +416,7 @@ public class MapBin {
     }
 
     static Map getDorm2WhittalMap() {
-        Map wdorm2 = new Map(image.ResourceTools.loadImageFromResource("resources/dorm_room_2.bmp"), new Dimension(16, 16), new Dimension(30, 30));
+        Map wdorm2 = new Map(ResourceTools.loadImageFromResource("resources/dorm_room_2.bmp"), new Dimension(16, 16), new Dimension(30, 30));
         
         //dialog location
         Map.addItem(wdorm2, new Point(10,2), "Dialog");
@@ -425,7 +425,7 @@ public class MapBin {
     }
 
     static Map getDorm3WhittalMap() {
-        Map wdorm3 = new Map(image.ResourceTools.loadImageFromResource("resources/dorm_room_3.bmp"), new Dimension(16, 16), new Dimension(30, 30));
+        Map wdorm3 = new Map(ResourceTools.loadImageFromResource("resources/dorm_room_3.bmp"), new Dimension(16, 16), new Dimension(30, 30));
         
         //dialog location
         Map.addItem(wdorm3, new Point(10,2), "Dialog");
@@ -434,7 +434,7 @@ public class MapBin {
     }
 
     static Map getDorm1RogersMap() {
-        Map rdorm1 = new Map(image.ResourceTools.loadImageFromResource("resources/dorm_room.bmp"), new Dimension(16, 16), new Dimension(30, 30));
+        Map rdorm1 = new Map(ResourceTools.loadImageFromResource("resources/dorm_room.bmp"), new Dimension(16, 16), new Dimension(30, 30));
         
         //dialog location
         Map.addItem(rdorm1, new Point(10,2), "Dialog");
@@ -443,7 +443,7 @@ public class MapBin {
     }
 
     static Map getDorm2RogersMap() {
-        Map rdorm2 = new Map(image.ResourceTools.loadImageFromResource("resources/dorm_room_2.bmp"), new Dimension(16, 16), new Dimension(30, 30));
+        Map rdorm2 = new Map(ResourceTools.loadImageFromResource("resources/dorm_room_2.bmp"), new Dimension(16, 16), new Dimension(30, 30));
         
         //dialog location
         Map.addItem(rdorm2, new Point(10,2), "Dialog");
@@ -452,7 +452,7 @@ public class MapBin {
     }
 
     static Map getDorm3RogersMap() {
-        Map rdorm3 = new Map(image.ResourceTools.loadImageFromResource("resources/dorm_room_3.bmp"), new Dimension(16, 16), new Dimension(30, 30));
+        Map rdorm3 = new Map(ResourceTools.loadImageFromResource("resources/dorm_room_3.bmp"), new Dimension(16, 16), new Dimension(30, 30));
         
         //dialog location
         Map.addItem(rdorm3, new Point(10,2), "Dialog");
@@ -461,7 +461,7 @@ public class MapBin {
     }
 
     static Map getDorm1PrivettMap() {
-        Map pdorm1 = new Map(image.ResourceTools.loadImageFromResource("resources/dorm_room.bmp"), new Dimension(16, 16), new Dimension(30, 30));
+        Map pdorm1 = new Map(ResourceTools.loadImageFromResource("resources/dorm_room.bmp"), new Dimension(16, 16), new Dimension(30, 30));
         
         //dialog location
         Map.addItem(pdorm1, new Point(10,2), "Dialog");
@@ -470,7 +470,7 @@ public class MapBin {
     }
 
     static Map getDorm2PrivettMap() {
-        Map pdorm2 = new Map(image.ResourceTools.loadImageFromResource("resources/dorm_room_2.bmp"), new Dimension(16, 16), new Dimension(30, 30));
+        Map pdorm2 = new Map(ResourceTools.loadImageFromResource("resources/dorm_room_2.bmp"), new Dimension(16, 16), new Dimension(30, 30));
         
         //dialog location
         Map.addItem(pdorm2, new Point(10,2), "Dialog");
@@ -479,7 +479,7 @@ public class MapBin {
     }
 
     static Map getDorm3PrivettMap() {
-        Map pdorm3 = new Map(image.ResourceTools.loadImageFromResource("resources/dorm_room_3.bmp"), new Dimension(16, 16), new Dimension(30, 30));
+        Map pdorm3 = new Map(ResourceTools.loadImageFromResource("resources/dorm_room_3.bmp"), new Dimension(16, 16), new Dimension(30, 30));
         
         //dialog location
         Map.addItem(pdorm3, new Point(10,2), "Dialog");
@@ -488,7 +488,7 @@ public class MapBin {
     }
 
     static Map getDorm1EllisMap() {
-        Map edorm1 = new Map(image.ResourceTools.loadImageFromResource("resources/dorm_room.bmp"), new Dimension(16, 16), new Dimension(30, 30));
+        Map edorm1 = new Map(ResourceTools.loadImageFromResource("resources/dorm_room.bmp"), new Dimension(16, 16), new Dimension(30, 30));
         
         //dialog location
         Map.addItem(edorm1, new Point(10,2), "Dialog");
@@ -497,7 +497,7 @@ public class MapBin {
     }
 
     static Map getDorm2EllisMap() {
-        Map edorm2 = new Map(image.ResourceTools.loadImageFromResource("resources/dorm_room_2.bmp"), new Dimension(16, 16), new Dimension(30, 30));
+        Map edorm2 = new Map(ResourceTools.loadImageFromResource("resources/dorm_room_2.bmp"), new Dimension(16, 16), new Dimension(30, 30));
         
         //dialog location
         Map.addItem(edorm2, new Point(10,2), "Dialog");
@@ -506,7 +506,7 @@ public class MapBin {
     }
 
     static Map getDorm3EllisMap() {
-        Map edorm3 = new Map(image.ResourceTools.loadImageFromResource("resources/dorm_room_3.bmp"), new Dimension(16, 16), new Dimension(30, 30));
+        Map edorm3 = new Map(ResourceTools.loadImageFromResource("resources/dorm_room_3.bmp"), new Dimension(16, 16), new Dimension(30, 30));
         
         //dialog location
         Map.addItem(edorm3, new Point(10,2), "Dialog");
@@ -514,7 +514,7 @@ public class MapBin {
         return edorm3;
     }
     static Map getOldCafeMap() {
-        Map olcafe = new Map(image.ResourceTools.loadImageFromResource("resources/old_cafe.bmp"), new Dimension(16, 16), new Dimension(30, 30));
+        Map olcafe = new Map(ResourceTools.loadImageFromResource("resources/old_cafe.bmp"), new Dimension(16, 16), new Dimension(30, 30));
         return olcafe;
     }
     
