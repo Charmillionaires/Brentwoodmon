@@ -69,10 +69,6 @@ public abstract class AnimatedActor extends Actor {
                 System.out.println("failed move validation");
             }
         }
-        
-//        super.move();
-//        this.position.x += this.velocity.x;
-//        this.position.y += this.velocity.y;
     }
     
     public abstract void initializeImages();
@@ -142,21 +138,21 @@ public abstract class AnimatedActor extends Actor {
             animator.setImageNames(backWalkImages);
             
             getVelocity().x = 0;
-            getVelocity().y = -speed;
+            getVelocity().y = -1;
         } else if (this.state == State.FRONT_WALK) {
             animator.setImageNames(frontWalkImages);
             
             getVelocity().x = 0;
-            getVelocity().y = speed;
+            getVelocity().y = 1;
         } else if (this.state == State.RIGHT_WALK) {
             animator.setImageNames(rightWalkImages);
             
-            getVelocity().x = speed;
+            getVelocity().x = 1;
             getVelocity().y = 0;
         } else if (this.state == State.LEFT_WALK) {
             animator.setImageNames(leftWalkImages);
 
-            getVelocity().x = -speed;
+            getVelocity().x = -1;
             getVelocity().y = 0;
         } else if (this.state == State.STOP) {
             animator.setImageNames(standImage);
