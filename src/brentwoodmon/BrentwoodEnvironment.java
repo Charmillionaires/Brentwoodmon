@@ -239,7 +239,6 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
         frmCombat.setAlwaysOnTop(true);
         frmCombat.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frmCombat.setSize(new Dimension(600,400));
-        
         frmCombat.setVisible(true);
     }
     
@@ -302,7 +301,8 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
         }
         
         System.out.println("Item " + item.getLocation() + " " + item.getType());
-        return true;
+        //return true;
+        return false;
     }
 //</editor-fold>
     
