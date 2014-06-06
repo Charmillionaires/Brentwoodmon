@@ -24,27 +24,15 @@ public class Bull extends AnimatedActor {
     
     @Override
     public void initializeImages() {
-        int hisSide = 272;
-        int herSide = 226;
-        int thatSide = 249;
-        int blackSide = 293;
+        
         
         BufferedImage image = (BufferedImage) ResourceTools.loadImageFromResource("resources/pokemon.png");
 
         String stand01 = "Stand01";
-        String stand02 = "Stand02";
-        String stand03 = "Stand03";
-        String stand04 = "Stand04";
-       
+        
         standImage.add(stand01);
-        standImage.add(stand02);
-        standImage.add(stand03); 
-        standImage.add(stand04);
-
-        getImageManager().addImage(stand01, image.getSubimage(hisSide, 278, SPRITES_WIDTH, SPRITES_HEIGHTS));
-        getImageManager().addImage(stand02, image.getSubimage(herSide, 278, SPRITES_WIDTH, SPRITES_HEIGHTS));
-        getImageManager().addImage(stand03, image.getSubimage(blackSide, 278, SPRITES_WIDTH, SPRITES_HEIGHTS));
-        getImageManager().addImage(stand04, image.getSubimage(thatSide, 278, SPRITES_WIDTH, SPRITES_HEIGHTS));
+        
+        getImageManager().addImage(stand01, image.getSubimage(55, 40, SPRITES_WIDTH, SPRITES_HEIGHTS));
         
         String frontWalk001 = "FrontWalk001";
         String frontWalk002 = "FrontWalk002";
@@ -70,17 +58,17 @@ public class Bull extends AnimatedActor {
         leftWalkImages.add(leftWalk001);
         leftWalkImages.add(leftWalk002);
 
-        getImageManager().addImage(frontWalk001, image.getSubimage(hisSide, 278, SPRITES_WIDTH, SPRITES_HEIGHTS));
-        getImageManager().addImage(frontWalk002, image.getSubimage(hisSide, 310, SPRITES_WIDTH, SPRITES_HEIGHTS));
+        getImageManager().addImage(frontWalk001, image.getSubimage(78, 39, SPRITES_WIDTH, SPRITES_HEIGHTS));
+        getImageManager().addImage(frontWalk002, image.getSubimage(100, 39, SPRITES_WIDTH, SPRITES_HEIGHTS));
 
-        getImageManager().addImage(backWalk001, image.getSubimage(herSide, 278, SPRITES_WIDTH, SPRITES_HEIGHTS));
-        getImageManager().addImage(backWalk002, image.getSubimage(herSide, 310, SPRITES_WIDTH, SPRITES_HEIGHTS));
+        getImageManager().addImage(backWalk001, image.getSubimage(76, 6, SPRITES_WIDTH, SPRITES_HEIGHTS));
+        getImageManager().addImage(backWalk002, image.getSubimage(98, 6, SPRITES_WIDTH, SPRITES_HEIGHTS));
 
-        getImageManager().addImage(rightWalk001, image.getSubimage(thatSide, 278, SPRITES_WIDTH, SPRITES_HEIGHTS));
-        getImageManager().addImage(rightWalk002, image.getSubimage(thatSide, 310, SPRITES_WIDTH, SPRITES_HEIGHTS));
+        getImageManager().addImage(rightWalk001, image.getSubimage(78, 105, SPRITES_WIDTH, SPRITES_HEIGHTS));
+        getImageManager().addImage(rightWalk002, image.getSubimage(100, 105, SPRITES_WIDTH, SPRITES_HEIGHTS));
 
-        getImageManager().addImage(leftWalk001, image.getSubimage(blackSide, 278, SPRITES_WIDTH, SPRITES_HEIGHTS));
-        getImageManager().addImage(leftWalk002, image.getSubimage(blackSide, 310, SPRITES_WIDTH, SPRITES_HEIGHTS));
+        getImageManager().addImage(leftWalk001, image.getSubimage(78, 75, SPRITES_WIDTH, SPRITES_HEIGHTS));
+        getImageManager().addImage(leftWalk002, image.getSubimage(100, 75, SPRITES_WIDTH, SPRITES_HEIGHTS));
 
         getAnimator().setImageNames(frontWalkImages);     
  }

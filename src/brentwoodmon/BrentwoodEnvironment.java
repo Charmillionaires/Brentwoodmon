@@ -160,8 +160,8 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
         snorlax = new Snorlax(new Point(700, 150), new Velocity(0, 0));
         getActors().add(snorlax);
 
-//        bull = new Bull(new Point(700, 200), new Velocity(0, 0));
-//        getActors().add(bull);
+        bull = new Bull(new Point(700, 200), new Velocity(0, 0));
+        getActors().add(bull);
     }
 
     @Override
@@ -180,22 +180,28 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
             hero.setState(State.STOP);
             snorlax.setState(State.STOP);
             shaq.setState(State.STOP);
+            bull.setState(State.STOP);
 
         } else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
             hero.setState(State.FRONT_WALK);
             snorlax.setState(State.FRONT_WALK);
+             bull.setState(State.FRONT_WALK);
         } else if (e.getKeyCode() == KeyEvent.VK_UP) {
             hero.setState(State.BACK_WALK);
             snorlax.setState(State.BACK_WALK);
+             bull.setState(State.BACK_WALK);
         } else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
             hero.setState(State.RIGHT_WALK);
             snorlax.setState(State.RIGHT_WALK);
+            bull.setState(State.RIGHT_WALK);
         } else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
             hero.setState(State.LEFT_WALK);
             snorlax.setState(State.LEFT_WALK);
+             bull.setState(State.LEFT_WALK);
         } else if (e.getKeyCode() == KeyEvent.VK_ENTER) {
             hero.setState(State.STAND);
             snorlax.setState(State.STAND);
+             bull.setState(State.STAND);
         } else if (e.getKeyCode() == KeyEvent.VK_S) {
             shaq.setState(State.FRONT_WALK);
         } else if (e.getKeyCode() == KeyEvent.VK_W) {
@@ -228,8 +234,7 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
         
 //        if (this.bullSprite != null) {
 //            graphics.drawImage(bullSprite, WIDTH, WIDTH, this);
-//
-//        }
+//         }
     }
 
 //<editor-fold defaultstate="collapsed" desc="Dialogs">
