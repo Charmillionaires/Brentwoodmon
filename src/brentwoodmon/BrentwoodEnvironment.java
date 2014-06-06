@@ -175,7 +175,7 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
     public void setCurrentMap(Map map) {
         currentMap = map;
         this.myProperty = new CharacterProperty();
-        mapVisualizer = new MapVisualizerDefault(true, false);
+//        mapVisualizer = new MapVisualizerDefault(true, false);
     }
     
     /**
@@ -1204,7 +1204,6 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
     {
         mapVisualizer = new MapVisualizerDefault(true, false);
 
- mapVisualizer = new MapVisualizerDefault(true, false);
 
         setBcampus(MapBin.getCampusBottomMap());
         setUcampus(MapBin.getCampusUpperMap());
@@ -1321,6 +1320,8 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
         Map.addPortal(mcafe, new Point(3, 1), bcampus, new Point(7, 21));
         Map.addPortal(mcafe, new Point(1, 2), dcafe, new Point(1, 2));
         Map.addPortal(dcafe, new Point(1, 2), mcafe, new Point(1, 2));
+        Map.addPortal(dcafe, new Point(15, 18), bcampus, new Point(7, 25));
+        Map.addPortal(bcampus, new Point(7, 25), dcafe, new Point(15, 18));
 
 
         //campus
