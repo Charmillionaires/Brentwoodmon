@@ -96,13 +96,22 @@ public class MapBin {
 
         //treasure box location
         Map.addItem(bcampus, new Point(10, 10), "TB");
-
+        Map.addItem(bcampus, new Point(49, 15), "TB");
+        Map.addItem(bcampus, new Point(47, 4), "TB");
 
         //combat location
         Map.addItem(bcampus, new Point(5, 5), "Combat");
-
+        Map.addItem(bcampus, new Point(8, 5), "Combat");
+        Map.addItem(bcampus, new Point(45,13), "Combat");
+        Map.addItem(bcampus, new Point(43,3), "Combat");
+        Map.addItem(bcampus, new Point(50,2), "Combat");
+        Map.addItem(bcampus, new Point(53,18), "Combat");
+        Map.addItem(bcampus, new Point(22,25), "Combat");     
+        
         //dialog location
-        Map.addItem(bcampus, new Point(8, 8), "Dialog");
+//        Map.addItem(bcampus, new Point(8, 8), "Dialog");
+        
+        
 
         return bcampus;
     }

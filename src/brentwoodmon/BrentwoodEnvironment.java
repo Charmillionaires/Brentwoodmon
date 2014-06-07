@@ -1507,7 +1507,7 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
     @Override
     public void initializeEnvironment() {
         loadCharacters();
-        showPlayerCustomization();
+//        showPlayerCustomization();
     }
 
     private void loadCharacters() {
@@ -1714,7 +1714,7 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
         }
 
         System.out.println("Item " + item.getLocation() + " " + item.getType());
-        return true;
+        return false;
     }
 //</editor-fold>
 

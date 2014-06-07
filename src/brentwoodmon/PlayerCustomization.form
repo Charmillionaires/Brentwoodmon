@@ -73,14 +73,17 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="jbtnHero" max="32767" attributes="0"/>
-                              <Component id="jbtnShaq" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jbtnSnorlax" alignment="0" pref="195" max="32767" attributes="0"/>
+                              <Component id="jbtnBull" pref="195" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="jbtnHero" max="32767" attributes="0"/>
+                                  <Component id="jbtnShaq" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jbtnSnorlax" alignment="0" pref="195" max="32767" attributes="0"/>
+                              </Group>
                           </Group>
                       </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jlblMyImage" max="32767" attributes="0"/>
+                  <Component id="jlblMyImage" pref="190" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -92,13 +95,15 @@
               </Group>
               <Group type="102" attributes="0">
                   <Component id="jlblInstructionOne" min="-2" pref="43" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
-                  <Component id="jbtnSnorlax" min="-2" pref="36" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Component id="jbtnSnorlax" min="-2" pref="36" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
                   <Component id="jbtnShaq" min="-2" pref="36" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jbtnHero" min="-2" pref="42" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jbtnBull" min="-2" pref="37" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -148,6 +153,17 @@
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jbtnHeroMouseClicked"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="jbtnBull">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="&#x534e;&#x6587;&#x96b6;&#x4e66;" size="24" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Bull"/>
+          </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jbtnBullMouseClicked"/>
           </Events>
         </Component>
       </SubComponents>
