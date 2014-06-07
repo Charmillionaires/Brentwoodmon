@@ -95,7 +95,7 @@ public class Dialog extends javax.swing.JPanel {
         jtxtConversation.setColumns(20);
         jtxtConversation.setFont(new java.awt.Font("Andalus", 0, 18)); // NOI18N
         jtxtConversation.setLineWrap(true);
-        jtxtConversation.setRows(5);
+        jtxtConversation.setRows(4);
         jtxtConversation.setMargin(new java.awt.Insets(4, 4, 4, 4));
         jtxtConversation.setOpaque(false);
         jScrollPane1.setViewportView(jtxtConversation);
@@ -240,6 +240,7 @@ public class Dialog extends javax.swing.JPanel {
         }else{
             this.dialogCounter = 0;
         }
+        System.out.println(dialogCounter);
     }//GEN-LAST:event_jbtnPreviousMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

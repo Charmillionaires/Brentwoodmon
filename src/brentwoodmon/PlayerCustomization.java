@@ -20,17 +20,19 @@ public class PlayerCustomization extends javax.swing.JPanel {
     private Image snorlax;
     private Image shaq;
     private Image hero;
+    private Image bull;
     private final PlayerCustomizationIntf responseHandler;
     private Image myImage;
     private String type;
 
-    public PlayerCustomization(Image snorlax, Image shaq, Image hero, PlayerCustomizationIntf responseHandler) {
+    public PlayerCustomization(Image snorlax, Image shaq, Image hero,Image bull, PlayerCustomizationIntf responseHandler) {
         initComponents();
 
         this.snorlax = snorlax;
         this.shaq = shaq;
         this.hero = hero;
-
+        this.bull = bull;
+        
         this.responseHandler = responseHandler;
         this.myImage = snorlax;
     }
@@ -49,20 +51,20 @@ public class PlayerCustomization extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jtxtCustomizedName = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
-        jlblMyImage = new javax.swing.JLabel();
         jbtnShaq = new javax.swing.JButton();
         jbtnSnorlax = new javax.swing.JButton();
         jlblInstructionOne = new javax.swing.JLabel();
         jbtnHero = new javax.swing.JButton();
         jbtnBull = new javax.swing.JButton();
         jlblInstructionTwo = new javax.swing.JLabel();
+        jtxtCustomizedName = new javax.swing.JTextField();
+        jPanel2 = new javax.swing.JPanel();
+        jlblMyImage = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
         jbtnConfirm = new javax.swing.JToggleButton();
 
-        jtxtCustomizedName.setText(" ");
-
-        jlblMyImage.setText(" ");
+        jPanel1.setBackground(new java.awt.Color(204, 255, 204));
 
         jbtnShaq.setFont(new java.awt.Font("华文隶书", 0, 24)); // NOI18N
         jbtnShaq.setText("Shaq");
@@ -99,6 +101,16 @@ public class PlayerCustomization extends javax.swing.JPanel {
             }
         });
 
+        jlblInstructionTwo.setFont(new java.awt.Font("华文隶书", 0, 24)); // NOI18N
+        jlblInstructionTwo.setText("Please Enter Your Name:");
+
+        jtxtCustomizedName.setText(" ");
+        jtxtCustomizedName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtxtCustomizedNameActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -108,21 +120,19 @@ public class PlayerCustomization extends javax.swing.JPanel {
                     .addComponent(jlblInstructionOne, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jbtnBull, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jbtnBull, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jbtnHero, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jbtnShaq, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jbtnSnorlax, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jlblMyImage, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE))
+                                .addComponent(jbtnSnorlax, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE))
+                            .addComponent(jlblInstructionTwo, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jtxtCustomizedName, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jlblMyImage, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addComponent(jlblInstructionOne, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jbtnSnorlax, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -132,11 +142,29 @@ public class PlayerCustomization extends javax.swing.JPanel {
                 .addComponent(jbtnHero, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jbtnBull, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jlblInstructionTwo, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jtxtCustomizedName, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
-        jlblInstructionTwo.setFont(new java.awt.Font("华文隶书", 0, 24)); // NOI18N
-        jlblInstructionTwo.setText("Please Enter Your Name:");
+        jPanel2.setBackground(new java.awt.Color(204, 255, 204));
+
+        jlblMyImage.setText(" ");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jlblMyImage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jlblMyImage, javax.swing.GroupLayout.DEFAULT_SIZE, 236, Short.MAX_VALUE)
+        );
+
+        jPanel3.setBackground(new java.awt.Color(204, 255, 204));
 
         jbtnConfirm.setFont(new java.awt.Font("华文隶书", 0, 24)); // NOI18N
         jbtnConfirm.setText("Confirm");
@@ -146,38 +174,46 @@ public class PlayerCustomization extends javax.swing.JPanel {
             }
         });
 
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jbtnConfirm, javax.swing.GroupLayout.DEFAULT_SIZE, 161, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jbtnConfirm, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jlblInstructionTwo, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jtxtCustomizedName, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(54, 54, 54)
-                                .addComponent(jbtnConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 46, Short.MAX_VALUE)))
-                .addContainerGap())
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(71, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jlblInstructionTwo, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addContainerGap(13, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jbtnConfirm, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
-                    .addComponent(jtxtCustomizedName))
-                .addContainerGap(21, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -194,7 +230,7 @@ public class PlayerCustomization extends javax.swing.JPanel {
     }//GEN-LAST:event_jbtnShaqMouseClicked
 
     private void jbtnHeroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbtnHeroMouseClicked
-        jlblMyImage.setIcon(new ImageIcon(hero.getScaledInstance(250, 250, Image.SCALE_SMOOTH)));
+        jlblMyImage.setIcon(new ImageIcon(hero.getScaledInstance(200, 250, Image.SCALE_SMOOTH)));
         this.myImage = hero;
         this.type = CharacterType.HERO;
     }//GEN-LAST:event_jbtnHeroMouseClicked
@@ -207,13 +243,19 @@ public class PlayerCustomization extends javax.swing.JPanel {
     }//GEN-LAST:event_jbtnConfirmMouseClicked
 
     private void jbtnBullMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbtnBullMouseClicked
-        jlblMyImage.setIcon(new ImageIcon(hero.getScaledInstance(250, 250, Image.SCALE_SMOOTH)));
-        this.myImage = hero;
+        jlblMyImage.setIcon(new ImageIcon(bull.getScaledInstance(250, 250, Image.SCALE_SMOOTH)));
+        this.myImage = bull;
         this.type = CharacterType.BULL;
     }//GEN-LAST:event_jbtnBullMouseClicked
 
+    private void jtxtCustomizedNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxtCustomizedNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtxtCustomizedNameActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JButton jbtnBull;
     private javax.swing.JToggleButton jbtnConfirm;
     private javax.swing.JButton jbtnHero;

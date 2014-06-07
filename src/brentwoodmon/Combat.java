@@ -133,6 +133,7 @@ public class Combat extends javax.swing.JPanel implements TimerNotificationIntf 
                 .addContainerGap(24, Short.MAX_VALUE))
         );
 
+        jtxtBattleHistory.setEditable(false);
         jtxtBattleHistory.setText("What will you do?");
 
         jlblBattleHistory.setText("Start");
