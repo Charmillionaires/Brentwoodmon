@@ -104,7 +104,6 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
     private Map pdorm3;
     private Map olcafe;
     private MapVisualizerDefault mapVisualizer;
-
     private CharacterProperty myProperty;
     private String myName = "player";
     private String typeOfCharacter;
@@ -1206,7 +1205,6 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
     }
 
 //</editor-fold>
-    
     {
         mapVisualizer = new MapVisualizerDefault(true, false);
 
@@ -1541,7 +1539,7 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
         }
 
         if (e.getKeyCode() == KeyEvent.VK_1) {
-            showPlayerCustomization();  
+            showPlayerCustomization();
 //            showCombat();
         }
     }
@@ -1699,8 +1697,10 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
         //treasure box
         if ("TB".equals(item.getType())) {
             showItemManager();
+            AudioPlayer.play("/resources/treasure.wav");
         } else if ("Combat".equals(item.getType())) {
             showCombat();
+            AudioPlayer.play("/resources/battle.wav");
         } else if ("Dialog".equals(item.getType())) {
             showDialog();
         } else if ("DialogHP".equals(item.getType())) {
@@ -1712,7 +1712,7 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
         }
 
         System.out.println("Item " + item.getLocation() + " " + item.getType());
-        return true;
+        return false;
     }
 //</editor-fold>
 
@@ -1770,14 +1770,14 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
         this.myImage = myImage;
         this.setTypeOfCharacter(type);
     }
-    
+
     /**
      * @return the typeOfCharacter
      */
     public String getTypeOfCharacter() {
         return typeOfCharacter;
     }
-    
+
     /**
      * @param typeOfCharacter the typeOfCharacter to set
      */
@@ -1787,15 +1787,15 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
                 case CharacterType.BULL:
                     setCurrentCharacter(new Bull(new Point(100, 100), new Velocity(0, 0)));
                     break;
-                    
+
                 case CharacterType.HERO:
                     setCurrentCharacter(new Hero(new Point(100, 100), new Velocity(0, 0)));
                     break;
-                    
+
                 case CharacterType.SHAQ:
                     setCurrentCharacter(new Shaq(new Point(100, 100), new Velocity(0, 0)));
                     break;
-                    
+
                 case CharacterType.SNORLAX:
                     setCurrentCharacter(new Snorlax(new Point(100, 100), new Velocity(0, 0)));
                     break;
@@ -1803,14 +1803,14 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
         }
         this.typeOfCharacter = typeOfCharacter;
     }
-    
+
     /**
      * @return the currentCharacter
      */
     public AnimatedActor getCurrentCharacter() {
         return currentCharacter;
     }
-    
+
     /**
      * @param currentCharacter the currentCharacter to set
      */
@@ -1821,7 +1821,7 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
         getActors().add(this.currentCharacter);
     }
 //</editor-fold>
-    
+
     //<editor-fold defaultstate="collapsed" desc="MoveValidatorIntf Methods">
     @Override
     public boolean validateMove(Point currentSystemCoord, Point proposedSystemCoord) {
@@ -1832,5 +1832,4 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
         return true;
     }
 //</editor-fold>
-
 }
