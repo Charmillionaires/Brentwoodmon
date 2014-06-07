@@ -1281,15 +1281,15 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
 
         //ross
         Map.addPortal(bcampus, new Point(30, 19), mross, new Point(9, 9));
-        Map.addPortal(mross, new Point(9, 8), bcampus, new Point(30, 19));
-        Map.addPortal(mross, new Point(5, 8), bcampus, new Point(30, 19));
-        Map.addPortal(mross, new Point(1, 7), dross, new Point(1, 6));
-        Map.addPortal(dross, new Point(1, 6), mross, new Point(1, 7));
-        Map.addPortal(mross, new Point(1, 4), uross, new Point(1, 6));
-        Map.addPortal(uross, new Point(1, 6), mross, new Point(1, 4));
-        Map.addPortal(uross, new Point(5, 3), classroom, new Point(3, 8));
-        Map.addPortal(uross, new Point(9, 3), classroomtwo, new Point(3, 8));
-        Map.addPortal(classroom, new Point(3, 8), uross, new Point(5, 3));
+        Map.addPortal(mross, new Point(9, 8), bcampus, new Point(30, 18));
+        Map.addPortal(mross, new Point(5, 8), bcampus, new Point(30, 18));
+        Map.addPortal(mross, new Point(1, 7), dross, new Point(2, 6));
+        Map.addPortal(dross, new Point(1, 6), mross, new Point(2, 7));
+        Map.addPortal(mross, new Point(1, 4), uross, new Point(2, 6));
+        Map.addPortal(uross, new Point(1, 6), mross, new Point(2, 4));
+        Map.addPortal(uross, new Point(5, 3), classroom, new Point(3, 7));
+        Map.addPortal(uross, new Point(9, 3), classroomtwo, new Point(3, 7));
+        Map.addPortal(classroom, new Point(3, 8), uross, new Point(5, 4));
         Map.addPortal(classroomtwo, new Point(3, 8), uross, new Point(9, 3));
         Map.addPortal(uross, new Point(5, 9), classroomthree, new Point(3, 8));
         Map.addPortal(uross, new Point(9, 9), classroomfour, new Point(3, 8));
@@ -1318,13 +1318,13 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
         Map.addPortal(darts, new Point(23, 12), marts, new Point(14, 13));
 
         //cafe build
-        Map.addPortal(bcampus, new Point(7, 21), mcafe, new Point(3, 1));
-        Map.addPortal(bcampus, new Point(8, 21), mcafe, new Point(3, 1));
-        Map.addPortal(mcafe, new Point(3, 1), bcampus, new Point(7, 21));
-        Map.addPortal(mcafe, new Point(1, 2), dcafe, new Point(1, 2));
-        Map.addPortal(dcafe, new Point(1, 2), mcafe, new Point(1, 2));
-        Map.addPortal(dcafe, new Point(15, 18), bcampus, new Point(7, 25));
-        Map.addPortal(bcampus, new Point(7, 25), dcafe, new Point(15, 18));
+        Map.addPortal(bcampus, new Point(7, 21), mcafe, new Point(3, 2));
+        Map.addPortal(bcampus, new Point(8, 21), mcafe, new Point(3, 2));
+        Map.addPortal(mcafe, new Point(3, 1), bcampus, new Point(7, 20));
+        Map.addPortal(mcafe, new Point(1, 2), dcafe, new Point(2, 2));
+        Map.addPortal(dcafe, new Point(1, 2), mcafe, new Point(2, 2));
+        Map.addPortal(dcafe, new Point(15, 18), bcampus, new Point(7, 24));
+        Map.addPortal(bcampus, new Point(7, 25), dcafe, new Point(15, 19));
 
         //campus
         Map.addPortal(bcampus, new Point(37, 0), ucampus, new Point(25, 34));
@@ -1345,90 +1345,90 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
         Map.addPortal(squash, new Point(19, 4), gym, new Point(1, 8));
 
         //allard
-        Map.addPortal(bcampus, new Point(19, 7), aldent, new Point(7, 21));
-        Map.addPortal(aldent, new Point(7, 21), bcampus, new Point(19, 7));
-        Map.addPortal(aldent, new Point(7, 22), bcampus, new Point(19, 7));
-        Map.addPortal(aldent, new Point(14, 5), alhent, new Point(2, 4));
-        Map.addPortal(alhent, new Point(2, 4), aldent, new Point(14, 5));
-        Map.addPortal(alhent, new Point(4, 1), aldorm1, new Point(10, 1));
-        Map.addPortal(alhent, new Point(7, 1), aldorm2, new Point(10, 1));
-        Map.addPortal(alhent, new Point(10, 1), aldorm3, new Point(10, 1));
-        Map.addPortal(aldorm1, new Point(10, 1), alhent, new Point(4, 1));
-        Map.addPortal(aldorm2, new Point(10, 1), alhent, new Point(7, 1));
-        Map.addPortal(aldorm3, new Point(10, 1), alhent, new Point(10, 1));
+        Map.addPortal(bcampus, new Point(19, 7), aldent, new Point(7, 19));
+        Map.addPortal(aldent, new Point(7, 21), bcampus, new Point(19, 8));
+        Map.addPortal(aldent, new Point(7, 22), bcampus, new Point(19, 8));
+        Map.addPortal(aldent, new Point(14, 5), alhent, new Point(2, 5));
+        Map.addPortal(alhent, new Point(2, 4), aldent, new Point(15, 5));
+        Map.addPortal(alhent, new Point(4, 1), aldorm1, new Point(10, 2));
+        Map.addPortal(alhent, new Point(7, 1), aldorm2, new Point(10, 2));
+        Map.addPortal(alhent, new Point(10, 1), aldorm3, new Point(10, 2));
+        Map.addPortal(aldorm1, new Point(10, 1), alhent, new Point(4, 2));
+        Map.addPortal(aldorm2, new Point(10, 1), alhent, new Point(7, 2));
+        Map.addPortal(aldorm3, new Point(10, 1), alhent, new Point(10, 2));
 
         //alex
-        Map.addPortal(bcampus, new Point(42, 12), adent, new Point(7, 21));
-        Map.addPortal(bcampus, new Point(43, 12), adent, new Point(7, 21));
-        Map.addPortal(adent, new Point(7, 21), bcampus, new Point(42, 12));
-        Map.addPortal(adent, new Point(7, 22), bcampus, new Point(42, 12));
-        Map.addPortal(adent, new Point(14, 5), ahent, new Point(2, 4));
-        Map.addPortal(ahent, new Point(2, 4), adent, new Point(14, 5));
-        Map.addPortal(ahent, new Point(4, 1), adorm1, new Point(10, 1));
-        Map.addPortal(ahent, new Point(7, 1), adorm2, new Point(10, 1));
-        Map.addPortal(ahent, new Point(10, 1), adorm3, new Point(10, 1));
-        Map.addPortal(adorm1, new Point(10, 1), ahent, new Point(4, 1));
-        Map.addPortal(adorm2, new Point(10, 1), ahent, new Point(7, 1));
-        Map.addPortal(adorm3, new Point(10, 1), ahent, new Point(10, 1));
+        Map.addPortal(bcampus, new Point(42, 12), adent, new Point(7, 19));
+        Map.addPortal(bcampus, new Point(43, 12), adent, new Point(7, 19));
+        Map.addPortal(adent, new Point(7, 21), bcampus, new Point(42, 13));
+        Map.addPortal(adent, new Point(7, 22), bcampus, new Point(42, 13));
+        Map.addPortal(adent, new Point(14, 5), ahent, new Point(2, 5));
+        Map.addPortal(ahent, new Point(2, 4), adent, new Point(15, 5));
+        Map.addPortal(ahent, new Point(4, 1), adorm1, new Point(10, 2));
+        Map.addPortal(ahent, new Point(7, 1), adorm2, new Point(10, 2));
+        Map.addPortal(ahent, new Point(10, 1), adorm3, new Point(10, 2));
+        Map.addPortal(adorm1, new Point(10, 1), ahent, new Point(4, 2));
+        Map.addPortal(adorm2, new Point(10, 1), ahent, new Point(7, 2));
+        Map.addPortal(adorm3, new Point(10, 1), ahent, new Point(10, 2));
 
         //mack
-        Map.addPortal(bcampus, new Point(34, 6), mdent, new Point(7, 21));
-        Map.addPortal(mdent, new Point(7, 21), bcampus, new Point(34, 6));
-        Map.addPortal(mdent, new Point(7, 22), bcampus, new Point(34, 6));
-        Map.addPortal(mdent, new Point(14, 5), mhent, new Point(2, 4));
-        Map.addPortal(mhent, new Point(2, 4), mdent, new Point(14, 5));
-        Map.addPortal(mhent, new Point(4, 1), mdorm1, new Point(10, 1));
-        Map.addPortal(mhent, new Point(7, 1), mdorm2, new Point(10, 1));
-        Map.addPortal(mhent, new Point(10, 1), mdorm3, new Point(10, 1));
-        Map.addPortal(mdorm1, new Point(10, 1), mhent, new Point(4, 1));
-        Map.addPortal(mdorm2, new Point(10, 1), mhent, new Point(7, 1));
-        Map.addPortal(mdorm3, new Point(10, 1), mhent, new Point(10, 1));
+        Map.addPortal(bcampus, new Point(34, 6), mdent, new Point(7, 19));
+        Map.addPortal(mdent, new Point(7, 21), bcampus, new Point(34, 7));
+        Map.addPortal(mdent, new Point(7, 22), bcampus, new Point(34, 7));
+        Map.addPortal(mdent, new Point(14, 5), mhent, new Point(2, 5));
+        Map.addPortal(mhent, new Point(2, 4), mdent, new Point(15, 5));
+        Map.addPortal(mhent, new Point(4, 1), mdorm1, new Point(10, 2));
+        Map.addPortal(mhent, new Point(7, 1), mdorm2, new Point(10, 2));
+        Map.addPortal(mhent, new Point(10, 1), mdorm3, new Point(10, 2));
+        Map.addPortal(mdorm1, new Point(10, 1), mhent, new Point(4, 2));
+        Map.addPortal(mdorm2, new Point(10, 1), mhent, new Point(7, 2));
+        Map.addPortal(mdorm3, new Point(10, 1), mhent, new Point(10, 2));
 
         //hope
-        Map.addPortal(ucampus, new Point(45, 33), hdent, new Point(7, 21));
-        Map.addPortal(hdent, new Point(7, 21), ucampus, new Point(45, 33));
-        Map.addPortal(hdent, new Point(7, 22), ucampus, new Point(45, 33));
-        Map.addPortal(hdent, new Point(14, 5), hhent, new Point(2, 4));
-        Map.addPortal(hhent, new Point(2, 4), hdent, new Point(14, 5));
-        Map.addPortal(hhent, new Point(4, 1), hdorm1, new Point(10, 1));
-        Map.addPortal(hhent, new Point(7, 1), hdorm2, new Point(10, 1));
-        Map.addPortal(hhent, new Point(10, 1), hdorm3, new Point(10, 1));
-        Map.addPortal(hdorm1, new Point(10, 1), hhent, new Point(4, 1));
-        Map.addPortal(hdorm2, new Point(10, 1), hhent, new Point(7, 1));
-        Map.addPortal(hdorm3, new Point(10, 1), hhent, new Point(10, 1));
+        Map.addPortal(ucampus, new Point(45, 33), hdent, new Point(7, 19));
+        Map.addPortal(hdent, new Point(7, 21), ucampus, new Point(45, 34));
+        Map.addPortal(hdent, new Point(7, 22), ucampus, new Point(45, 34));
+        Map.addPortal(hdent, new Point(14, 5), hhent, new Point(2, 5));
+        Map.addPortal(hhent, new Point(2, 4), hdent, new Point(15, 5));
+        Map.addPortal(hhent, new Point(4, 1), hdorm1, new Point(10, 2));
+        Map.addPortal(hhent, new Point(7, 1), hdorm2, new Point(10, 2));
+        Map.addPortal(hhent, new Point(10, 1), hdorm3, new Point(10, 2));
+        Map.addPortal(hdorm1, new Point(10, 1), hhent, new Point(4, 2));
+        Map.addPortal(hdorm2, new Point(10, 1), hhent, new Point(7, 2));
+        Map.addPortal(hdorm3, new Point(10, 1), hhent, new Point(10, 2));
 
         //rogers
-        Map.addPortal(ucampus, new Point(38, 33), rdent, new Point(7, 21));
-        Map.addPortal(rdent, new Point(7, 21), ucampus, new Point(38, 33));
-        Map.addPortal(rdent, new Point(7, 22), ucampus, new Point(38, 33));
-        Map.addPortal(rdent, new Point(14, 5), rhent, new Point(2, 4));
-        Map.addPortal(rhent, new Point(2, 4), rdent, new Point(14, 5));
-        Map.addPortal(rhent, new Point(4, 1), rdorm1, new Point(10, 1));
-        Map.addPortal(rhent, new Point(7, 1), rdorm2, new Point(10, 1));
-        Map.addPortal(rhent, new Point(10, 1), rdorm3, new Point(10, 1));
-        Map.addPortal(rdorm1, new Point(10, 1), rhent, new Point(4, 1));
-        Map.addPortal(rdorm2, new Point(10, 1), rhent, new Point(7, 1));
-        Map.addPortal(rdorm3, new Point(10, 1), rhent, new Point(10, 1));
+        Map.addPortal(ucampus, new Point(38, 33), rdent, new Point(7, 19));
+        Map.addPortal(rdent, new Point(7, 21), ucampus, new Point(38, 34));
+        Map.addPortal(rdent, new Point(7, 22), ucampus, new Point(38, 34));
+        Map.addPortal(rdent, new Point(14, 5), rhent, new Point(2, 5));
+        Map.addPortal(rhent, new Point(2, 4), rdent, new Point(15, 5));
+        Map.addPortal(rhent, new Point(4, 1), rdorm1, new Point(10, 2));
+        Map.addPortal(rhent, new Point(7, 1), rdorm2, new Point(10, 2));
+        Map.addPortal(rhent, new Point(10, 1), rdorm3, new Point(10, 2));
+        Map.addPortal(rdorm1, new Point(10, 1), rhent, new Point(4, 2));
+        Map.addPortal(rdorm2, new Point(10, 1), rhent, new Point(7, 2));
+        Map.addPortal(rdorm3, new Point(10, 1), rhent, new Point(10, 2));
 
         //ellis
-        Map.addPortal(ucampus, new Point(59, 33), edent, new Point(7, 21));
-        Map.addPortal(ucampus, new Point(58, 33), edent, new Point(7, 21));
-        Map.addPortal(edent, new Point(7, 21), ucampus, new Point(59, 33));
-        Map.addPortal(edent, new Point(7, 22), ucampus, new Point(58, 33));
-        Map.addPortal(edent, new Point(14, 5), ehent, new Point(2, 4));
-        Map.addPortal(ehent, new Point(2, 4), edent, new Point(14, 5));
-        Map.addPortal(ehent, new Point(4, 1), edorm1, new Point(10, 1));
-        Map.addPortal(ehent, new Point(7, 1), edorm2, new Point(10, 1));
-        Map.addPortal(ehent, new Point(10, 1), edorm3, new Point(10, 1));
-        Map.addPortal(edorm1, new Point(10, 1), ehent, new Point(4, 1));
-        Map.addPortal(edorm2, new Point(10, 1), ehent, new Point(7, 1));
-        Map.addPortal(edorm3, new Point(10, 1), ehent, new Point(10, 1));
+        Map.addPortal(ucampus, new Point(59, 33), edent, new Point(7, 19));
+        Map.addPortal(ucampus, new Point(58, 33), edent, new Point(7, 19));
+        Map.addPortal(edent, new Point(7, 21), ucampus, new Point(59, 34));
+        Map.addPortal(edent, new Point(7, 22), ucampus, new Point(58, 34));
+        Map.addPortal(edent, new Point(14, 5), ehent, new Point(2, 5));
+        Map.addPortal(ehent, new Point(2, 4), edent, new Point(15, 5));
+        Map.addPortal(ehent, new Point(4, 1), edorm1, new Point(10, 2));
+        Map.addPortal(ehent, new Point(7, 1), edorm2, new Point(10, 2));
+        Map.addPortal(ehent, new Point(10, 1), edorm3, new Point(10, 2));
+        Map.addPortal(edorm1, new Point(10, 1), ehent, new Point(4, 2));
+        Map.addPortal(edorm2, new Point(10, 1), ehent, new Point(7, 2));
+        Map.addPortal(edorm3, new Point(10, 1), ehent, new Point(10, 2));
 
 // validate these, please!
-        Map.addPortal(getBcampus(), new Point(30, 19), getDross(), new Point(9, 9));
+        Map.addPortal(getBcampus(), new Point(30, 19), getDross(), new Point(9, 8));
 
-        Map.addPortal(getDross(), new Point(9, 9), getBcampus(), new Point(30, 19));
-        Map.addPortal(getDross(), new Point(5, 9), getBcampus(), new Point(30, 19));
+        Map.addPortal(getDross(), new Point(9, 9), getBcampus(), new Point(30, 18));
+        Map.addPortal(getDross(), new Point(5, 9), getBcampus(), new Point(30, 18));
 
         Map.addPortal(getBcampus(), new Point(37, 0), getUcampus(), new Point(25, 34));
         Map.addPortal(getBcampus(), new Point(36, 0), getUcampus(), new Point(24, 34));
@@ -1755,7 +1755,7 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
     @Override
     public boolean portalEvent(Portal portal) {
         setCurrentMap(portal.getDestinationMap());
-//        portal.getDestinationMap().ge
+        this.currentCharacter.setPosition(portal.getDestinationMap().getGrid().getCellSystemCoordinate(portal.getDestinationLocation()));
         return true;
     }
 //</editor-fold>
