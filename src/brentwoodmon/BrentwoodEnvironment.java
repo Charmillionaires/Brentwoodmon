@@ -104,15 +104,13 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
     private Map pdorm2;
     private Map pdorm3;
     private Map olcafe;
+    private Map theatre;
     private MapVisualizerDefault mapVisualizer;
-
     private Hero hero;
     private Shaq shaq;
     private Snorlax snorlax;
     private Bull bull;
     private Image bullSprite;
-    
-
     private CharacterProperty myProperty;
     private String myName = "player";
     private String typeOfCharacter = "snorlax";
@@ -172,6 +170,22 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
     public void setDross(Map dross) {
         this.dross = dross;
         configureMap(this.dross);
+    }
+
+    /**
+     * @return the theatre
+     */
+    public Map getTheatre() {
+        return theatre;
+    }
+
+    /**
+     * @param theatre the theatre to set
+     */
+    public void setTheatre(Map theatre) {
+        this.theatre = theatre;
+        configureMap(this.theatre);
+
     }
 
     /**
@@ -1216,10 +1230,6 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
     {
         mapVisualizer = new MapVisualizerDefault(true, false);
 
-<<<<<<< HEAD
-=======
-
->>>>>>> kimmi-obstacles
         setBcampus(MapBin.getCampusBottomMap());
         setUcampus(MapBin.getCampusUpperMap());
         setDross(MapBin.getDownSRossMap());
@@ -1287,6 +1297,7 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
         setPdorm2(MapBin.getDorm2PrivettMap());
         setPdorm3(MapBin.getDorm3PrivettMap());
         setOlcafe(MapBin.getOldCafeMap());
+        setTheatre(MapBin.getBunchMap());
 
         //ross
         Map.addPortal(bcampus, new Point(30, 19), mross, new Point(9, 9));
@@ -1340,6 +1351,13 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
         Map.addPortal(bcampus, new Point(36, 0), ucampus, new Point(24, 34));
         Map.addPortal(ucampus, new Point(24, 34), bcampus, new Point(36, 0));
         Map.addPortal(ucampus, new Point(25, 34), bcampus, new Point(37, 0));
+
+        //bunch
+        Map.addPortal(bcampus, new Point(19, 12), theatre, new Point(1, 26));
+        Map.addPortal(theatre, new Point(1, 26), bcampus, new Point(19, 12));
+        Map.addPortal(theatre, new Point(28, 13), bcampus, new Point(15, 15));
+        Map.addPortal(bcampus, new Point(15, 15), theatre, new Point(28, 13));
+
 
         //health centre
         Map.addPortal(bcampus, new Point(55, 15), healthc, new Point(14, 9));
@@ -1432,18 +1450,6 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
         Map.addPortal(edorm1, new Point(10, 1), ehent, new Point(4, 1));
         Map.addPortal(edorm2, new Point(10, 1), ehent, new Point(7, 1));
         Map.addPortal(edorm3, new Point(10, 1), ehent, new Point(10, 1));
-
-// validate these, please!
-        Map.addPortal(getBcampus(), new Point(30, 19), getDross(), new Point(9, 9));
-
-        Map.addPortal(getDross(), new Point(9, 9), getBcampus(), new Point(30, 19));
-        Map.addPortal(getDross(), new Point(5, 9), getBcampus(), new Point(30, 19));
-
-        Map.addPortal(getBcampus(), new Point(37, 0), getUcampus(), new Point(25, 34));
-        Map.addPortal(getBcampus(), new Point(36, 0), getUcampus(), new Point(24, 34));
-        Map.addPortal(getUcampus(), new Point(24, 34), getBcampus(), new Point(36, 0));
-        Map.addPortal(getUcampus(), new Point(25, 34), getBcampus(), new Point(37, 0));
-// stop validating!
 
         //whittal
         Map.addPortal(bcampus, new Point(49, 9), wdent, new Point(7, 21));
@@ -1783,7 +1789,7 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
     @Override
     public boolean portalEvent(Portal portal) {
         setCurrentMap(portal.getDestinationMap());
-//        portal.getDestinationMap().ge
+        
         return true;
     }
 //</editor-fold>
@@ -1832,5 +1838,4 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
         return true;
     }
 //</editor-fold>
-
 }
