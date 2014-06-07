@@ -105,7 +105,6 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
     private Map pdorm3;
     private Map olcafe;
     private MapVisualizerDefault mapVisualizer;
-
     private CharacterProperty myProperty;
     private String myName = "player";
     private String typeOfCharacter;
@@ -116,12 +115,14 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
     private Image snorlax_icon;
     private Image shaq_icon;
     private Image hero_icon;
+    private Image bull_icon;
     private Image charmander_icon = ResourceTools.loadImageFromResource("resources/charmander_icon.jpg");
     private Image garvey = ResourceTools.loadImageFromResource("resources/garvey.jpg");
     private Image roommate = ResourceTools.loadImageFromResource("resources/roommate.JPG");
     private Image mais = ResourceTools.loadImageFromResource("resources/mais.jpg");
     private Image itGuy = ResourceTools.loadImageFromResource("resources/it_guy.jpg");
     private Image collis = ResourceTools.loadImageFromResource("resources/collis.jpg");
+    private int random;
 
     /**
      * @return the bcampus
@@ -1207,7 +1208,6 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
     }
 
 //</editor-fold>
-    
     {
         mapVisualizer = new MapVisualizerDefault(true, false);
 
@@ -1507,7 +1507,7 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
     @Override
     public void initializeEnvironment() {
         loadCharacters();
-        showPlayerCustomization();
+//        showPlayerCustomization();
     }
 
     private void loadCharacters() {
@@ -1543,7 +1543,7 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
         }
 
         if (e.getKeyCode() == KeyEvent.VK_1) {
-            showPlayerCustomization();  
+            showPlayerCustomization();
 //            showCombat();
         }
     }
@@ -1664,10 +1664,28 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
     }
 
     private void showItemManager() {
+        AudioPlayer.play("/resources/winning.wav");
+        
         JFrame frmItemManager = new JFrame("Item Manager");
-
         ContainerItemList containerItemList = new ContainerItemList();
-        containerItemList.getItems().add(new ContainerItem("Pencil", "HB pencil, good for scantron."));
+        
+        this.random = generateRandomNumber();
+        if (this.random<=2) {
+            containerItemList.getItems().add(new ContainerItem("Pencil", "HB pencil, good for scantron."));
+            containerItemList.getItems().add(new ContainerItem("Arizona", "99c Arizona ice tea, very sweet."));
+        }else if(this.random>2 && this.random<=4){
+            containerItemList.getItems().add(new ContainerItem("Chips", "A bag of BBQ favour potato chips."));
+            containerItemList.getItems().add(new ContainerItem("Umbrella", "Uhhh, need it!"));
+            containerItemList.getItems().add(new ContainerItem("Sword", "Sharp, cold, has a drop of blood on it."));
+        }else if(this.random>4 &&this.random<=6){
+            containerItemList.getItems().add(new ContainerItem("Iphone", "Someone must have lost his/her phone."));
+            containerItemList.getItems().add(new ContainerItem("Ring", "+10000HP! +2222ATK! Level Max!!!...JK."));
+        }else if(this.random>6 &&this.random<=8){
+            containerItemList.getItems().add(new ContainerItem("Garbage Paper Plate", "Actually, it's not garbage. Please compost it."));
+        }else{
+            containerItemList.getItems().add(new ContainerItem("Love Letter", "It's pink and shiny. To...PJ?"));
+        }
+        
         ContainerItemManager itemManager = new ContainerItemManager("Treasure Box", containerItemList, this);
 
         frmItemManager.add(itemManager);
@@ -1678,14 +1696,19 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
         frmItemManager.setVisible(true);
     }
 
+    public int generateRandomNumber() {
+        return (int) (Math.random() * 10);
+    }
+
     private void showPlayerCustomization() {
         this.snorlax_icon = ResourceTools.loadImageFromResource("resources/snorlax.png");
         this.shaq_icon = ResourceTools.loadImageFromResource("resources/shaq.png");
         this.hero_icon = ResourceTools.loadImageFromResource("resources/hero.png");
+        this.bull_icon = ResourceTools.loadImageFromResource("resources/bull.jpg");
 
         JFrame frmPlayerCustomization = new JFrame("PlayerCustomization");
 
-        PlayerCustomization myPlayerCustomization = new PlayerCustomization(snorlax_icon, shaq_icon, hero_icon, this);
+        PlayerCustomization myPlayerCustomization = new PlayerCustomization(snorlax_icon, shaq_icon, hero_icon, bull_icon, this);
 
         frmPlayerCustomization.add(myPlayerCustomization);
         frmPlayerCustomization.setAlwaysOnTop(true);
@@ -1714,7 +1737,7 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
         }
 
         System.out.println("Item " + item.getLocation() + " " + item.getType());
-        return true;
+        return false;
     }
 //</editor-fold>
 
@@ -1772,14 +1795,14 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
         this.myImage = myImage;
         this.setTypeOfCharacter(type);
     }
-    
+
     /**
      * @return the typeOfCharacter
      */
     public String getTypeOfCharacter() {
         return typeOfCharacter;
     }
-    
+
     /**
      * @param typeOfCharacter the typeOfCharacter to set
      */
@@ -1789,15 +1812,15 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
                 case CharacterType.BULL:
                     setCurrentCharacter(new Bull(new Point(100, 100), new Velocity(0, 0)));
                     break;
-                    
+
                 case CharacterType.HERO:
                     setCurrentCharacter(new Hero(new Point(100, 100), new Velocity(0, 0)));
                     break;
-                    
+
                 case CharacterType.SHAQ:
                     setCurrentCharacter(new Shaq(new Point(100, 100), new Velocity(0, 0)));
                     break;
-                    
+
                 case CharacterType.SNORLAX:
                     setCurrentCharacter(new Snorlax(new Point(100, 100), new Velocity(0, 0)));
                     break;
@@ -1805,14 +1828,14 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
         }
         this.typeOfCharacter = typeOfCharacter;
     }
-    
+
     /**
      * @return the currentCharacter
      */
     public AnimatedActor getCurrentCharacter() {
         return currentCharacter;
     }
-    
+
     /**
      * @param currentCharacter the currentCharacter to set
      */
@@ -1823,7 +1846,7 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
         getActors().add(this.currentCharacter);
     }
 //</editor-fold>
-    
+
     //<editor-fold defaultstate="collapsed" desc="MoveValidatorIntf Methods">
     @Override
     public boolean validateMove(Point currentSystemCoord, Point proposedSystemCoord) {
@@ -1834,5 +1857,4 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
         return true;
     }
 //</editor-fold>
-
 }

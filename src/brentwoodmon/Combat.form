@@ -157,6 +157,7 @@
     </Container>
     <Component class="javax.swing.JTextField" name="jtxtBattleHistory">
       <Properties>
+        <Property name="editable" type="boolean" value="false"/>
         <Property name="text" type="java.lang.String" value="What will you do?"/>
       </Properties>
     </Component>
