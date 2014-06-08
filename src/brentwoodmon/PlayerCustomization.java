@@ -105,11 +105,6 @@ public class PlayerCustomization extends javax.swing.JPanel {
         jlblInstructionTwo.setText("Please Enter Your Name:");
 
         jtxtCustomizedName.setText(" ");
-        jtxtCustomizedName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtxtCustomizedNameActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -247,10 +242,6 @@ public class PlayerCustomization extends javax.swing.JPanel {
         this.myImage = bull;
         this.type = CharacterType.BULL;
     }//GEN-LAST:event_jbtnBullMouseClicked
-
-    private void jtxtCustomizedNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxtCustomizedNameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jtxtCustomizedNameActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jPanel1;

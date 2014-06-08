@@ -116,13 +116,17 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
     private Image shaq_icon;
     private Image hero_icon;
     private Image bull_icon;
-    private Image charmander_icon = ResourceTools.loadImageFromResource("resources/charmander_icon.jpg");
+    private Image charmander_icon = ResourceTools.loadImageFromResource("resources/charmander_icon.png");
+    private Image bulbasaur_icon = ResourceTools.loadImageFromResource("resources/bulbasaur.png");
+    private Image pidgeotto_icon = ResourceTools.loadImageFromResource("resources/pidgeotto.png");
+    private Image squirtle_icon = ResourceTools.loadImageFromResource("resources/squirtle.png");
     private Image garvey = ResourceTools.loadImageFromResource("resources/garvey.jpg");
     private Image roommate = ResourceTools.loadImageFromResource("resources/roommate.JPG");
     private Image mais = ResourceTools.loadImageFromResource("resources/mais.jpg");
     private Image itGuy = ResourceTools.loadImageFromResource("resources/it_guy.jpg");
     private Image collis = ResourceTools.loadImageFromResource("resources/collis.jpg");
-    private int random;
+    private int randomNumber;
+    private Image randomImage;
 
     /**
      * @return the bcampus
@@ -1569,7 +1573,18 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
 //<editor-fold defaultstate="collapsed" desc="Dialogs">
     private void showCombat() {
         JFrame frmCombat = new JFrame("Combat");
-        Combat myCombat = new Combat(myName, myImage, charmander_icon, myProperty.getMyHp(), myProperty.getMyDamage(), this);
+        this.randomNumber = generateRandomNumber();
+        this.randomImage = charmander_icon;
+        if (this.randomNumber <= 2) {
+            this.randomImage = squirtle_icon;
+        } else if (this.randomNumber > 2 && this.randomNumber <= 5) {
+            this.randomImage = bulbasaur_icon;
+        } else if (this.randomNumber > 5 && this.randomNumber <= 7) {
+            this.randomImage = pidgeotto_icon;
+        } else {
+            this.randomImage = charmander_icon;
+        }
+        Combat myCombat = new Combat(myName, myImage, randomImage, myProperty.getMyHp(), myProperty.getMyDamage(), this);
 
         frmCombat.add(myCombat);
         frmCombat.setAlwaysOnTop(true);
@@ -1662,7 +1677,7 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
         frmDialog.setSize(new Dimension(600, 425));
         frmDialog.setVisible(true);
     }
-    
+
     private void showDialogMathClass() {
         JFrame frmDialog = new JFrame("Dialog with Math teacher");
 
@@ -1686,27 +1701,27 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
 
     private void showItemManager() {
         AudioPlayer.play("/resources/winning.wav");
-        
+
         JFrame frmItemManager = new JFrame("Item Manager");
         ContainerItemList containerItemList = new ContainerItemList();
-        
-        this.random = generateRandomNumber();
-        if (this.random<=2) {
+
+        this.randomNumber = generateRandomNumber();
+        if (this.randomNumber <= 2) {
             containerItemList.getItems().add(new ContainerItem("Pencil", "HB pencil, good for scantron."));
             containerItemList.getItems().add(new ContainerItem("Arizona", "99c Arizona ice tea, very sweet."));
-        }else if(this.random>2 && this.random<=4){
+        } else if (this.randomNumber > 2 && this.randomNumber <= 4) {
             containerItemList.getItems().add(new ContainerItem("Chips", "A bag of BBQ favour potato chips."));
             containerItemList.getItems().add(new ContainerItem("Umbrella", "Uhhh, need it!"));
             containerItemList.getItems().add(new ContainerItem("Sword", "Sharp, cold, has a drop of blood on it."));
-        }else if(this.random>4 &&this.random<=6){
+        } else if (this.randomNumber > 4 && this.randomNumber <= 6) {
             containerItemList.getItems().add(new ContainerItem("Iphone", "Someone must have lost his/her phone."));
             containerItemList.getItems().add(new ContainerItem("Ring", "+10000HP! +2222ATK! Level Max!!!...JK."));
-        }else if(this.random>6 &&this.random<=8){
+        } else if (this.randomNumber > 6 && this.randomNumber <= 8) {
             containerItemList.getItems().add(new ContainerItem("Garbage Paper Plate", "Actually, it's not garbage. Please compost it."));
-        }else{
+        } else {
             containerItemList.getItems().add(new ContainerItem("Love Letter", "It's pink and shiny. To...PJ?"));
         }
-        
+
         ContainerItemManager itemManager = new ContainerItemManager("Treasure Box", containerItemList, this);
 
         frmItemManager.add(itemManager);
