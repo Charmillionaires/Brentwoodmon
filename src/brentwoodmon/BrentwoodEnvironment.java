@@ -1280,7 +1280,7 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
         setOlcafe(MapBin.getOldCafeMap());
 
         //ross
-        Map.addPortal(bcampus, new Point(30, 19), mross, new Point(9, 9));
+        Map.addPortal(bcampus, new Point(30, 19), mross, new Point(9, 7));
         Map.addPortal(mross, new Point(9, 8), bcampus, new Point(30, 18));
         Map.addPortal(mross, new Point(5, 8), bcampus, new Point(30, 18));
         Map.addPortal(mross, new Point(1, 7), dross, new Point(2, 6));
@@ -1290,32 +1290,32 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
         Map.addPortal(uross, new Point(5, 3), classroom, new Point(3, 7));
         Map.addPortal(uross, new Point(9, 3), classroomtwo, new Point(3, 7));
         Map.addPortal(classroom, new Point(3, 8), uross, new Point(5, 4));
-        Map.addPortal(classroomtwo, new Point(3, 8), uross, new Point(9, 3));
-        Map.addPortal(uross, new Point(5, 9), classroomthree, new Point(3, 8));
-        Map.addPortal(uross, new Point(9, 9), classroomfour, new Point(3, 8));
-        Map.addPortal(classroomthree, new Point(3, 8), uross, new Point(5, 9));
-        Map.addPortal(classroomfour, new Point(3, 8), uross, new Point(9, 9));
-        Map.addPortal(dross, new Point(5, 3), classroomfive, new Point(3, 8));
-        Map.addPortal(dross, new Point(9, 3), classroomsix, new Point(3, 8));
-        Map.addPortal(classroomfive, new Point(3, 8), dross, new Point(5, 3));
-        Map.addPortal(classroomsix, new Point(3, 8), dross, new Point(9, 3));
-        Map.addPortal(dross, new Point(5, 9), classroomseven, new Point(3, 8));
-        Map.addPortal(dross, new Point(9, 9), classroomeight, new Point(3, 8));
-        Map.addPortal(classroomseven, new Point(3, 8), dross, new Point(5, 9));
-        Map.addPortal(classroomeight, new Point(3, 8), dross, new Point(9, 9));
-        Map.addPortal(mross, new Point(9, 3), lib, new Point(4, 8));
-        Map.addPortal(lib, new Point(4, 8), mross, new Point(9, 3));
-        Map.addPortal(mross, new Point(5, 3), office, new Point(6, 12));
-        Map.addPortal(office, new Point(6, 12), mross, new Point(5, 3));
+        Map.addPortal(classroomtwo, new Point(3, 8), uross, new Point(9, 4));
+        Map.addPortal(uross, new Point(5, 9), classroomthree, new Point(3, 7));
+        Map.addPortal(uross, new Point(9, 9), classroomfour, new Point(3, 7));
+        Map.addPortal(classroomthree, new Point(3, 8), uross, new Point(5, 8));
+        Map.addPortal(classroomfour, new Point(3, 8), uross, new Point(9, 8));
+        Map.addPortal(dross, new Point(5, 3), classroomfive, new Point(3, 7));
+        Map.addPortal(dross, new Point(9, 3), classroomsix, new Point(3, 7));
+        Map.addPortal(classroomfive, new Point(3, 8), dross, new Point(5, 4));
+        Map.addPortal(classroomsix, new Point(3, 8), dross, new Point(9, 4));
+        Map.addPortal(dross, new Point(5, 9), classroomseven, new Point(3, 7));
+        Map.addPortal(dross, new Point(9, 9), classroomeight, new Point(3, 7));
+        Map.addPortal(classroomseven, new Point(3, 8), dross, new Point(5, 8));
+        Map.addPortal(classroomeight, new Point(3, 8), dross, new Point(9, 8));
+        Map.addPortal(mross, new Point(9, 3), lib, new Point(4, 7));
+        Map.addPortal(lib, new Point(4, 8), mross, new Point(9, 4));
+        Map.addPortal(mross, new Point(5, 3), office, new Point(6, 11));
+        Map.addPortal(office, new Point(6, 12), mross, new Point(5, 4));
 
         //5,3  9,3
         //arts build
-        Map.addPortal(bcampus, new Point(21, 22), marts, new Point(28, 12));
-        Map.addPortal(marts, new Point(28, 12), bcampus, new Point(21, 22));
-        Map.addPortal(marts, new Point(28, 13), bcampus, new Point(21, 22));
-        Map.addPortal(marts, new Point(14, 13), darts, new Point(23, 12));
-        Map.addPortal(marts, new Point(14, 14), darts, new Point(23, 12));
-        Map.addPortal(darts, new Point(23, 12), marts, new Point(14, 13));
+        Map.addPortal(bcampus, new Point(21, 22), marts, new Point(27, 12));
+        Map.addPortal(marts, new Point(28, 12), bcampus, new Point(21, 23));
+        Map.addPortal(marts, new Point(28, 13), bcampus, new Point(21, 23));
+        Map.addPortal(marts, new Point(14, 13), darts, new Point(22, 12));
+        Map.addPortal(marts, new Point(14, 14), darts, new Point(22, 12));
+        Map.addPortal(darts, new Point(23, 12), marts, new Point(15, 13));
 
         //cafe build
         Map.addPortal(bcampus, new Point(7, 21), mcafe, new Point(3, 2));
@@ -1323,14 +1323,14 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
         Map.addPortal(mcafe, new Point(3, 1), bcampus, new Point(7, 20));
         Map.addPortal(mcafe, new Point(1, 2), dcafe, new Point(2, 2));
         Map.addPortal(dcafe, new Point(1, 2), mcafe, new Point(2, 2));
-        Map.addPortal(dcafe, new Point(15, 18), bcampus, new Point(7, 24));
+        Map.addPortal(dcafe, new Point(15, 18), bcampus, new Point(7, 20));
         Map.addPortal(bcampus, new Point(7, 25), dcafe, new Point(15, 19));
 
         //campus
-        Map.addPortal(bcampus, new Point(37, 0), ucampus, new Point(25, 34));
-        Map.addPortal(bcampus, new Point(36, 0), ucampus, new Point(24, 34));
-        Map.addPortal(ucampus, new Point(24, 34), bcampus, new Point(36, 0));
-        Map.addPortal(ucampus, new Point(25, 34), bcampus, new Point(37, 0));
+        Map.addPortal(bcampus, new Point(37, 0), ucampus, new Point(25, 33));
+        Map.addPortal(bcampus, new Point(36, 0), ucampus, new Point(24, 33));
+        Map.addPortal(ucampus, new Point(24, 34), bcampus, new Point(36, 1));
+        Map.addPortal(ucampus, new Point(25, 34), bcampus, new Point(37, 1));
 
         //health centre
         Map.addPortal(bcampus, new Point(55, 15), healthc, new Point(14, 9));
@@ -1468,24 +1468,24 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
         Map.addPortal(mt, new Point(0, 9), bcampus, new Point(63, 20));
 
         //it
-        Map.addPortal(olaca, new Point(3, 13), underit, new Point(2, 0));
-        Map.addPortal(underit, new Point(2, 0), olaca, new Point(3, 13));
+        Map.addPortal(olaca, new Point(3, 13), underit, new Point(2, 1));
+        Map.addPortal(underit, new Point(2, 0), olaca, new Point(3, 12));
         Map.addPortal(underit, new Point(48, 12), bcampus, new Point(63, 23));
         Map.addPortal(bcampus, new Point(64, 13), underit, new Point(48, 12));
 
         //ol academic
-        Map.addPortal(bcampus, new Point(47, 25), olaca, new Point(8, 34));
-        Map.addPortal(olaca, new Point(8, 34), bcampus, new Point(47, 25));
+        Map.addPortal(bcampus, new Point(47, 25), olaca, new Point(8, 33));
+        Map.addPortal(olaca, new Point(8, 34), bcampus, new Point(48, 25));
 
         //olcafe
-        Map.addPortal(bcampus, new Point(52, 25), olcafe, new Point(3, 1));
-        Map.addPortal(olcafe, new Point(3, 1), bcampus, new Point(52, 25));
+        Map.addPortal(bcampus, new Point(52, 25), olcafe, new Point(3, 2));
+        Map.addPortal(olcafe, new Point(3, 1), bcampus, new Point(51, 25));
 
         //hidden
-        Map.addPortal(bcampus, new Point(2, 1), hid, new Point(11, 19));
-        Map.addPortal(hid, new Point(11, 19), bcampus, new Point(2, 1));
-        Map.addPortal(hid, new Point(10, 19), bcampus, new Point(2, 1));
-        Map.addPortal(hid, new Point(13, 19), bcampus, new Point(2, 1));
+        Map.addPortal(bcampus, new Point(2, 1), hid, new Point(11, 18));
+        Map.addPortal(hid, new Point(11, 19), bcampus, new Point(2, 2));
+        Map.addPortal(hid, new Point(10, 19), bcampus, new Point(2, 2));
+        Map.addPortal(hid, new Point(13, 19), bcampus, new Point(2, 2));
         setCurrentMap(getBcampus());
     }
 
@@ -1662,6 +1662,27 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
         frmDialog.setSize(new Dimension(600, 425));
         frmDialog.setVisible(true);
     }
+    
+    private void showDialogMathClass() {
+        JFrame frmDialog = new JFrame("Dialog with Math teacher");
+
+        ArrayList<String> conversation = new ArrayList<>();
+
+        conversation.clear();
+        conversation.add("Why aren't you wearing proper uniform?");
+        conversation.add("I'm new... I didn't know.");
+        conversation.add("That's not an excuse! You should be wearing only Brentwood product, black socks and shoes.");
+        conversation.add("I'm wearing a Brentwood hoodie...");
+        conversation.add("Well, it's not a part of the uniform. Go to the school store. You can ask Mrs. Turvey about what is and what is not proper dress.");
+
+        Dialog myDialog = new Dialog(myName, "Mr. Garvey", myImage, garvey, conversation);
+
+        frmDialog.add(myDialog);
+        frmDialog.setAlwaysOnTop(true);
+        frmDialog.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        frmDialog.setSize(new Dimension(600, 425));
+        frmDialog.setVisible(true);
+    }
 
     private void showItemManager() {
         AudioPlayer.play("/resources/winning.wav");
@@ -1713,7 +1734,7 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
         frmPlayerCustomization.add(myPlayerCustomization);
         frmPlayerCustomization.setAlwaysOnTop(true);
         frmPlayerCustomization.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        frmPlayerCustomization.setSize(new Dimension(600, 400));
+        frmPlayerCustomization.setSize(new Dimension(550, 400));
         frmPlayerCustomization.setVisible(true);
     }
 //</editor-fold>
@@ -1734,6 +1755,8 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
             showDialogIT();
         } else if ("DialogEnglishClass".equals(item.getType())) {
             showDialogEnglishClass();
+        } else if ("DialogMathClass".equals(item.getType())) {
+            showDialogMathClass();
         }
 
         System.out.println("Item " + item.getLocation() + " " + item.getType());
@@ -1756,6 +1779,7 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
     public boolean portalEvent(Portal portal) {
         setCurrentMap(portal.getDestinationMap());
         this.currentCharacter.setPosition(portal.getDestinationMap().getGrid().getCellSystemCoordinate(portal.getDestinationLocation()));
+        this.getCurrentCharacter().setState(State.STOP);
         return true;
     }
 //</editor-fold>

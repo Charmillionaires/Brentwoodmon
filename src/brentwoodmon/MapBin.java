@@ -179,6 +179,10 @@ public class MapBin {
 
     static Map getClassroom2Map() {
         Map classroomtwo = new Map(ResourceTools.loadImageFromResource("resources/classroom.bmp"), new Dimension(16, 16), new Dimension(20, 20));
+               
+        //dialog location
+        Map.addItem(classroomtwo, new Point(3, 2), "DialogMathClass");
+        
         return classroomtwo;
     }
 
@@ -238,7 +242,7 @@ public class MapBin {
 
     static Map getAlexEntranceMap() {
         Map adent = new Map(ResourceTools.loadImageFromResource("resources/house_entrance.bmp"), new Dimension(16, 16), new Dimension(30, 30));
-        Map.addItem(adent, new Point(7, 18), "DialogHP");
+        Map.addItem(adent, new Point(6, 18), "DialogHP");
         return adent;
     }
 
@@ -324,6 +328,9 @@ public class MapBin {
 
     static Map getHiddenMap() {
         Map hid = new Map(ResourceTools.loadImageFromResource("resources/special_place.bmp"), new Dimension(16, 16), new Dimension(30, 30));
+        //dialog location
+        Map.addItem(hid, new Point(9, 7), "TB");
+        Map.addItem(hid, new Point(13, 7), "TB");
         return hid;
     }
 
