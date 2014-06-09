@@ -105,6 +105,7 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
     private Map olcafe;
     private Map theatre;
     private MapVisualizerDefault mapVisualizer;
+<<<<<<< HEAD
 
 //    private Hero hero;
 //    private Shaq shaq;
@@ -112,6 +113,13 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
 //    private Bull bull;
     private Image bullSprite;
 
+=======
+    private Hero hero;
+    private Shaq shaq;
+    private Snorlax snorlax;
+    private Bull bull;
+    private Image bullSprite;
+>>>>>>> kimmi-much-dos-obstacles
     private CharacterProperty myProperty;
     private String myName = "player";
     private String typeOfCharacter;
@@ -1873,6 +1881,8 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
     public boolean validateMove(Point currentSystemCoord, Point proposedSystemCoord) {
         if (currentMap != null) {
             Point proposedCellCoord = currentMap.getCellLocation(proposedSystemCoord);
+//            proposedCellCoord.x -= 1;
+//            proposedCellCoord.y -= 1;
             return currentMap.validateLocation(proposedCellCoord);
         }
         return true;
