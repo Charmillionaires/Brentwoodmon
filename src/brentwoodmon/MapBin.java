@@ -238,8 +238,7 @@ public class MapBin {
 
     static Map getDownSRossMap() {
         Map dross = new Map(ResourceTools.loadImageFromResource("resources/ross_downstair.jpg"), new Dimension(16, 16), new Dimension(44, 48));
-<<<<<<< HEAD
-=======
+
         Map.addObstacleRange(dross, new Point(0, 0), new Point(14, 2), ObstacleType.BARRIER);
         Map.addObstacleRange(dross, new Point(0, 3), new Point(4, 3), ObstacleType.BARRIER);
         Map.addObstacleRange(dross, new Point(6, 3), new Point(8, 3), ObstacleType.BARRIER);
@@ -252,7 +251,6 @@ public class MapBin {
         Map.addObstacle(dross, new Point(13, 8), ObstacleType.BARRIER);
 
 
->>>>>>> kimmi--mucho-obstacles
         return dross;
     }
 
@@ -360,6 +358,17 @@ public class MapBin {
         Map.addObstacle(darts, new Point(22, 24), ObstacleType.BARRIER);
         Map.addObstacle(darts, new Point(24, 24), ObstacleType.BARRIER);
         Map.addObstacle(darts, new Point(26, 24), ObstacleType.BARRIER);
+        Map.addObstacle(darts, new Point(7, 19), ObstacleType.BARRIER);
+        Map.addObstacleRange(darts, new Point(0, 20), new Point(1, 21), ObstacleType.BARRIER);
+        Map.addObstacleRange(darts, new Point(3, 20), new Point(4, 21), ObstacleType.BARRIER);
+        Map.addObstacleRange(darts, new Point(0, 17), new Point(1, 18), ObstacleType.BARRIER);
+        Map.addObstacleRange(darts, new Point(3, 17), new Point(4, 18), ObstacleType.BARRIER);
+        Map.addObstacleRange(darts, new Point(6, 22), new Point(15, 22), ObstacleType.BARRIER);
+        Map.addObstacleRange(darts, new Point(17, 22), new Point(28, 22), ObstacleType.BARRIER);
+        Map.addObstacleRange(darts, new Point(8, 21), new Point(15, 21), ObstacleType.BARRIER);
+        Map.addObstacleRange(darts, new Point(0, 15), new Point(4, 16), ObstacleType.BARRIER);
+        Map.addObstacleRange(darts, new Point(5, 15), new Point(9, 16), ObstacleType.BARRIER);
+        Map.addObstacleRange(darts, new Point(11, 15), new Point(28, 16), ObstacleType.BARRIER);
 
         return darts;
     }
