@@ -17,7 +17,7 @@ import map.ObstacleType;
 public class MapBin {
 
     public static Map getCampusBottomMap() {
-        Map bcampus = new Map(ResourceTools.loadImageFromResource("resources/campus_bottom.bmp"), new Dimension(16, 16), new Dimension(40, 60));
+        Map bcampus = new Map(ResourceTools.loadImageFromResource("resources/campus_bottom.bmp"), new Dimension(16, 16), new Dimension(40, 70));
 
 //        Map.addObstacle(bcampus, new Point(10, 10), ObstacleType.WATER);
 //        Map.addObstacleRange(campus, new Point(0, 0), new Point(2, 5), ObstacleType.BARRIER);
@@ -76,6 +76,63 @@ public class MapBin {
         Map.addObstacleRange(bcampus, new Point(43, 8), new Point(43, 11), ObstacleType.BARRIER);
         Map.addObstacleRange(bcampus, new Point(39, 12), new Point(41, 12), ObstacleType.BARRIER);
         Map.addObstacleRange(bcampus, new Point(50, 31), new Point(59, 31), ObstacleType.BARRIER);
+        Map.addObstacle(bcampus, new Point(47, 9), ObstacleType.BARRIER);
+        Map.addObstacle(bcampus, new Point(56, 5), ObstacleType.BARRIER);
+        Map.addObstacle(bcampus, new Point(42, 5), ObstacleType.BARRIER);
+        Map.addObstacle(bcampus, new Point(15, 7), ObstacleType.BARRIER);
+        Map.addObstacle(bcampus, new Point(33, 17), ObstacleType.BARRIER);
+        Map.addObstacle(bcampus, new Point(36, 18), ObstacleType.BARRIER);
+        Map.addObstacle(bcampus, new Point(40, 18), ObstacleType.BARRIER);
+        Map.addObstacle(bcampus, new Point(42, 18), ObstacleType.BARRIER);
+        Map.addObstacle(bcampus, new Point(14, 23), ObstacleType.BARRIER);
+        Map.addObstacle(bcampus, new Point(34, 32), ObstacleType.BARRIER);
+        Map.addObstacle(bcampus, new Point(24, 22), ObstacleType.BARRIER);
+        Map.addObstacle(bcampus, new Point(26, 13), ObstacleType.BARRIER);
+        Map.addObstacle(bcampus, new Point(54, 15), ObstacleType.BARRIER);
+
+
+        Map.addObstacleRange(bcampus, new Point(48, 6), new Point(48, 9), ObstacleType.BARRIER);
+        Map.addObstacleRange(bcampus, new Point(49, 5), new Point(53, 5), ObstacleType.BARRIER);
+        Map.addObstacleRange(bcampus, new Point(54, 6), new Point(54, 9), ObstacleType.BARRIER);
+        Map.addObstacleRange(bcampus, new Point(50, 9), new Point(54, 9), ObstacleType.BARRIER);
+        Map.addObstacleRange(bcampus, new Point(57, 1), new Point(57, 5), ObstacleType.BARRIER);
+        Map.addObstacleRange(bcampus, new Point(57, 5), new Point(60, 5), ObstacleType.BARRIER);
+        Map.addObstacleRange(bcampus, new Point(62, 5), new Point(64, 5), ObstacleType.BARRIER);
+        Map.addObstacleRange(bcampus, new Point(64, 1), new Point(64, 5), ObstacleType.BARRIER);
+        Map.addObstacleRange(bcampus, new Point(65, 0), new Point(65, 35), ObstacleType.BARRIER);
+        Map.addObstacleRange(bcampus, new Point(62, 22), new Point(64, 22), ObstacleType.BARRIER);
+        Map.addObstacleRange(bcampus, new Point(60, 23), new Point(62, 23), ObstacleType.BARRIER);
+        Map.addObstacleRange(bcampus, new Point(59, 27), new Point(59, 30), ObstacleType.BARRIER);
+        Map.addObstacleRange(bcampus, new Point(60, 25), new Point(60, 27), ObstacleType.BARRIER);
+        Map.addObstacleRange(bcampus, new Point(43, 28), new Point(56, 28), ObstacleType.BARRIER);
+        Map.addObstacleRange(bcampus, new Point(43, 25), new Point(46, 25), ObstacleType.BARRIER);
+        Map.addObstacleRange(bcampus, new Point(53, 25), new Point(56, 25), ObstacleType.BARRIER);
+        Map.addObstacleRange(bcampus, new Point(43, 25), new Point(43, 28), ObstacleType.BARRIER);
+        Map.addObstacleRange(bcampus, new Point(56, 25), new Point(56, 28), ObstacleType.BARRIER);
+        Map.addObstacleRange(bcampus, new Point(17, 19), new Point(23, 19), ObstacleType.BARRIER);
+        Map.addObstacleRange(bcampus, new Point(17, 22), new Point(20, 22), ObstacleType.BARRIER);
+        Map.addObstacleRange(bcampus, new Point(22, 22), new Point(23, 22), ObstacleType.BARRIER);
+        Map.addObstacleRange(bcampus, new Point(17, 19), new Point(17, 22), ObstacleType.BARRIER);
+        Map.addObstacleRange(bcampus, new Point(23, 19), new Point(23, 22), ObstacleType.BARRIER);
+        Map.addObstacleRange(bcampus, new Point(14, 10), new Point(19, 10), ObstacleType.BARRIER);
+        Map.addObstacleRange(bcampus, new Point(11, 11), new Point(19, 11), ObstacleType.BARRIER);
+        Map.addObstacleRange(bcampus, new Point(11, 11), new Point(11, 15), ObstacleType.BARRIER);
+        Map.addObstacleRange(bcampus, new Point(16, 15), new Point(19, 15), ObstacleType.BARRIER);
+        Map.addObstacleRange(bcampus, new Point(11, 15), new Point(14, 15), ObstacleType.BARRIER);
+        Map.addObstacleRange(bcampus, new Point(11, 15), new Point(14, 15), ObstacleType.BARRIER);
+        Map.addObstacleRange(bcampus, new Point(11, 14), new Point(19, 14), ObstacleType.BARRIER);
+        Map.addObstacleRange(bcampus, new Point(19, 13), new Point(19, 14), ObstacleType.BARRIER);
+        Map.addObstacleRange(bcampus, new Point(48, 26), new Point(53, 26), ObstacleType.BARRIER);
+        Map.addObstacleRange(bcampus, new Point(54, 14), new Point(63, 14), ObstacleType.BARRIER);
+        Map.addObstacleRange(bcampus, new Point(54, 13), new Point(56, 13), ObstacleType.BARRIER);
+        Map.addObstacleRange(bcampus, new Point(57, 16), new Point(63, 16), ObstacleType.BARRIER);
+        Map.addObstacleRange(bcampus, new Point(56, 15), new Point(63, 15), ObstacleType.BARRIER);
+        Map.addObstacleRange(bcampus, new Point(26, 22), new Point(33, 22), ObstacleType.BARRIER);
+        Map.addObstacleRange(bcampus, new Point(26, 19), new Point(29, 19), ObstacleType.BARRIER);
+        Map.addObstacleRange(bcampus, new Point(31, 19), new Point(33, 19), ObstacleType.BARRIER);
+        Map.addObstacleRange(bcampus, new Point(26, 19), new Point(26, 22), ObstacleType.BARRIER);
+        Map.addObstacleRange(bcampus, new Point(33, 19), new Point(33, 22), ObstacleType.BARRIER);
+
 
         //it's a bush
         Map.addObstacleRange(bcampus, new Point(14, 0), new Point(14, 9), ObstacleType.BUSH);
@@ -90,58 +147,215 @@ public class MapBin {
         Map.addObstacleRange(bcampus, new Point(20, 15), new Point(20, 17), ObstacleType.BUSH);
         Map.addObstacleRange(bcampus, new Point(26, 17), new Point(30, 17), ObstacleType.BUSH);
         Map.addObstacleRange(bcampus, new Point(30, 16), new Point(30, 17), ObstacleType.BUSH);
+        Map.addObstacleRange(bcampus, new Point(33, 15), new Point(42, 15), ObstacleType.BUSH);
+        Map.addObstacleRange(bcampus, new Point(33, 16), new Point(42, 16), ObstacleType.BUSH);
+        Map.addObstacleRange(bcampus, new Point(44, 8), new Point(44, 11), ObstacleType.BUSH);
+        Map.addObstacleRange(bcampus, new Point(45, 8), new Point(45, 11), ObstacleType.BUSH);
+        Map.addObstacleRange(bcampus, new Point(46, 6), new Point(46, 7), ObstacleType.BUSH);
+        Map.addObstacleRange(bcampus, new Point(47, 6), new Point(47, 7), ObstacleType.BUSH);
+        Map.addObstacleRange(bcampus, new Point(51, 11), new Point(56, 11), ObstacleType.BUSH);
+        Map.addObstacleRange(bcampus, new Point(51, 12), new Point(56, 12), ObstacleType.BUSH);
+        Map.addObstacleRange(bcampus, new Point(47, 18), new Point(47, 19), ObstacleType.BUSH);
+        Map.addObstacleRange(bcampus, new Point(51, 17), new Point(52, 18), ObstacleType.BUSH);
+        Map.addObstacleRange(bcampus, new Point(51, 17), new Point(52, 18), ObstacleType.BUSH);
+        Map.addObstacleRange(bcampus, new Point(52, 23), new Point(60, 23), ObstacleType.BUSH);
+        Map.addObstacleRange(bcampus, new Point(57, 24), new Point(60, 24), ObstacleType.BUSH);
+        Map.addObstacleRange(bcampus, new Point(63, 21), new Point(64, 21), ObstacleType.BUSH);
+
+
+
+        Map.addObstacle(bcampus, new Point(56, 8), ObstacleType.BUSH);
+        Map.addObstacle(bcampus, new Point(57, 9), ObstacleType.BUSH);
+        Map.addObstacle(bcampus, new Point(64, 8), ObstacleType.BUSH);
+        Map.addObstacle(bcampus, new Point(62, 12), ObstacleType.BUSH);
 
         //there might be another obstacle
 
 
         //treasure box location
         Map.addItem(bcampus, new Point(10, 10), "TB");
-
+        Map.addItem(bcampus, new Point(49, 15), "TB");
+        Map.addItem(bcampus, new Point(47, 4), "TB");
 
         //combat location
         Map.addItem(bcampus, new Point(5, 5), "Combat");
-
+        Map.addItem(bcampus, new Point(8, 5), "Combat");
+        Map.addItem(bcampus, new Point(45,13), "Combat");
+        Map.addItem(bcampus, new Point(43,3), "Combat");
+        Map.addItem(bcampus, new Point(50,2), "Combat");
+        Map.addItem(bcampus, new Point(53,18), "Combat");
+        Map.addItem(bcampus, new Point(22,25), "Combat");     
+        
         //dialog location
-        Map.addItem(bcampus, new Point(8, 8), "Dialog");
+//        Map.addItem(bcampus, new Point(8, 8), "Dialog");
+        
+        
 
         return bcampus;
     }
 
     static Map getCampusUpperMap() {
-        Map ucampus = new Map(ResourceTools.loadImageFromResource("resources/campus_top.bmp"), new Dimension(16, 16), new Dimension(44, 48));
+        Map ucampus = new Map(ResourceTools.loadImageFromResource("resources/campus_top.bmp"), new Dimension(16, 16), new Dimension(44, 70));
+//water
+//        Map.addObstacle(ucampus, new Point(10, 10), ObstacleType.WATER);
+//barrier
+        Map.addObstacle(ucampus, new Point(4, 32), ObstacleType.BARRIER);
+        Map.addObstacleRange(ucampus, new Point(22, 9), new Point(22, 33), ObstacleType.BARRIER);
+        Map.addObstacleRange(ucampus, new Point(27, 9), new Point(27, 33), ObstacleType.BARRIER);
+        Map.addObstacleRange(ucampus, new Point(7, 9), new Point(18, 9), ObstacleType.BARRIER);
+        Map.addObstacleRange(ucampus, new Point(7, 32), new Point(15, 32), ObstacleType.BARRIER);
+        Map.addObstacleRange(ucampus, new Point(17, 32), new Point(18, 32), ObstacleType.BARRIER);
+        Map.addObstacleRange(ucampus, new Point(7, 9), new Point(7, 32), ObstacleType.BARRIER);
+        Map.addObstacleRange(ucampus, new Point(18, 9), new Point(18, 32), ObstacleType.BARRIER);
+        Map.addObstacleRange(ucampus, new Point(13, 11), new Point(13, 16), ObstacleType.BARRIER);
+        Map.addObstacleRange(ucampus, new Point(13, 18), new Point(13, 23), ObstacleType.BARRIER);
+        Map.addObstacleRange(ucampus, new Point(13, 25), new Point(13, 30), ObstacleType.BARRIER);
+        Map.addObstacleRange(ucampus, new Point(19, 5), new Point(22, 8), ObstacleType.BARRIER);
+        Map.addObstacleRange(ucampus, new Point(28, 5), new Point(30, 8), ObstacleType.BARRIER);
+        Map.addObstacleRange(ucampus, new Point(23, 7), new Point(26, 7), ObstacleType.BARRIER);
+        Map.addObstacleRange(ucampus, new Point(31, 29), new Point(37, 33), ObstacleType.BARRIER);
+        Map.addObstacleRange(ucampus, new Point(39, 29), new Point(44, 33), ObstacleType.BARRIER);
+        Map.addObstacleRange(ucampus, new Point(37, 28), new Point(41, 28), ObstacleType.BARRIER);
+        Map.addObstacleRange(ucampus, new Point(38, 29), new Point(38, 32), ObstacleType.BARRIER);
+        Map.addObstacleRange(ucampus, new Point(45, 29), new Point(47, 32), ObstacleType.BARRIER);
+        Map.addObstacleRange(ucampus, new Point(46, 33), new Point(48, 33), ObstacleType.BARRIER);
+        Map.addObstacleRange(ucampus, new Point(56, 28), new Point(61, 32), ObstacleType.BARRIER);
+        Map.addObstacleRange(ucampus, new Point(55, 33), new Point(57, 33), ObstacleType.BARRIER);
+        Map.addObstacleRange(ucampus, new Point(60, 33), new Point(61, 33), ObstacleType.BARRIER);
+        Map.addObstacleRange(ucampus, new Point(57, 27), new Point(60, 27), ObstacleType.BARRIER);
+        Map.addObstacleRange(ucampus, new Point(58, 26), new Point(59, 26), ObstacleType.BARRIER);
 
-        Map.addObstacle(ucampus, new Point(10, 10), ObstacleType.WATER);
-//        Map.addObstacleRange(map, new Point(0, 0), new Point(2, 5), ObstacleType.BARRIER);
-//        Map.addObstacleRange(ucampus, new Point(1, 29), new Point(12, 29), ObstacleType.WATER);
+        //bush
+        Map.addObstacleRange(ucampus, new Point(20, 9), new Point(20, 33), ObstacleType.BUSH);
+        Map.addObstacleRange(ucampus, new Point(21, 9), new Point(21, 33), ObstacleType.BUSH);
+        Map.addObstacleRange(ucampus, new Point(28, 9), new Point(28, 33), ObstacleType.BUSH);
+        Map.addObstacleRange(ucampus, new Point(29, 9), new Point(29, 33), ObstacleType.BUSH);
+        Map.addObstacleRange(ucampus, new Point(0, 6), new Point(18, 7), ObstacleType.BUSH);
+        Map.addObstacleRange(ucampus, new Point(31, 6), new Point(64, 7), ObstacleType.BUSH);
 
         return ucampus;
     }
 
     static Map getDownSRossMap() {
         Map dross = new Map(ResourceTools.loadImageFromResource("resources/ross_downstair.jpg"), new Dimension(16, 16), new Dimension(44, 48));
+        Map.addObstacleRange(dross, new Point(0, 0), new Point(14, 2), ObstacleType.BARRIER);
+        Map.addObstacleRange(dross, new Point(0, 3), new Point(4, 3), ObstacleType.BARRIER);
+        Map.addObstacleRange(dross, new Point(6, 3), new Point(8, 3), ObstacleType.BARRIER);
+        Map.addObstacleRange(dross, new Point(10, 3), new Point(13, 3), ObstacleType.BARRIER);
+        Map.addObstacleRange(dross, new Point(0, 9), new Point(4, 9), ObstacleType.BARRIER);
+        Map.addObstacleRange(dross, new Point(6, 9), new Point(8, 9), ObstacleType.BARRIER);
+        Map.addObstacleRange(dross, new Point(10, 9), new Point(13, 9), ObstacleType.BARRIER);
+        Map.addObstacleRange(dross, new Point(0, 5), new Point(0, 6), ObstacleType.BARRIER);
+        Map.addObstacle(dross, new Point(3, 8), ObstacleType.BARRIER);
+        Map.addObstacle(dross, new Point(13, 8), ObstacleType.BARRIER);
+
         return dross;
     }
 
     static Map getMainSRossMap() {
         Map mross = new Map(ResourceTools.loadImageFromResource("resources/ross_mainfloor.bmp"), new Dimension(16, 16), new Dimension(44, 48));
+        Map.addObstacleRange(mross, new Point(0, 0), new Point(14, 2), ObstacleType.BARRIER);
+        Map.addObstacleRange(mross, new Point(0, 3), new Point(4, 3), ObstacleType.BARRIER);
+        Map.addObstacleRange(mross, new Point(6, 3), new Point(8, 3), ObstacleType.BARRIER);
+        Map.addObstacleRange(mross, new Point(10, 3), new Point(13, 3), ObstacleType.BARRIER);
+        Map.addObstacleRange(mross, new Point(0, 8), new Point(4, 8), ObstacleType.BARRIER);
+        Map.addObstacleRange(mross, new Point(6, 8), new Point(8, 8), ObstacleType.BARRIER);
+        Map.addObstacleRange(mross, new Point(10, 8), new Point(13, 8), ObstacleType.BARRIER);
+        Map.addObstacleRange(mross, new Point(12, 5), new Point(13, 6), ObstacleType.BARRIER);
+        Map.addObstacle(mross, new Point(0, 7), ObstacleType.BARRIER);
+        Map.addObstacle(mross, new Point(0, 4), ObstacleType.BARRIER);
 
         return mross;
     }
 
     static Map getUpperSRossMap() {
         Map uross = new Map(ResourceTools.loadImageFromResource("resources/ross_upstair.jpg"), new Dimension(16, 16), new Dimension(44, 48));
+        Map.addObstacleRange(uross, new Point(0, 0), new Point(14, 2), ObstacleType.BARRIER);
+        Map.addObstacle(uross, new Point(0, 6), ObstacleType.BARRIER);
+        Map.addObstacleRange(uross, new Point(0, 3), new Point(4, 3), ObstacleType.BARRIER);
+        Map.addObstacleRange(uross, new Point(6, 3), new Point(8, 3), ObstacleType.BARRIER);
+        Map.addObstacleRange(uross, new Point(10, 3), new Point(13, 3), ObstacleType.BARRIER);
+        Map.addObstacleRange(uross, new Point(0, 9), new Point(4, 9), ObstacleType.BARRIER);
+        Map.addObstacleRange(uross, new Point(6, 9), new Point(8, 9), ObstacleType.BARRIER);
+        Map.addObstacleRange(uross, new Point(10, 9), new Point(13, 9), ObstacleType.BARRIER);
+        Map.addObstacleRange(uross, new Point(0, 5), new Point(0, 6), ObstacleType.BARRIER);
+        Map.addObstacle(uross, new Point(3, 8), ObstacleType.BARRIER);
+        Map.addObstacle(uross, new Point(13, 8), ObstacleType.BARRIER);
 
         return uross;
     }
 
     static Map getMainArtsMap() {
         Map marts = new Map(ResourceTools.loadImageFromResource("resources/arts_mainfloor.bmp"), new Dimension(16, 16), new Dimension(44, 48));
+        Map.addObstacleRange(marts, new Point(1, 21), new Point(15, 22), ObstacleType.BARRIER);
+        Map.addObstacleRange(marts, new Point(0, 15), new Point(4, 16), ObstacleType.BARRIER);
+        Map.addObstacleRange(marts, new Point(6, 15), new Point(9, 16), ObstacleType.BARRIER);
+        Map.addObstacleRange(marts, new Point(11, 15), new Point(17, 16), ObstacleType.BARRIER);
+
+        Map.addObstacleRange(marts, new Point(19, 15), new Point(23, 16), ObstacleType.BARRIER);
+        Map.addObstacleRange(marts, new Point(25, 15), new Point(28, 16), ObstacleType.BARRIER);
+        Map.addObstacleRange(marts, new Point(19, 20), new Point(23, 21), ObstacleType.BARRIER);
+        Map.addObstacleRange(marts, new Point(25, 20), new Point(28, 21), ObstacleType.BARRIER);
+        Map.addObstacleRange(marts, new Point(6, 5), new Point(12, 10), ObstacleType.BARRIER);
+        Map.addObstacleRange(marts, new Point(14, 5), new Point(23, 10), ObstacleType.BARRIER);
+        Map.addObstacleRange(marts, new Point(25, 5), new Point(28, 10), ObstacleType.BARRIER);
+        Map.addObstacleRange(marts, new Point(3, 18), new Point(8, 19), ObstacleType.BARRIER);
+        Map.addObstacleRange(marts, new Point(12, 18), new Point(17, 19), ObstacleType.BARRIER);
+        Map.addObstacleRange(marts, new Point(4, 23), new Point(5, 24), ObstacleType.BARRIER);
+        Map.addObstacleRange(marts, new Point(0, 24), new Point(1, 24), ObstacleType.BARRIER);
+        Map.addObstacleRange(marts, new Point(13, 24), new Point(15, 24), ObstacleType.BARRIER);
+        Map.addObstacleRange(marts, new Point(8, 15), new Point(8, 24), ObstacleType.BARRIER);
+        Map.addObstacleRange(marts, new Point(17, 15), new Point(17, 24), ObstacleType.BARRIER);
+        Map.addObstacleRange(marts, new Point(19, 17), new Point(20, 17), ObstacleType.BARRIER);
+        Map.addObstacleRange(marts, new Point(25, 17), new Point(26, 17), ObstacleType.BARRIER);
+        Map.addObstacleRange(marts, new Point(19, 22), new Point(20, 22), ObstacleType.BARRIER);
+        Map.addObstacleRange(marts, new Point(25, 22), new Point(26, 22), ObstacleType.BARRIER);
+        Map.addObstacleRange(marts, new Point(6, 13), new Point(9, 14), ObstacleType.BARRIER);
+        Map.addObstacleRange(marts, new Point(13, 13), new Point(13, 14), ObstacleType.BARRIER);
+        Map.addObstacleRange(marts, new Point(0, 5), new Point(4, 10), ObstacleType.BARRIER);
+        Map.addObstacleRange(marts, new Point(0, 0), new Point(4, 1), ObstacleType.BARRIER);
+        Map.addObstacleRange(marts, new Point(6, 0), new Point(12, 1), ObstacleType.BARRIER);
+        Map.addObstacleRange(marts, new Point(14, 0), new Point(23, 1), ObstacleType.BARRIER);
+        Map.addObstacleRange(marts, new Point(25, 0), new Point(28, 1), ObstacleType.BARRIER);
+        Map.addObstacle(marts, new Point(0, 4), ObstacleType.BARRIER);
+        Map.addObstacle(marts, new Point(4, 4), ObstacleType.BARRIER);
+        Map.addObstacle(marts, new Point(6, 4), ObstacleType.BARRIER);
+        Map.addObstacle(marts, new Point(12, 4), ObstacleType.BARRIER);
+        Map.addObstacle(marts, new Point(14, 4), ObstacleType.BARRIER);
+        Map.addObstacle(marts, new Point(23, 4), ObstacleType.BARRIER);
+        Map.addObstacle(marts, new Point(25, 4), ObstacleType.BARRIER);
+        Map.addObstacle(marts, new Point(0, 2), ObstacleType.BARRIER);
+        Map.addObstacle(marts, new Point(4, 2), ObstacleType.BARRIER);
+        Map.addObstacle(marts, new Point(6, 2), ObstacleType.BARRIER);
+        Map.addObstacle(marts, new Point(12, 2), ObstacleType.BARRIER);
+        Map.addObstacle(marts, new Point(14, 2), ObstacleType.BARRIER);
+        Map.addObstacle(marts, new Point(23, 2), ObstacleType.BARRIER);
+        Map.addObstacle(marts, new Point(25, 2), ObstacleType.BARRIER);
+
+        Map.addObstacle(marts, new Point(19, 19), ObstacleType.BARRIER);
+        Map.addObstacle(marts, new Point(23, 19), ObstacleType.BARRIER);
+        Map.addObstacle(marts, new Point(25, 19), ObstacleType.BARRIER);
+        Map.addObstacle(marts, new Point(23, 17), ObstacleType.BARRIER);
+        Map.addObstacle(marts, new Point(23, 22), ObstacleType.BARRIER);
+        Map.addObstacle(marts, new Point(19, 24), ObstacleType.BARRIER);
+        Map.addObstacle(marts, new Point(23, 24), ObstacleType.BARRIER);
+        Map.addObstacle(marts, new Point(25, 24), ObstacleType.BARRIER);
 
         return marts;
     }
 
     static Map getDownArtsMap() {
         Map darts = new Map(ResourceTools.loadImageFromResource("resources/arts_downstair.bmp"), new Dimension(16, 16), new Dimension(44, 48));
+        Map.addObstacleRange(darts, new Point(0, 24), new Point(4, 24), ObstacleType.BARRIER);
+        Map.addObstacle(darts, new Point(25, 24), ObstacleType.BARRIER);
+        Map.addObstacle(darts, new Point(9, 24), ObstacleType.BARRIER);
+        Map.addObstacle(darts, new Point(11, 24), ObstacleType.BARRIER);
+        Map.addObstacle(darts, new Point(13, 24), ObstacleType.BARRIER);
+        Map.addObstacle(darts, new Point(18, 24), ObstacleType.BARRIER);
+        Map.addObstacle(darts, new Point(20, 24), ObstacleType.BARRIER);
+        Map.addObstacle(darts, new Point(22, 24), ObstacleType.BARRIER);
+        Map.addObstacle(darts, new Point(24, 24), ObstacleType.BARRIER);
+        Map.addObstacle(darts, new Point(26, 24), ObstacleType.BARRIER);
 
         return darts;
     }
@@ -551,5 +765,10 @@ public class MapBin {
     static Map getOldCafeMap() {
         Map olcafe = new Map(ResourceTools.loadImageFromResource("resources/old_cafe.bmp"), new Dimension(16, 16), new Dimension(30, 30));
         return olcafe;
+    }
+
+    static Map getBunchMap() {
+        Map theatre = new Map(ResourceTools.loadImageFromResource("resources/bunch.bmp"), new Dimension(16, 16), new Dimension(30, 30));
+        return theatre;
     }
 }

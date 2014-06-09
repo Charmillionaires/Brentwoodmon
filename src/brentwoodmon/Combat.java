@@ -133,6 +133,7 @@ public class Combat extends javax.swing.JPanel implements TimerNotificationIntf 
                 .addContainerGap(24, Short.MAX_VALUE))
         );
 
+        jtxtBattleHistory.setEditable(false);
         jtxtBattleHistory.setText("What will you do?");
 
         jlblBattleHistory.setText("Start");
@@ -196,6 +197,7 @@ public class Combat extends javax.swing.JPanel implements TimerNotificationIntf 
                 this.jlblBattleHistory.setText("End of Combat");
                 if (responseHandler != null) {
                     responseHandler.handleCombatResponse(true);
+                    close();
                 }
 
             } else if (this.myHp <= 0) {
@@ -203,6 +205,7 @@ public class Combat extends javax.swing.JPanel implements TimerNotificationIntf 
                 this.jlblBattleHistory.setText("End of Combat");
                 if (responseHandler != null) {
                     responseHandler.handleCombatResponse(false);
+                    close();
                 }
 
             } else {

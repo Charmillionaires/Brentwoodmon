@@ -103,7 +103,15 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
     private Map pdorm2;
     private Map pdorm3;
     private Map olcafe;
+    private Map theatre;
     private MapVisualizerDefault mapVisualizer;
+
+//    private Hero hero;
+//    private Shaq shaq;
+//    private Snorlax snorlax;
+//    private Bull bull;
+    private Image bullSprite;
+
     private CharacterProperty myProperty;
     private String myName = "player";
     private String typeOfCharacter;
@@ -114,12 +122,14 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
     private Image snorlax_icon;
     private Image shaq_icon;
     private Image hero_icon;
+    private Image bull_icon;
     private Image charmander_icon = ResourceTools.loadImageFromResource("resources/charmander_icon.jpg");
     private Image garvey = ResourceTools.loadImageFromResource("resources/garvey.jpg");
     private Image roommate = ResourceTools.loadImageFromResource("resources/roommate.JPG");
     private Image mais = ResourceTools.loadImageFromResource("resources/mais.jpg");
     private Image itGuy = ResourceTools.loadImageFromResource("resources/it_guy.jpg");
     private Image collis = ResourceTools.loadImageFromResource("resources/collis.jpg");
+    private int random;
 
     /**
      * @return the bcampus
@@ -164,6 +174,22 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
     public void setDross(Map dross) {
         this.dross = dross;
         configureMap(this.dross);
+    }
+
+    /**
+     * @return the theatre
+     */
+    public Map getTheatre() {
+        return theatre;
+    }
+
+    /**
+     * @param theatre the theatre to set
+     */
+    public void setTheatre(Map theatre) {
+        this.theatre = theatre;
+        configureMap(this.theatre);
+
     }
 
     /**
@@ -1275,6 +1301,7 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
         setPdorm2(MapBin.getDorm2PrivettMap());
         setPdorm3(MapBin.getDorm3PrivettMap());
         setOlcafe(MapBin.getOldCafeMap());
+        setTheatre(MapBin.getBunchMap());
 
         //ross
         Map.addPortal(bcampus, new Point(30, 19), mross, new Point(9, 9));
@@ -1328,6 +1355,13 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
         Map.addPortal(bcampus, new Point(36, 0), ucampus, new Point(24, 34));
         Map.addPortal(ucampus, new Point(24, 34), bcampus, new Point(36, 0));
         Map.addPortal(ucampus, new Point(25, 34), bcampus, new Point(37, 0));
+
+        //bunch
+        Map.addPortal(bcampus, new Point(19, 12), theatre, new Point(1, 26));
+        Map.addPortal(theatre, new Point(1, 26), bcampus, new Point(19, 12));
+        Map.addPortal(theatre, new Point(28, 13), bcampus, new Point(15, 15));
+        Map.addPortal(bcampus, new Point(15, 15), theatre, new Point(28, 13));
+
 
         //health centre
         Map.addPortal(bcampus, new Point(55, 15), healthc, new Point(14, 9));
@@ -1421,18 +1455,6 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
         Map.addPortal(edorm2, new Point(10, 1), ehent, new Point(7, 1));
         Map.addPortal(edorm3, new Point(10, 1), ehent, new Point(10, 1));
 
-// validate these, please!
-        Map.addPortal(getBcampus(), new Point(30, 19), getDross(), new Point(9, 9));
-
-        Map.addPortal(getDross(), new Point(9, 9), getBcampus(), new Point(30, 19));
-        Map.addPortal(getDross(), new Point(5, 9), getBcampus(), new Point(30, 19));
-
-        Map.addPortal(getBcampus(), new Point(37, 0), getUcampus(), new Point(25, 34));
-        Map.addPortal(getBcampus(), new Point(36, 0), getUcampus(), new Point(24, 34));
-        Map.addPortal(getUcampus(), new Point(24, 34), getBcampus(), new Point(36, 0));
-        Map.addPortal(getUcampus(), new Point(25, 34), getBcampus(), new Point(37, 0));
-// stop validating!
-
         //whittal
         Map.addPortal(bcampus, new Point(49, 9), wdent, new Point(7, 21));
         Map.addPortal(wdent, new Point(14, 9), bcampus, new Point(49, 9));
@@ -1504,7 +1526,7 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
     @Override
     public void initializeEnvironment() {
         loadCharacters();
-        showPlayerCustomization();
+//        showPlayerCustomization();
     }
 
     private void loadCharacters() {
@@ -1661,10 +1683,28 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
     }
 
     private void showItemManager() {
+        AudioPlayer.play("/resources/winning.wav");
+        
         JFrame frmItemManager = new JFrame("Item Manager");
-
         ContainerItemList containerItemList = new ContainerItemList();
-        containerItemList.getItems().add(new ContainerItem("Pencil", "HB pencil, good for scantron."));
+        
+        this.random = generateRandomNumber();
+        if (this.random<=2) {
+            containerItemList.getItems().add(new ContainerItem("Pencil", "HB pencil, good for scantron."));
+            containerItemList.getItems().add(new ContainerItem("Arizona", "99c Arizona ice tea, very sweet."));
+        }else if(this.random>2 && this.random<=4){
+            containerItemList.getItems().add(new ContainerItem("Chips", "A bag of BBQ favour potato chips."));
+            containerItemList.getItems().add(new ContainerItem("Umbrella", "Uhhh, need it!"));
+            containerItemList.getItems().add(new ContainerItem("Sword", "Sharp, cold, has a drop of blood on it."));
+        }else if(this.random>4 &&this.random<=6){
+            containerItemList.getItems().add(new ContainerItem("Iphone", "Someone must have lost his/her phone."));
+            containerItemList.getItems().add(new ContainerItem("Ring", "+10000HP! +2222ATK! Level Max!!!...JK."));
+        }else if(this.random>6 &&this.random<=8){
+            containerItemList.getItems().add(new ContainerItem("Garbage Paper Plate", "Actually, it's not garbage. Please compost it."));
+        }else{
+            containerItemList.getItems().add(new ContainerItem("Love Letter", "It's pink and shiny. To...PJ?"));
+        }
+        
         ContainerItemManager itemManager = new ContainerItemManager("Treasure Box", containerItemList, this);
 
         frmItemManager.add(itemManager);
@@ -1675,14 +1715,19 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
         frmItemManager.setVisible(true);
     }
 
+    public int generateRandomNumber() {
+        return (int) (Math.random() * 10);
+    }
+
     private void showPlayerCustomization() {
         this.snorlax_icon = ResourceTools.loadImageFromResource("resources/snorlax.png");
         this.shaq_icon = ResourceTools.loadImageFromResource("resources/shaq.png");
         this.hero_icon = ResourceTools.loadImageFromResource("resources/hero.png");
+        this.bull_icon = ResourceTools.loadImageFromResource("resources/bull.jpg");
 
         JFrame frmPlayerCustomization = new JFrame("PlayerCustomization");
 
-        PlayerCustomization myPlayerCustomization = new PlayerCustomization(snorlax_icon, shaq_icon, hero_icon, this);
+        PlayerCustomization myPlayerCustomization = new PlayerCustomization(snorlax_icon, shaq_icon, hero_icon, bull_icon, this);
 
         frmPlayerCustomization.add(myPlayerCustomization);
         frmPlayerCustomization.setAlwaysOnTop(true);
@@ -1731,7 +1776,7 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
     @Override
     public boolean portalEvent(Portal portal) {
         setCurrentMap(portal.getDestinationMap());
-//        portal.getDestinationMap().ge
+        
         return true;
     }
 //</editor-fold>
