@@ -1308,8 +1308,8 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
         //5,3  9,3
         //arts build
         Map.addPortal(bcampus, new Point(21, 22), marts, new Point(28, 12));
-        Map.addPortal(marts, new Point(28, 12), bcampus, new Point(21, 22));
-        Map.addPortal(marts, new Point(28, 13), bcampus, new Point(21, 22));
+        Map.addPortal(marts, new Point(28, 11), bcampus, new Point(21, 21));
+        Map.addPortal(marts, new Point(28, 13), bcampus, new Point(21, 21));
         Map.addPortal(marts, new Point(14, 13), darts, new Point(23, 12));
         Map.addPortal(marts, new Point(14, 14), darts, new Point(23, 12));
         Map.addPortal(darts, new Point(23, 12), marts, new Point(14, 13));
@@ -1383,8 +1383,8 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
 
         //hope
         Map.addPortal(ucampus, new Point(45, 33), hdent, new Point(7, 21));
-        Map.addPortal(hdent, new Point(7, 21), ucampus, new Point(45, 33));
-        Map.addPortal(hdent, new Point(7, 22), ucampus, new Point(45, 33));
+        Map.addPortal(hdent, new Point(7, 21), ucampus, new Point(45, 34));
+        Map.addPortal(hdent, new Point(7, 22), ucampus, new Point(45, 34));
         Map.addPortal(hdent, new Point(14, 5), hhent, new Point(2, 4));
         Map.addPortal(hhent, new Point(2, 4), hdent, new Point(14, 5));
         Map.addPortal(hhent, new Point(4, 1), hdorm1, new Point(10, 1));
@@ -1730,7 +1730,7 @@ public class BrentwoodEnvironment extends Environment implements PortalEventHand
     @Override
     public boolean portalEvent(Portal portal) {
         setCurrentMap(portal.getDestinationMap());
-//        portal.getDestinationMap().ge
+        this.currentCharacter.setPosition(portal.getDestinationMap().getCellSystemCoordinate(portal.getDestinationLocation()));
         return true;
     }
 //</editor-fold>
