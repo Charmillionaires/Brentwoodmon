@@ -384,6 +384,10 @@ public class MapBin {
 
     static Map getClassroom2Map() {
         Map classroomtwo = new Map(ResourceTools.loadImageFromResource("resources/classroom.bmp"), new Dimension(16, 16), new Dimension(20, 20));
+               
+        //dialog location
+        Map.addItem(classroomtwo, new Point(3, 2), "DialogMathClass");
+        
         return classroomtwo;
     }
 
@@ -443,7 +447,7 @@ public class MapBin {
 
     static Map getAlexEntranceMap() {
         Map adent = new Map(ResourceTools.loadImageFromResource("resources/house_entrance.bmp"), new Dimension(16, 16), new Dimension(30, 30));
-        Map.addItem(adent, new Point(7, 18), "DialogHP");
+        Map.addItem(adent, new Point(6, 18), "DialogHP");
         return adent;
     }
 
@@ -529,6 +533,9 @@ public class MapBin {
 
     static Map getHiddenMap() {
         Map hid = new Map(ResourceTools.loadImageFromResource("resources/special_place.bmp"), new Dimension(16, 16), new Dimension(30, 30));
+        //dialog location
+        Map.addItem(hid, new Point(9, 7), "TB");
+        Map.addItem(hid, new Point(13, 7), "TB");
         return hid;
     }
 
@@ -550,7 +557,7 @@ public class MapBin {
         Map adorm1 = new Map(ResourceTools.loadImageFromResource("resources/dorm_room.bmp"), new Dimension(16, 16), new Dimension(30, 30));
 
         //dialog location
-        Map.addItem(adorm1, new Point(10, 2), "Dialog");
+        Map.addItem(adorm1, new Point(9, 2), "Dialog");
 
         return adorm1;
     }
@@ -559,7 +566,7 @@ public class MapBin {
         Map adorm2 = new Map(ResourceTools.loadImageFromResource("resources/dorm_room_2.bmp"), new Dimension(16, 16), new Dimension(30, 30));
 
         //dialog location
-        Map.addItem(adorm2, new Point(10, 2), "Dialog");
+        Map.addItem(adorm2, new Point(9, 2), "Dialog");
 
         return adorm2;
     }
@@ -568,7 +575,7 @@ public class MapBin {
         Map adorm3 = new Map(ResourceTools.loadImageFromResource("resources/dorm_room_3.bmp"), new Dimension(16, 16), new Dimension(30, 30));
 
         //dialog location
-        Map.addItem(adorm3, new Point(10, 2), "Dialog");
+        Map.addItem(adorm3, new Point(9, 2), "Dialog");
 
         return adorm3;
     }
@@ -577,7 +584,7 @@ public class MapBin {
         Map hdorm1 = new Map(ResourceTools.loadImageFromResource("resources/dorm_room.bmp"), new Dimension(16, 16), new Dimension(30, 30));
 
         //dialog location
-        Map.addItem(hdorm1, new Point(10, 2), "Dialog");
+        Map.addItem(hdorm1, new Point(9, 2), "Dialog");
 
         return hdorm1;
     }
@@ -586,7 +593,7 @@ public class MapBin {
         Map hdorm2 = new Map(ResourceTools.loadImageFromResource("resources/dorm_room_2.bmp"), new Dimension(16, 16), new Dimension(30, 30));
 
         //dialog location
-        Map.addItem(hdorm2, new Point(10, 2), "Dialog");
+        Map.addItem(hdorm2, new Point(9, 2), "Dialog");
 
         return hdorm2;
     }
@@ -595,7 +602,7 @@ public class MapBin {
         Map hdorm3 = new Map(ResourceTools.loadImageFromResource("resources/dorm_room_3.bmp"), new Dimension(16, 16), new Dimension(30, 30));
 
         //dialog location
-        Map.addItem(hdorm3, new Point(10, 2), "Dialog");
+        Map.addItem(hdorm3, new Point(9, 2), "Dialog");
 
         return hdorm3;
     }
@@ -604,7 +611,7 @@ public class MapBin {
         Map aldorm1 = new Map(ResourceTools.loadImageFromResource("resources/dorm_room.bmp"), new Dimension(16, 16), new Dimension(30, 30));
 
         //dialog location
-        Map.addItem(aldorm1, new Point(10, 2), "Dialog");
+        Map.addItem(aldorm1, new Point(9, 2), "Dialog");
 
         return aldorm1;
     }
@@ -613,7 +620,7 @@ public class MapBin {
         Map aldorm2 = new Map(ResourceTools.loadImageFromResource("resources/dorm_room_2.bmp"), new Dimension(16, 16), new Dimension(30, 30));
 
         //dialog location
-        Map.addItem(aldorm2, new Point(10, 2), "Dialog");
+        Map.addItem(aldorm2, new Point(9, 2), "Dialog");
 
         return aldorm2;
     }
@@ -622,7 +629,7 @@ public class MapBin {
         Map aldorm3 = new Map(ResourceTools.loadImageFromResource("resources/dorm_room_3.bmp"), new Dimension(16, 16), new Dimension(30, 30));
 
         //dialog location
-        Map.addItem(aldorm3, new Point(10, 2), "Dialog");
+        Map.addItem(aldorm3, new Point(9, 2), "Dialog");
 
         return aldorm3;
     }
@@ -631,7 +638,7 @@ public class MapBin {
         Map mdorm1 = new Map(ResourceTools.loadImageFromResource("resources/dorm_room.bmp"), new Dimension(16, 16), new Dimension(30, 30));
 
         //dialog location
-        Map.addItem(mdorm1, new Point(10, 2), "Dialog");
+        Map.addItem(mdorm1, new Point(9, 2), "Dialog");
 
         return mdorm1;
     }
@@ -640,7 +647,7 @@ public class MapBin {
         Map mdorm2 = new Map(ResourceTools.loadImageFromResource("resources/dorm_room_2.bmp"), new Dimension(16, 16), new Dimension(30, 30));
 
         //dialog location
-        Map.addItem(mdorm2, new Point(10, 2), "Dialog");
+        Map.addItem(mdorm2, new Point(9, 2), "Dialog");
 
         return mdorm2;
     }
@@ -649,7 +656,7 @@ public class MapBin {
         Map mdorm3 = new Map(ResourceTools.loadImageFromResource("resources/dorm_room_3.bmp"), new Dimension(16, 16), new Dimension(30, 30));
 
         //dialog location
-        Map.addItem(mdorm3, new Point(10, 2), "Dialog");
+        Map.addItem(mdorm3, new Point(9, 2), "Dialog");
 
         return mdorm3;
     }
@@ -658,7 +665,7 @@ public class MapBin {
         Map wdorm1 = new Map(ResourceTools.loadImageFromResource("resources/dorm_room.bmp"), new Dimension(16, 16), new Dimension(30, 30));
 
         //dialog location
-        Map.addItem(wdorm1, new Point(10, 2), "Dialog");
+        Map.addItem(wdorm1, new Point(9, 2), "Dialog");
 
         return wdorm1;
     }
@@ -667,7 +674,7 @@ public class MapBin {
         Map wdorm2 = new Map(ResourceTools.loadImageFromResource("resources/dorm_room_2.bmp"), new Dimension(16, 16), new Dimension(30, 30));
 
         //dialog location
-        Map.addItem(wdorm2, new Point(10, 2), "Dialog");
+        Map.addItem(wdorm2, new Point(9, 2), "Dialog");
 
         return wdorm2;
     }
@@ -676,7 +683,7 @@ public class MapBin {
         Map wdorm3 = new Map(ResourceTools.loadImageFromResource("resources/dorm_room_3.bmp"), new Dimension(16, 16), new Dimension(30, 30));
 
         //dialog location
-        Map.addItem(wdorm3, new Point(10, 2), "Dialog");
+        Map.addItem(wdorm3, new Point(9, 2), "Dialog");
 
         return wdorm3;
     }
@@ -685,7 +692,7 @@ public class MapBin {
         Map rdorm1 = new Map(ResourceTools.loadImageFromResource("resources/dorm_room.bmp"), new Dimension(16, 16), new Dimension(30, 30));
 
         //dialog location
-        Map.addItem(rdorm1, new Point(10, 2), "Dialog");
+        Map.addItem(rdorm1, new Point(9, 2), "Dialog");
 
         return rdorm1;
     }
@@ -694,7 +701,7 @@ public class MapBin {
         Map rdorm2 = new Map(ResourceTools.loadImageFromResource("resources/dorm_room_2.bmp"), new Dimension(16, 16), new Dimension(30, 30));
 
         //dialog location
-        Map.addItem(rdorm2, new Point(10, 2), "Dialog");
+        Map.addItem(rdorm2, new Point(9, 2), "Dialog");
 
         return rdorm2;
     }
@@ -703,7 +710,7 @@ public class MapBin {
         Map rdorm3 = new Map(ResourceTools.loadImageFromResource("resources/dorm_room_3.bmp"), new Dimension(16, 16), new Dimension(30, 30));
 
         //dialog location
-        Map.addItem(rdorm3, new Point(10, 2), "Dialog");
+        Map.addItem(rdorm3, new Point(9, 2), "Dialog");
 
         return rdorm3;
     }
@@ -712,7 +719,7 @@ public class MapBin {
         Map pdorm1 = new Map(ResourceTools.loadImageFromResource("resources/dorm_room.bmp"), new Dimension(16, 16), new Dimension(30, 30));
 
         //dialog location
-        Map.addItem(pdorm1, new Point(10, 2), "Dialog");
+        Map.addItem(pdorm1, new Point(9, 2), "Dialog");
 
         return pdorm1;
     }
@@ -721,7 +728,7 @@ public class MapBin {
         Map pdorm2 = new Map(ResourceTools.loadImageFromResource("resources/dorm_room_2.bmp"), new Dimension(16, 16), new Dimension(30, 30));
 
         //dialog location
-        Map.addItem(pdorm2, new Point(10, 2), "Dialog");
+        Map.addItem(pdorm2, new Point(9, 2), "Dialog");
 
         return pdorm2;
     }
@@ -730,7 +737,7 @@ public class MapBin {
         Map pdorm3 = new Map(ResourceTools.loadImageFromResource("resources/dorm_room_3.bmp"), new Dimension(16, 16), new Dimension(30, 30));
 
         //dialog location
-        Map.addItem(pdorm3, new Point(10, 2), "Dialog");
+        Map.addItem(pdorm3, new Point(9, 2), "Dialog");
 
         return pdorm3;
     }
@@ -739,7 +746,7 @@ public class MapBin {
         Map edorm1 = new Map(ResourceTools.loadImageFromResource("resources/dorm_room.bmp"), new Dimension(16, 16), new Dimension(30, 30));
 
         //dialog location
-        Map.addItem(edorm1, new Point(10, 2), "Dialog");
+        Map.addItem(edorm1, new Point(9, 2), "Dialog");
 
         return edorm1;
     }
@@ -748,7 +755,7 @@ public class MapBin {
         Map edorm2 = new Map(ResourceTools.loadImageFromResource("resources/dorm_room_2.bmp"), new Dimension(16, 16), new Dimension(30, 30));
 
         //dialog location
-        Map.addItem(edorm2, new Point(10, 2), "Dialog");
+        Map.addItem(edorm2, new Point(9, 2), "Dialog");
 
         return edorm2;
     }
@@ -757,7 +764,7 @@ public class MapBin {
         Map edorm3 = new Map(ResourceTools.loadImageFromResource("resources/dorm_room_3.bmp"), new Dimension(16, 16), new Dimension(30, 30));
 
         //dialog location
-        Map.addItem(edorm3, new Point(10, 2), "Dialog");
+        Map.addItem(edorm3, new Point(9, 2), "Dialog");
 
         return edorm3;
     }
